@@ -1,0 +1,23 @@
+#,,Hindi,,Kannada,,Sanskrit
+Existing tag,,aux,,,,
+Problem,,,,,,
+Accuracy,,,,,,
+Grammatical term,,,,,,
+Example,,"कल बारिश हो रही थी |
+मै खेला था। हम खेले थे।
+तुम खेले थे। वो खेला था। वह खेली थी।",,Avanu naalku dinaGaligondu sala bareyattlddanu,,ह्यः वृष्टिः वर्षन्ती आसीत्?
+Transliteration of the example sentence (ISO),,"kala bāriśa hō rahī thī|
+mai khēlā thā. hama khēlē thē.
+tuma khēlē thē. vō khēlā thā. vaha khēlī thī.",,,,hyaḥ vr̥ṣṭiḥ varṣantī āsīt?
+Vibhakti,,[कल] [बारिश-0 f.] [हो] [रह-ई कृदन्त f.] [होना-aux past f.],,,,[ह्यः] [वृष्टि १.१] [वृष्-शतृ कृदन्त स्त्री] [अस् लङ् ३.१]
+Word by word Sanskrit translation,,[ह्यः] [वृष्टि १.१] [वृष्-शतृ कृदन्त स्त्री] [अस् लङ् ३.१],,,,[ह्यः] [वृष्टि १.१] [वृष्-शतृ कृदन्त स्त्री] [अस् लङ् ३.१]
+Word by word English translation:,,[yesterday][raining][was],,[he] [four] [in days one] [time] [was writing],,[yesterday][raining][was]
+Morphological marker:,,verb stem + perfect participle of रहना (रहा/रहे/रही) + past tense form of होना.,,iru,,Noun/कृदन्त+ Aux verb अस्/भू
+Auxiliary verb: ,,--- ,,---,,No
+Use of Kridanta: ,,--- _ता,,---,,No
+Use of Avyaya/clitic: ,,---,,---,,No
+Gender marking: ,,Yes-Always,,--- ,,No
+Verb semantics:,,---,,---,,Yes-Optionally
+Syntactic clues:,,,,,,
+Retain/Remove,,- - - -,,,,
+Comments,,Part of the संयुक्त क्रियापद in भूतकाल,,,,

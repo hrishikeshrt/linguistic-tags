@@ -1,0 +1,24 @@
+#,Hindi,,Kannada,,Sanskrit
+Existing tag,,,,,
+Problem,,,,,
+Accuracy,,,,,
+Grammatical term,वर्तमान काल,,,,लट् / वर्तमानकाल
+Example,बालक हसता है। ,,ಬಾಲಕರು ನಗುತ್ತಾರೆ.,,बालकः हसति।
+Transliteration of the example sentence (ISO),bālaka hasatā hai.,,bālakaru naguttāre.,,bālakaḥ hasati.
+Vibhakti,[बालक-0] [हस _ता कृदन्त-m.s. होना-aux-present],,,,[बालक-सुप्] [ हस् बालक-पु. सुप् १.१] [ हस् लट्]
+Word by word Sanskrit translation,[बालक-पु. सुप् १.१] [ हस् लट्],,,,[बालक-पु. सुप् १.१] [ हस् लट्]
+Word by word English translation:,[Boy] [laugh-present-3-sing],,[Boy] [laugh-present-3-sing],,[Boy] [laugh-present-3-sing]
+Morpholoुical marker:,"verb_(3p,m,s)ता+ aux verb है,
+(3p,f,s and pl) _ती है, (1,2,3p,m.pl)_ते है, (1p,m,s)_ता हूँ, (p,pl)_ती हूँ Auxiliary verbs: हूँ, हो, है, हैं",,"tt/utta
+ತುತ್ತೇನೆ (-tttene) for the first person singular, -ತುತ್ತೀಯೆ (-tttheeye) for the second person singular, -ತುತ್ತಾರೆ (-tttare) for the third person singular, -ತುತ್ತೇವೆ (-ttteneve) for the first person plural, -ತುತ್ತೀರಿ (-tttheeri) for the second person plural, and -ತುತ್ತಾರೆ (-tttare) for the third person plural.",,लट् लकार प्रत्यय
+Auxiliary verb: ,Yes-Always ,,---,,No
+Use of Kridanta: ,Yes-Always _ता,,---,,No
+Use of Avyaya: ,No,,---,,No
+Gender marking: ,Yes-Optionally,,Yes-Optionally in 3p,,No
+Verb semantics:,No,,---,,No
+Syntactic clues:,"*Main verb with a present tense marker. Gender and person mapping is required.
+*कर्ता with zero suffix.
+* Should not be mistaken with the Hindi continuous aspect of the present tense. हो (होना) + रही (fem of aux verb रहना)+ है combine the verb stem (हो, which represents the basic meaning of the verb, i.e. “to be”), a form of रही (which represents the continuous aspect and is in agreement with the gender and number of the कर्म).",,,,
+"Retain/
+Remove",- - - -,,,,
+Comments,,,,,

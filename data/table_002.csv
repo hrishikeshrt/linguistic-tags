@@ -1,0 +1,33 @@
+#,,Hindi,,Kannada,,Sanskrit
+Existing tag,,था,,,,लङ्
+Problem,,,,,,
+Accuracy,,,,,,
+Grammatical term,,सामान्य भूतकाल,,,,लङ्
+Example,,"पिछले साल, मैं भारत गया था | मै खेला था। कल बारिश हुई थी।",,"ನಾನು ಆಡಿದೆ(ನು)
+ನಾವು ಆಡಿದೆವು
+ನೀನು ಆಡಿದೆ
+ನೀವು ಆಡಿದಿರಿ
+ಅವನು ಆಡಿದ(ನು)
+ಅವಳು ಆಡಿದಳು
+ಅವರು ಆಡಿದರು
+ನಾವು ಆಡಿದೆವು ",,अहम् अक्रीडम्। वयम् अक्रीडामः। त्वम् अक्रीडः। सः/सा अक्रीडत्। ह्यः वृष्टिः आसीत्।
+Transliteration of the example sentence (ISO),,"pichalē sāla, maiṁ bhārata gayā thā |",,,,aham akrīḍam. vayam akrīḍāmaḥ. tvam akrīḍaḥ. saḥ/sā akrīḍat. hyaḥ vr̥ṣṭiḥ āsīt/
+Vibhakti,,[पिछले] [साल] [मैं] [भारत] [जा-या past] [होना-aux past] |,,,,[अस्मद् १.१] [क्रीड्-लङ् १.१]
+Word by word Sanskrit translation,,[गत ७.१] [वर्ष ७.१] [अहम् १.१] [गम्-लङ् १.१],,,,[अस्मद् १.१] [क्रीड्-लङ् १.१]
+Word by word English translation:,,[last] [year] [I] [India] [go-past],,"[I] [play-past]
+[We] [play-past]
+[you] [play-past 2.s]
+[You] [play-past 2.pl]
+[He] [play-past]
+[She] [play-past]
+[They][play-past]
+[We] [play]",,[I] [play-past]
+Morphological marker:,,"verb _m.s आ, m.pl. ए, f.s/pl ई, + Aux verb m.था, f.थी, m.plथे",,,,लङ्
+Auxiliary verb: ,,Yes-Always ,,---,,Yes-Optionally
+Use of Kridanta: ,,Yes-Always _आ/या,,---,,No
+Use of Avyaya: ,,No,,---,,No
+Gender marking: ,,Yes-Always,,--- ,,No
+Verb semantics:,,No,,---,,No
+Syntactic clues:,,,,,,
+Retain/Remove,,- - - -,,,,
+Comments,,,,,,
