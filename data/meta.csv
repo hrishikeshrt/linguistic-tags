@@ -1,0 +1,6 @@
+Name,Tag,Type,Description
+भविष्यत् काल,T-bhavishya,काल (tense),"In grammar, a future tense is a verb form that generally marks the event described by the verb as not having happened yet, but expected to happen in the future."
+भूतकाल,T-bhuta,काल (tense),The past tense is a grammatical tense whose function is to place an action or situation in the past.
+भूतकाल सहायक,T-bhuta.sa,काल (tense),"An auxiliary verb  is used to express an action that is currently going on or habitually performed, or a state that currently or generally exists."
+वर्तमान,T-vart,काल (tense),"A tense expressing an action that is currently going on or habitually performed, or a state that currently or generally exists."
+वर्तमान-सहायक,T-vart.sa,काल (tense),"An auxiliary verb है is used to express an action that is currently going on or habitually performed, or a state that currently or generally exists."
