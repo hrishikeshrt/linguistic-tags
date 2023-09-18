@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="tag-selector">Select a Tag</label>
+            <select class="form-control" id="tag-selector">
+            </select>
+        </div>
+    </div>
+
+    <div id="linguistic-tag-meta">
+    </div>
+    <table id="linguistic-tag-table" class="table table-hover" data-toggle="table" data-show-columns="true" data-pagination="false"
+        data-sticky-header="true" data-resizable="true">
+    </table>
+</div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{url_for('static', filename='js/functions.js')}}"></script>
+    <script>
+        window.addEventListener('load', function () {
+            populateTagDropdown();
+            const defaultTag = '001'; // Update with the default tag you want to show
+            loadTagData(defaultTag);
+        });
+    </script>
+{% endblock %}

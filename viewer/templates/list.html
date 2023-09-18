@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <table id="linguistic-tag-table" class="table table-hover" data-toggle="table" data-show-columns="true" data-pagination="false"
+        data-sticky-header="true" data-resizable="true" data-search="true">
+    </table>
+</div>
+{% endblock %}
+{% block javascript %}
+    <script src="{{url_for('static', filename='js/functions.js')}}"></script>
+    <script>
+        window.addEventListener('load', function () {
+            populateTagList();
+        });
+    </script>
+{% endblock %}
