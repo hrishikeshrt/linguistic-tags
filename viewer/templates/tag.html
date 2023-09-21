@@ -1,5 +1,6 @@
+{% set active_page = "tag" %}
 {% extends "base.html" %}
-
+{% block title %} Tag Information &bull;{% endblock %}
 {% block content %}
 <div class="container">
     <div class="form-row">
@@ -19,7 +20,7 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="{{url_for('static', filename='js/functions.js')}}"></script>
+    <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
     <script>
         window.addEventListener('load', function () {
             populateTagDropdown();

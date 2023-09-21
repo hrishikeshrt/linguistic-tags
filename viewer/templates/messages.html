@@ -1,0 +1,19 @@
+<!-- Flash Messages BEGIN -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="container pb-0 pt-3 lead">
+  {% set category_alert_class = {
+    'message': 'info',
+    'error': 'danger'
+  }-%}
+  {% for category, message in messages %}
+  {% set alert_class = category_alert_class[category] | default(category) %}
+  <div class="alert alert-{{ alert_class }} alert-dismissible fade show text-center" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {{ message }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<!-- Flash Messages END -->

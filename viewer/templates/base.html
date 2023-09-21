@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} {% block title %}{% endblock %}</title>
+    <title>&bull; {{title}} &bull;{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://bootswatch.com/5/united/bootstrap.min.css">
+    <!-- Sticky Footer -->
+    <link rel="stylesheet" href="{{url_for('static', filename='custom/css/sticky-footer.css')}}">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
@@ -15,6 +17,8 @@
     <link rel="stylesheet" href="https://unpkg.com/jquery-resizable-columns@0.2.3/dist/jquery.resizableColumns.css">
     <!-- Parse CSV -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+
+
 </head>
 
 <body class="font-weight-light">
@@ -24,9 +28,9 @@
         <li class="nav-item col-sm lead">
             <span class="nav-link text-secondary disabled">{{header}}</span>
         </li>
-        {% for id in navigation_bar %}
-        {% set func = navigation_bar[id][0] %}
-        {% set caption = navigation_bar[id][1] %}
+        {% for id in navigation_menu %}
+        {% set func = navigation_menu[id][0] %}
+        {% set caption = navigation_menu[id][1] %}
         {% if func is mapping %}
         <li class="nav-item lead dropdown">
             <a class="nav-link dropdown-toggle {% if active_page in func %}active{% endif %}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{caption}}</a>
@@ -47,6 +51,8 @@
     </ul>
     {% endblock %}
 
+    {% include "messages.html" %}
+
     {% block content %}
     {% endblock %}
 
@@ -66,6 +72,23 @@
     <script src="https://unpkg.com/jquery-resizable-columns@0.2.3/dist/jquery.resizableColumns.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.21.4/dist/extensions/resizable/bootstrap-table-resizable.min.js">
     </script>
+
+    {% block footer %}
+    <footer class="footer mt-auto bg-light">
+        <div class="container-fluid">
+            <span class="text-secondary">
+                &copy; 2023-{{now.year}}. All Rights Reserved
+            </span>
+            <span class="float-end">
+                {% if current_user.is_authenticated %}
+                <a class="text-primary text-decoration-none mx-2" href="{{url_for('admin.index')}}">Admin</a>
+                {% endif %}
+                <a class="text-secondary text-decoration-none mx-2" href="{{url_for('show_terms')}}">Terms</a>
+                <a class="text-secondary text-decoration-none mx-2" href="{{url_for('show_contact')}}">Contact</a>
+            </span>
+        </div>
+    </footer>
+    {% endblock %}
 </body>
 
 </html>
