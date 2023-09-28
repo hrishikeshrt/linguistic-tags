@@ -8,10 +8,13 @@ Linguistic Tag Viewer
 
 ###############################################################################
 
+import os
+import csv
+import logging
 import datetime
-from hashlib import md5
 
-from flask import Flask, render_template, flash, redirect, url_for, request
+from flask import (Flask, render_template, redirect, jsonify, url_for,
+                   request, flash, session, Response, abort)
 from flask_login import (
     LoginManager,
     current_user,
@@ -21,8 +24,8 @@ from flask_login import (
 )
 from flask_admin import Admin, helpers as admin_helpers
 
-
 from sqlalchemy import or_, and_, func
+from werkzeug.security import check_password_hash
 
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -30,31 +33,28 @@ from flask_limiter.util import get_remote_address
 from flask_wtf import CSRFProtect
 
 # local
-from models import (db, User)
-from models_admin import (SecureAdminIndexView, UserModelView,)
+from models import (
+    db, User, Language,
+    SentenceTypeMeaningTag, SentenceTypeMeaningData,
+    VoiceTag, VoiceData,
+    TAG_LIST, TAG_SCHEMA
+)
+from models_admin import (
+    SecureAdminIndexView, UserModelView, LanguageModelView,
+    TagModelView, DataModelView
+)
 
 import settings
-from reverseproxied import ReverseProxied
+from utils.reverseproxied import ReverseProxied
+from utils.database import create_user, model_to_dict
 
 ###############################################################################
-# Import Data
 
-def import_data():
-    """Import Data into SQLite3 Database from CSV"""
-    # Load CSV files from settings.DATA_DIR
-    data_file = []
-
-    with open(data_file, encoding="utf-8") as f:
-        rows = [
-            line.split(",", 1) for line in f.read().split("\n") if line.strip()
-        ]
-
-    objects = []
-    # objects = [Sentence(headword=row[0], text=row[1]) for row in rows]
-    db.session.add_all(objects)
-    db.session.flush()
-    db.session.commit()
-
+logging.basicConfig(format='[%(asctime)s] %(name)s %(levelname)s: %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S',
+                    level=logging.INFO,
+                    handlers=[logging.FileHandler(settings.LOG_FILE),
+                              logging.StreamHandler()])
 
 ###############################################################################
 
@@ -65,6 +65,7 @@ webapp.url_map.strict_slashes = False
 webapp.config['SECRET_KEY'] = settings.SECRET_KEY
 webapp.config['JSON_AS_ASCII'] = False
 webapp.config['JSON_SORT_KEYS'] = False
+webapp.config['DEBUG'] = settings.DEBUG
 
 # SQLAlchemy Config
 webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -78,9 +79,6 @@ webapp.config["FLASK_ADMIN_SWATCH"] = "united"
 
 # CSRF Token Expiry
 webapp.config['WTF_CSRF_TIME_LIMIT'] = None
-
-# Custom
-webapp.config["HASH_SALT"] = settings.HASH_SALT
 
 ###############################################################################
 # Initialize standard Flask extensions
@@ -109,14 +107,18 @@ admin = Admin(
 )
 
 admin.add_view(UserModelView(User, db.session))
-# admin.add_view(LabelModelView(NodeLabel, db.session, category="Ontology"))
+admin.add_view(LanguageModelView(Language, db.session))
+admin.add_view(TagModelView(SentenceTypeMeaningTag, db.session, category="Tag Info"))
+admin.add_view(TagModelView(VoiceTag, db.session, category="Tag Info"))
+admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Tag Data"))
+admin.add_view(DataModelView(VoiceData, db.session, category="Tag Data"))
 
 ###############################################################################
 
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(user_id)
+    return db.session.get(User, user_id)
 
 
 @login_manager.unauthorized_handler
@@ -125,51 +127,38 @@ def unauthorized_handler():
 
 
 ###############################################################################
+# Initiate Database
 
 
-def user_exists(username):
-    return User.query.filter_by(username=username).one_or_none() is not None
-
-
-def validate_user(username, password):
-    return User.query.filter_by(
-        username=username, hash=compute_user_hash(username, password)
-    ).one_or_none()
-
-
-def compute_user_hash(username, password):
-    salt = webapp.config["HASH_SALT"]
-    user_md5 = md5(f"{salt}.{username}.{password}".encode())
-    return user_md5.hexdigest()
-
-
-def create_user(username, password):
-    user_hash = compute_user_hash(username, password)
-    if not user_exists(username):
-        user = User(username=username, hash=user_hash)
-        db.session.add(user)
-        db.session.commit()
-        return user
-
-
-###############################################################################
-
-
-@webapp.before_first_request
-def init_database():
-    """Initiate database and create admin user"""
+# @webapp.before_first_request
+# def init_database():
+with webapp.app_context():
     db.create_all()
     for admin_username, admin_password in settings.ADMIN_USERS.items():
         create_user(admin_username, admin_password)
 
-    # if not Sentence.query.count():
-    #     import_data()
+    data_tables = [
+        Language,
+        SentenceTypeMeaningTag, SentenceTypeMeaningData,
+        VoiceTag, VoiceData,
+    ]
 
-    # if not Label.query.count():
-    #     db.session.add_all(
-    #         [Label(short=k, label=v) for k, v in config.DEFAULT_LABELS.items()]
-    #     )
-    #     db.session.commit()
+    for data_table_model in data_tables:
+        if data_table_model.query.count():
+            continue
+
+        table_filename = f"{data_table_model.__tablename__}.csv"
+        table_filepath = os.path.join(settings.DATA_DIR, table_filename)
+
+        if os.path.isfile(table_filepath):
+            with open(table_filepath, encoding="utf-8") as f:
+                data = list(csv.DictReader(f))
+
+            db.session.add_all(
+                [data_table_model(**row) for row in data]
+            )
+        db.session.commit()
+
 
 ###############################################################################
 
@@ -180,8 +169,77 @@ def insert_global_context():
         "now": datetime.datetime.now(),
         "title": settings.APP_TITLE,
         "header": settings.APP_HEADER,
-        "navigation_menu": settings.NAVIGATION
+        "since": settings.APP_SINCE,
+        "copyright": settings.APP_COPYRIGHT,
+        "navigation_menu": settings.NAVIGATION,
+        "footer_links": settings.FOOTER_LINKS,
     }
+
+
+###############################################################################
+# API
+
+
+@webapp.route("/api/list/languages", methods=["GET"])
+def list_languages():
+    response = {
+        language.id: model_to_dict(language)
+        for language in Language.query.all()
+    }
+    return jsonify(response)
+
+
+@webapp.route("/api/list/tags", methods=["GET"])
+def list_tags():
+    response = [
+        {
+            "category": tag_category,
+            "devanagari": _devanagari,
+            "english": _english,
+            "count": _model_tag.query.count() if _model_tag is not None else 0
+        }
+        for tag_category, (_devanagari, _english, _model_tag, _model_data) in TAG_LIST.items()
+    ]
+    return jsonify(response)
+
+
+@webapp.route("/api/list/<string:tag_category>", methods=["GET"])
+def list_category_tags(tag_category: str):
+    name_devanagari, name_english, model_tag, model_data = TAG_LIST[tag_category]
+    response = {
+        model.id: model_to_dict(model)
+        for model in model_tag.query.all()
+    }
+    return jsonify(response)
+
+
+@webapp.route("/api/get/<string:tag_category>/<string:tag_ids>", methods=["GET"])
+def get_category_tags(tag_category: str, tag_ids: str = None):
+    name_devanagari, name_english, model_tag, model_data = TAG_LIST[tag_category]
+    tags = model_tag.query.filter(model_tag.id.in_(tag_ids.split(","))).all()
+    if tags is None:
+        return jsonify({})
+
+    response = {
+        "languages": {
+            language.id: model_to_dict(language)
+            for language in Language.query.all()
+        },
+        "schema": TAG_SCHEMA[tag_category],
+        "tags": {
+            tag.id: {
+                "tag": model_to_dict(tag),
+                "data": [
+                    model_to_dict(row)
+                    for row in model_data.query.filter(
+                        model_data.tag_id == tag.id
+                    ).all()
+                ]
+            }
+            for tag in tags
+        }
+    }
+    return jsonify(response)
 
 
 ###############################################################################
@@ -190,6 +248,7 @@ def insert_global_context():
 @webapp.route("/login", methods=["GET", "POST"])
 def show_login():
     if current_user.is_authenticated:
+        flash("Already logged in.")
         return redirect(url_for("show_home"))
 
     data = {}
@@ -197,17 +256,19 @@ def show_login():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
-        if user_exists(username):
-            user = validate_user(username, password)
-            if user is not None:
+        user = User.query.filter_by(username=username).one_or_none()
+        if user is not None:
+            if check_password_hash(user.password, password):
                 login_user(user)
                 flash("Logged in successfully.", "success")
-                return redirect(url_for("show_home"))
+                return redirect(
+                    request.args.get("next") or url_for("show_home")
+                )
             else:
                 flash("Login failed.", "danger")
         else:
             flash("User does not exist.")
-            return redirect(url_for("login"))
+
     return render_template("login.html", data=data)
 
 
@@ -215,7 +276,7 @@ def show_login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("login"))
+    return redirect(url_for("show_home"))
 
 
 # --------------------------------------------------------------------------- #
@@ -224,6 +285,13 @@ def logout():
 def show_terms():
     data = {'title': 'Terms of Use'}
     return render_template('terms.html', data=data)
+
+
+@webapp.route("/team")
+def show_team():
+    data = {'title': 'Team'}
+    data['team'] = settings.TEAM
+    return render_template('team.html', data=data)
 
 
 @webapp.route("/contact")
@@ -256,19 +324,9 @@ def show_home():
     return render_template("about.html")
 
 
-@webapp.route("/list/")
-def show_tag_list():
-    return render_template("list.html")
-
-
 @webapp.route("/tag/")
-def show_one_tag():
+def show_tag():
     return render_template("tag.html")
-
-
-@webapp.route("/compare/")
-def show_compare_tag():
-    return render_template("compare.html")
 
 
 ###############################################################################

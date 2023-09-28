@@ -13,13 +13,18 @@ APP_NAME = "App-Name Viewer"          # used to reference application in code
 APP_TITLE = "App-Title"               # displayed in HTML <title>
 APP_HEADER = "App-Header"             # displayed as ".lead" header
 
+APP_SINCE = 2023
+APP_COPYRIGHT_TEXT = ""
+APP_COPYRIGHT_TEXT = "All rights reserved"
+
 SECRET_KEY = "not-so-secret-key"
-HASH_SALT = "hash-salt"
+DEBUG = False
 
 # --------------------------------------------------------------------------- #
 
 STATIC_DIR = "static/"
 DATA_DIR = "data/"
+LOG_FILE = "samanvaya.log"
 
 # --------------------------------------------------------------------------- #
 

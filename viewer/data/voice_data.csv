@@ -1,0 +1,15 @@
+tag_id,language_id,example,iso_transliteration,sanskrit_translation,english_translation,markers
+1,2,मीरा फल खाती है।,,,,
+1,3,,,,,
+1,1, मीरा फलं खादति।,,,,
+2,2,"माधव द्वारा क्रिकेट खेला जाता है।
+पत्र राधा द्वारा लिखा जाता है।",,,,
+2,3,,,,,
+2,1,"माधवेन कन्दूक-क्रीडा क्रियते
+राधया पत्रं लिख्यते।",,,,
+3,2,"धूप में चला नहीं जाता।
+मोहन से टहला भी नहीं जाता।
+मुझसे उठा नहीं जाता।",,,,"Modal verb जाना is used in forms like जाता, जाए"
+3,3,,,,,
+3,1,"रामेण गम्यते।
+देवैः खाद्यते।",,,,Verb will always be in third person sigular.

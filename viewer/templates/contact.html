@@ -3,27 +3,12 @@
 {% block title %} Contact Us &bull;{% endblock %}
 {% block content %}
 <div class="container p-3">
-    {% if data.feedback_url %}
-    <div class="card mb-2">
-        <div class="card-header">
-            Feedback
-        </div>
-        <div class="card-body">
-            Please provide detailed feedback. &nbsp;
-            <a href="{{data.feedback_url}}" target="_blank" rel="noopener noreferrer">
-                <button class="btn btn-sm btn-primary">
-                    <i class="fas fa-envelope"></i> &nbsp; Contact Us
-                </button>
-            </a>
-        </div>
-    </div>
-    {% endif %}
+    {% if data.contacts %}
     <div class="card mb-2">
         <div class="card-header">
             Contact
         </div>
         <div class="card-body">
-            {% if data.contacts %}
             <ul>
                 {% for contact in data.contacts %}
                 <li>
@@ -41,9 +26,23 @@
                 </li>
                 {% endfor %}
             </ul>
-            {% endif %}
         </div>
     </div>
-
+    {% endif %}
+    {% if data.feedback_url %}
+    <div class="card mb-2">
+        <div class="card-header">
+            Feedback
+        </div>
+        <div class="card-body">
+            Please provide detailed feedback. &nbsp;
+            <a href="{{data.feedback_url}}" target="_blank" rel="noopener noreferrer">
+                <button class="btn btn-sm btn-primary">
+                    <i class="fas fa-envelope"></i> &nbsp; Contact Us
+                </button>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

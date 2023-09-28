@@ -8,11 +8,12 @@ Models
 
 ###############################################################################
 
-from sqlalchemy import Column, Integer, String, ForeignKey, Index
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, Index
 from sqlalchemy.orm import relationship, backref
 
 from flask_login import UserMixin
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, event
+from werkzeug.security import generate_password_hash
 
 ###############################################################################
 # Create database connection object
@@ -26,22 +27,130 @@ db = SQLAlchemy()
 class User(UserMixin, db.Model):
     id = Column(Integer, primary_key=True)
     username = Column(String(255), unique=True, nullable=False)
-    hash = Column(String(255), nullable=False)
+    # hash of password
+    password = Column(String(255), nullable=False)
+
+
+@event.listens_for(User.password, 'set', retval=True)
+def hash_user_password(target, value, old_value, initiator):
+    if value != old_value:
+        return generate_password_hash(value)
+    return value
+
+###############################################################################
+
+
+class Language(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), unique=True, nullable=False)
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255), nullable=False)
 
 
 ###############################################################################
 
 
-class BaseMeta(db.Model):
+class BaseTag(db.Model):
     id = Column(Integer, primary_key=True)
-    headword = Column(String(255), nullable=False, index=True)
-    text = Column(String(255), nullable=False)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    description = Column(Text)
 
 
 class BaseData(db.Model):
     id = Column(Integer, primary_key=True)
-    short = Column(String(255), nullable=False)
-    label = Column(String(255), nullable=False)
+    tag_id = Column(Integer, ForeignKey(f'{BaseTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
 
+    language = relationship(Language.__qualname__, backref=backref(f'{BaseTag.__tablename__}_data'))
+    tag = relationship(BaseTag.__qualname__, backref=backref('data'))
+
+###############################################################################
+
+
+class SentenceTypeMeaningTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    description = Column(Text)
+
+
+class SentenceTypeMeaningData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{SentenceTypeMeaningTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    markers = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{SentenceTypeMeaningTag.__tablename__}_data'))
+    tag = relationship(SentenceTypeMeaningTag.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
+class VoiceTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    english_translation = Column(String(255))
+    description = Column(Text)
+    subject_verb_agreement = Column(Text)
+
+
+class VoiceData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{VoiceTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    markers = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{VoiceTag.__tablename__}_data'))
+    tag = relationship(VoiceTag.__qualname__, backref=backref('data'))
+
+
+
+###############################################################################
+
+
+TAG_LIST = {
+    SentenceTypeMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Type (Meaning)", SentenceTypeMeaningTag, SentenceTypeMeaningData),
+    "2": ("रचनानुसार-वाक्यप्रकार", "Sentence Type (Structure)", None, None),
+    VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", VoiceTag, VoiceData),
+    "4": ("शब्द-प्रकार", "Parts-of-Speech (POS)", None, None),
+    # "5": ("शब्द-रूप", "Morphology", None, None),
+    "6": ("क्रियामूलक-कृद्", "Verbal", None, None),
+    "7": ("क्रिया-कालादि", "Tense-aspect-mood (TAM)", None, None),
+    # "8": ("शब्द-समूह", "Group", None, None),
+    "9": ("आश्रय", "Dependency", None, None),
+    "10": ("प्रयोजक-क्रिया", "Causative", None, None),
+    # "11": ("कर्म-प्रधानता", "Ergativity", None, None)
+}
+
+TAG_SCHEMA = {
+    SentenceTypeMeaningTag.__tablename__: {
+        "example": "Example",
+        "iso_transliteration": "ISO Transliteration",
+        "sanskrit_translation": "Sanskrit Translation",
+        "english_translation": "English Translation",
+        "markers": "Markers"
+    },
+    VoiceTag.__tablename__: {
+        "example": "Example",
+        "iso_transliteration": "ISO Transliteration",
+        "sanskrit_translation": "Sanskrit Translation",
+        "english_translation": "English Translation",
+        "markers": "Markers"
+    }
+}
 
 ###############################################################################

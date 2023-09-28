@@ -1,0 +1,27 @@
+{% set active_page = "team" %}
+{% extends "base.html" %}
+{% block title %} Team &bull;{% endblock %}
+{% block content %}
+<div class="container p-3">
+    {% if data.team %}
+    <div class="card mb-2">
+        <div class="card-header">
+            Team
+        </div>
+        <data class="card-body">
+            <ul>
+                {% for member in data.team %}
+                <li>
+                    {{member.name}},
+                    {% if member.designation %}
+                    <span class="text-secondary">{{member.designation}}</span>,
+                    {% endif %}
+                    <span class="text-secondary">{{member.affiliation}}</span>.
+                </li>
+                {% endfor %}
+            </ul>
+        </data>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

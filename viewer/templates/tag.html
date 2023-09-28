@@ -2,30 +2,236 @@
 {% extends "base.html" %}
 {% block title %} Tag Information &bull;{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="form-row">
-        <div class="form-group">
-            <label for="tag-selector">Select a Tag</label>
-            <select class="form-control" id="tag-selector">
-            </select>
+<div class="container p-3">
+    <div class="row">
+        <div class="col-sm-1 my-auto">
+            <label for="tag-category-selector">Category</label>
+        </div>
+        <div class="col-sm">
+            <select class="form-select" id="tag-category-selector"></select>
+        </div>
+    </div>
+    <div class="row pt-1">
+        <div class="col-sm-1 my-auto">
+            <label for="tag-selector">Tag</label>
+        </div>
+        <div class="col-sm">
+            <select class="form-select" multiple id="tag-selector"></select>
         </div>
     </div>
 
-    <div id="linguistic-tag-meta">
-    </div>
-    <table id="linguistic-tag-table" class="table table-hover" data-toggle="table" data-show-columns="true" data-pagination="false"
-        data-sticky-header="true" data-resizable="true">
-    </table>
+    <div id="tag-meta"></div>
+    <div id="tag-data"></div>
+
 </div>
 {% endblock %}
 
 {% block javascript %}
+    <script>
+        const DEFAULT_CATEGORY = "sentence_type_meaning_tag";
+        const DEFAULT_TAG_IDS = [1];
+        const MAX_SELECT = 2;
+
+        const API_URL_LIST_TAGS = "{{url_for('list_tags')}}";
+        const API_URL_TEMPLATE_LIST_CATEGORY_TAGS = "{{url_for('list_category_tags', tag_category='TAG_CATEGORY')}}";
+        const API_URL_TEMPLATE_GET_CATEGORY_TAGS = "{{url_for('get_category_tags', tag_category='TAG_CATEGORY', tag_ids='TAG_IDS')}}";
+
+        const $tag_category_selector = $("#tag-category-selector");
+        const $tag_selector = $("#tag-selector");
+        const $tag_meta_div = $("#tag-meta");
+        const $tag_data_table = $("#tag-data");
+
+    </script>
     <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
     <script>
+        function render_tag_category_dropdown() {
+            $tag_category_selector.empty();
+            const api_url = API_URL_LIST_TAGS;
+            $.getJSON(api_url, function(response) {
+                for (const category of response) {
+                    var $option = $("<option />", {
+                        value: category.category,
+                        html: `${category.devanagari} (${category.english})`
+                    });
+                    $tag_category_selector.append($option);
+                };
+            });
+            // $tag_category_selector.selectpicker();
+            $tag_category_selector.off();
+            $tag_category_selector.change(function () {
+                render_tag_dropdown(this.value);
+            });
+
+            // Render Default Tag Category
+            render_tag_dropdown(DEFAULT_CATEGORY);
+        }
+
+        function render_tag_dropdown(tag_category) {
+            $tag_selector.empty();
+            $tag_selector[0].selected_options = new Array();
+            const api_url = (
+                API_URL_TEMPLATE_LIST_CATEGORY_TAGS
+                .replace('TAG_CATEGORY', tag_category)
+            );
+            $.getJSON(api_url, function(response) {
+
+                for (const tag of Object.values(response)) {
+                    var $option = $("<option />", {
+                        value: tag.id,
+                        html: `${tag.code}: ${tag.name}`,
+                    });
+                    $tag_selector.append($option);
+                };
+            });
+            // $tag_selector.selectpicker();
+            $tag_selector.off();
+            $tag_selector.change(function () {
+                for (i = 0; i < this.childNodes.length; i++) {
+                    var thisChild = this.childNodes[i];
+                    if (thisChild.tagName != 'OPTION') {
+                        continue;
+                    }
+                    else {
+                        var _index = this.selected_options.indexOf(thisChild);
+                        if (thisChild.selected && _index < 0) {
+                            this.selected_options.push(thisChild);
+                        }
+                        if (!thisChild.selected && _index >= 0) {
+                            this.selected_options.splice(_index, 1);
+                        }
+                    }
+                }
+                if (this.selected_options.length > MAX_SELECT) {
+                    $.notify({
+                        "message": `You can compare only upto ${MAX_SELECT} tags at a time.`
+                    }, {
+                        "type": "warning"
+                    });
+                    this.selected_options.pop().selected = false;
+                }
+                const selected_tag_ids = $(this).val();
+                render_tag_data_table(tag_category, selected_tag_ids);
+            });
+
+            // Render Default Tag ID
+            render_tag_data_table(tag_category, DEFAULT_TAG_IDS);
+        }
+
+        function render_tag_meta_div(metadata) {
+            $tag_meta_div;
+        }
+
+
+        function parse_tag_data_response(response) {
+            console.log(response);
+
+            const languages = response.languages;
+            const schema = response.schema;
+            const tags = response.tags;
+            const tag_count = Object.keys(tags).length;
+
+            var fields = ["header"];
+            var columns = [{field: "header", title: ""}];
+            for (const language of Object.values(languages)) {
+                for (const [tag_id, tag_data] of Object.entries(tags)) {
+                    fields.push(`${language.code}_${tag_id}`);
+                    const field_name = `${language.code}_${tag_id}`;
+                    const field_title =  (
+                        (tag_count == 1)
+                        ? `${language.english_name} (${language.name})`
+                        : `${language.english_name} (${language.name})<hr>${tag_data.tag.code}: ${tag_data.tag.name}`
+                    );
+                    columns.push({
+                        field: field_name,
+                        title: field_title
+                    });
+                }
+            }
+            console.log(columns);
+
+            var ROWS = {};
+            for (const [tag_id, tag_data] of Object.entries(tags)) {
+                const data = tag_data.data;
+                const all_keys = Object.keys(data[0]);
+                console.log(all_keys);
+                const ignore_keys = ["id", "tag_id", "language_id"];
+                console.log(ignore_keys);
+                const keys = all_keys.filter(key => !ignore_keys.includes(key));
+                const rows = keys.map(key => {
+                    const row_object = {
+                        "header": schema[key] || key
+                    };
+                    data.forEach(row => {
+                        const language_code = languages[row.language_id].code;
+                        row_key = `${language_code}_${row.tag_id}`;
+                        row_object[row_key] = row[key].replace(/\n/g, "<br />");
+                    });
+                    return row_object;
+                });
+                for (const row of rows) {
+                    if (ROWS[row.header] == undefined) {
+                        ROWS[row.header] = row;
+                    } else {
+                        for (const [k, v] of Object.entries(row)) {
+                            ROWS[row.header][k] = v;
+                        }
+                    }
+                }
+                console.log(ROWS);
+            }
+            return {table: {columns: columns, rows: Object.values(ROWS)}}
+        }
+
+        /*
+        function parse_tag_data_response(response) {
+            console.log(response);
+
+            const schema = response.schema;
+            const data = response.data;
+            const languages = response.languages;
+
+            var fields = ["header"];
+            var columns = [{field: "header", title: ""}];
+            for (const language of Object.values(languages)) {
+                fields.push(language.code)
+                columns.push({
+                    field: language.code,
+                    title: `${language.english_name} (${language.name})`
+                });
+            }
+
+            const all_keys = Object.keys(data[0]);
+            const ignore_keys = ["id", "tag_id", "language_id"];
+            const keys = all_keys.filter(key => !ignore_keys.includes(key));
+            const rows = keys.map(key => {
+                const row_object = {
+                    "header": schema[key] || key
+                };
+                data.forEach(row => {
+                    row_key = languages[row.language_id].code;
+                    row_object[row_key] = row[key].replace(/\n/g, "<br />");
+                });
+                return row_object;
+            });
+            return {columns: columns, rows: rows}
+        } */
+
+        function render_tag_data_table(tag_category, tag_ids) {
+            const api_url = (
+                API_URL_TEMPLATE_GET_CATEGORY_TAGS
+                .replace('TAG_CATEGORY', tag_category)
+                .replace('TAG_IDS', tag_ids)
+            );
+            $.getJSON(api_url, function(response) {
+                const tag_data_table_data = parse_tag_data_response(response);
+                render_table($tag_data_table, tag_data_table_data.table, {}, `${tag_category}_${tag_ids.join("_")}`);
+            });
+        }
+    </script>
+    <script>
+
         window.addEventListener('load', function () {
-            populateTagDropdown();
-            const defaultTag = '001'; // Update with the default tag you want to show
-            loadTagData(defaultTag);
+            render_tag_category_dropdown();
         });
     </script>
 {% endblock %}

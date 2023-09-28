@@ -1,0 +1,175 @@
+tag_id,language_id,example,iso_transliteration,sanskrit_translation,english_translation,markers
+1,2,तुम भारतीय हो।,tuma bhāratīya hō.,त्वम् भारतीयः अस्ति।,You are Indian,---
+1,3,ನಾನು ಒಬ್ಬ ವಿದ್ಯಾರ್ಥಿ.  ,naanu obbaru vidyaarthi.,,I am a student.,---
+1,1,रामो गच्छति। ,Rāmo gacchati.,,Rama goes,---
+2,2,"क्या आप हिंदी जानते हैं?
+तुम कितने साल के हो? ","kyā āpa hiṁdī jānatē haiṁ?
+tuma kitanē sāla kē hō? ",किम् भवान् हिंदी जानाति,"Do you know Hindi?
+How old are you?","    क्या (kya) - used to ask general questions
+    कहाँ (kahan) - used to ask questions about location
+    कब (kab) - used to ask questions about time
+    कौन (kaun) - used to ask questions about people
+    क्या (kitna) - used to ask questions about quantity
+    कैसे (kaise) - used to ask questions about manner"
+2,3,ನಿಮ್ಮ ಹೆಸರು ಏನು? ,Nimmu hesaru enu? ,,What is your name?,"    ಏನು (enu) - what
+    ಯಾರು (yaru) - who
+    ಎಲ್ಲಿ (elli) - where
+    ಯಾವಾಗ (yaavaga) - when
+    ಏಕೆ (yeke) - why
+    ಹೇಗೆ (hege) - how"
+2,1,"कः गच्छति?
+किम् पठति?
+कदा आगच्छति?
+कुत्र अस्ति?
+कति वर्षाणि ते?
+कस्मै उपहारं दास्यसि? ","kaḥ gacchati?
+kim paṭhati?
+kadā āgacchati?
+kutra asti?
+kati varṣāṇi tē?
+kasmai upahāraṁ dāsyasi?",,"Who goes?
+What does he read?
+When does he come?
+Where is it?
+How old are you?
+To whom will you give the gift?","    कः (kaha) - who
+    किम् (kim) - what
+    कदा (kada) - when
+    कुत्र (kutra) - where
+    कति (kati) - how much
+    कस्मै (kasmai) - to whom"
+3,2,"वाह! तुम बहुत प्रतिभाशाली हो!
+हाय! मेरी भैंस मर गई!","vāha! tuma bahuta pratibhāśālī hō!
+hāya! mērī bhaiṁsa mara gaī!",,"Wow! You are very talented!
+Oh no! My buffalo  died!",
+3,3,"ಆಶ್ಚರ್ಯ! ನೀನು ಈಗ ಎಲ್ಲಿಗೆ ಹೋಗುತ್ತಿದ್ದೀಯ?
+ಅನಾಸಕ್ತಿ! ನೀನು ಈ ಚಿತ್ರವನ್ನು ನೋಡಲಿಲ್ಲವೇ?","āścarya! nīnu īga ellige hōguttiddīya?
+anāsakti! nīnu ī citravannu nōḍalillavē?",,,"    ಆಶ್ಚರ್ಯ! (Aashcharya!) - Surprise!
+    ಖುಷಿ! (Kushi!) - Happiness!
+    ದುಃಖ! (Dushkha!) - Sadness!
+    ಕೋಪ! (Kopa!) - Anger!
+    ಅನಾಸಕ್ತಿ! (Anasakti!) - Disbelief!"
+3,1,"अहो, कति सुन्दरम्!
+अहो मधुरमासां दर्शनम्
+धिक् त्वाम्!
+हे राजन्!","ahō, kati sundaram!
+ahō madhuramāsāṁ darśanam
+dhik tvām!
+hē rājan!",,"Oh! how beautiful!
+Pity, you!
+ Oh! King!","    हहा! (haha!) - This is an exclamation of surprise or joy.
+    धिक्! (dhik!) - This is an exclamation of anger or disgust.
+    ओम्! (om!) - This is an exclamation of peace or reverence.
+    नमस्ते! (namaste!) - This is an exclamation of greeting or farewell.
+    जय हो! (jaya ho!) - This is an exclamation of victory or celebration.
+    रे/अरे! (Are!) -
+    अहो! (Aho!) -
+    अये/हये! (Haye!) -
+    हिम्! (Him!) -
+    ह्राम्! (Hrāṁ!) -
+    ह्रौम्! (Hraum!) -
+    ह्रीम्! (Hrīm!) -
+    ह्रुम्! (Hrum!) -"
+4,2,"मुझे जाने दो।
+झूठ मत बोलो। ","mujhē jānē dō.
+jhūṭha mata bōlō.",,"Let me go.
+Don't tell lies."," Verb in Imperative mood.
+Missing subject तुम  ""You""
+object+imperative base form with ओ suffix (खाओ), इये (खाईये) "
+4,3,"ನಿಮ್ಮ ಕೈಗಳನ್ನು ತೊಳೆಯಿರಿ
+ಬಾಗಿಲು ತೆರೆಯಿರಿ ","nimma kaigaḷannu toḷeyiri
+bāgilu tereyiri ",," Wash your hands.
+ Open the door.","""-ಮಡು"" (-madu)
+""ತಿನ್ನಮಡು!"" (tinnamadu!)"
+4,1,"माम् अवज्ञां मा कुरु।
+वदतु।
+अत्र आगच्छतु","mām avajñāṁ mā kuru.
+vadatu.
+atra āgacchatu",,"Do not disregard me.
+Speak.
+Come here.",Imperative mood
+5,2,"विश्व में शान्ति हो।
+यहाँ बारिश हो जाए।
+भगवान आपको आशीर्वाद दें।","viśva mēṁ śānti hō.
+yahām̐ bāriśa hō jāē.
+bhagavāna āpakō āśīrvāda dēṁ.",,"May there be peace in the world.
+May it rain here.
+May God bless you.",इच्छासूचक-वृत्ति
+5,3,"ದೇವರು ನಿಮ್ಮನ್ನು ಆಶೀರ್ವದಿಸಲಿ
+ನಿಮಗೆ ಒಳ್ಳೆಯದಾಗಲಿ ","dēvaru nimmannu āśīrvadisali
+nimage oḷḷeyadāgali ",,"May God bless you.
+May all good things happen to you.",इच्छासूचक-वृत्ति
+5,1,"सर्वे अत्र सुखिनः सन्तु।
+स्वस्ति ते भूयात्।
+सत्यं वदेत् धर्मं चरेत्।","svasti tē bhūyāt.
+satyaṁ vadēt dharmaṁ carēt.
+sarvē atra sukhinaḥ santu.",,Let everyone be happy here,इच्छासूचक-वृत्ति
+6,2,"मैं नहीं गया।
+वह नहीं करेगा।
+हम नहीं जा सकते थे।
+गुस्सा मत करो।
+किसी को धोका न दो।",,,"I did not go.
+He will not do.
+We could not go.
+Don't be angry.
+Don't betray me.","नही, मत, न"
+6,3,"ನಾನು ಯಾರನ್ನೂ ನೋಡಲಿಲ್ಲ
+ಅವರು ಈಗ ಇಲ್
+ನಾನು ಎಂದಿಗೂ ಧೂಮಪಾನ ಮಾಡುವುದಿಲ್",,,"I didn't see anyone.
+They are not here now.
+I will never smoke.","    ಅಲ್ಲ (illa) - not
+    ಇಲ್ಲ (illa) - no
+    ಎಂದಿಗೂ (endiguu) - never
+    ಯಾವುದೂ (yaavudu) - nothing
+    ಯಾರೂ (yaaruu) - no one
+    ಏನೂ (eenu) - nothing"
+6,1,"अहं न पठिष्यामि।
+अनृतं मा वद।","ahaṁ na paṭhiṣyāmi.
+anr̥taṁ mā vada..""",,"I will not study.
+Do not speak lies.","    न (na) - This is the most common negative particle in Sanskrit. It is used to negate verbs, nouns, adjectives, and adverbs.
+    मा (ma) - This particle is used to express a prohibition or a command. It is often used with the verb वद (vad) to mean ""do not speak.""
+    अ (a) - This particle is used to negate adjectives and adverbs. It is mostly used in a compound."
+7,2,"(a) अगर आप समय पर आयें तो हम समय पर काम खत्म कर सकते हैं| (Subjunctive          Present)
+(b) अगर सब ठीक हो जाए तो हम घर जल्दी जायेंगे| (Subjunctive        Future)
+(c) अगर आप मेहनत करें तो आप सफल हों|  ( Subjunctive        Subjunctive)
+(d) अगर आप हिन्दी सीखना चाहें तो इस किताब को पढ़िए| Subjunctive        Imperative)
+(e) अगर आप यहाँ आना चाहते हैं तो आप आ सकते हैं| (Present        Present)
+(f) अगर आप में साहस है तो आप सब कुछ कर सकेंगे| (Present        Future)
+(g) अगर आप पढ़ेंगे तो आप सफल हो सकते हैं| (  Future        Present)
+(h) अगर आप भारत जायेंगे तो ताज महल देखेंगे| (Future        Future)
+
+ ",,,,"अगर/यदि ……….        तो …………
+If….. (अगर/यदि…..)        then…… (तो….)
+a.        Subjunctive        Present
+b.        Subjunctive        Future
+c.        Subjunctive        Subjunctive
+d.        Subjunctive        Imperative
+e.        Present        Present
+f.        Present        Future
+g.        Future        Present
+h.        Future        Future"
+7,3,,,,,
+7,1,,,,,
+8,2,"आज वर्षा हो सकती है।
+क्या उसने परीक्षा की तैयारी कर ली है।
+आज बहुत बर्फ पड़ सकती है।
+ शायद वह शादी के लिए मान जाएगी।
+ ट्रेन शायद देरी से आने वाला है।
+ कल शायद पिता जी ऑफिस नहीं जाएगे।
+ क्या श्याम यहाँ से चला गया ?
+ शायद कल से सब फिर बंद रहेगा।
+ वह शायद अभी तक नहीं पहुंचा।
+ हो सकता कल मैं नहीं आऊंगा।
+ संभवतः वह सुधर गया।","āja varṣā hō sakatī hai.
+kyā usanē parīkṣā kī taiyārī kara lī hai.
+āja bahuta barpha paṛa sakatī hai.
+śāyada vaha śādī kē liē māna jāēgī.
+ṭrēna śāyada dērī sē ānē vālā hai.
+kala śāyada pitā jī ôphisa nahīṁ jāēgē.
+kyā śyāma yahām̐ sē calā gayā ?
+śāyada kala sē saba phira baṁda rahēgā.
+vaha śāyada abhī taka nahīṁ pahuṁcā.
+hō sakatā kala maiṁ nahīṁ āūṁgā.
+saṁbhavataḥ vaha sudhara gayā.",अद्य वर्षा भवेत्।,It may rain today.,"क्या होगा, शायद, लगता है, मुझे नहीं पता, संभव है, संभवतः, इत्यादि।"
+8,3,,,,,
+8,1,,,,,

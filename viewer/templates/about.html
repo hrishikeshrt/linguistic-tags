@@ -8,8 +8,45 @@
             Samanvaya Tagset
         </div>
         <div class="card-body">
-            Multifaceted linguistic tag set towards numerous NLP tasks.
+            Linguistic tags for Indian languages towards numerous NLP tasks.
         </div>
     </div>
+    <div class="card mt-2">
+        <div class="card-header">
+            Tag Categories
+        </div>
+        <div id="tag-category-list" class="card-body p-0 m-0"></div>
+    </div>
 </div>
+{% endblock %}
+{% block javascript %}
+    <script>
+        const API_URL_LIST_TAGS = "{{url_for('list_tags')}}";
+    </script>
+    <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
+    <script>
+        const $tag_category_table = $("#tag-category-list");
+
+        function render_tags_table() {
+            const api_url = API_URL_LIST_TAGS;
+            const columns = [
+                // {field: "category", title: "Category"},
+                {field: "devanagari", title: "Devanagari"},
+                {field: "english", title: "English"},
+                {field: "count", title: "Count"}
+            ];
+            $.getJSON(api_url, function(response) {
+                render_table($tag_category_table, {
+                    columns: columns,
+                    rows: response
+                }, {
+                    showColumns: false,
+                }, "tag_categories");
+            });
+        }
+
+        window.addEventListener('load', function () {
+            render_tags_table();
+        });
+    </script>
 {% endblock %}

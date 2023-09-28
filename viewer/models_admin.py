@@ -26,7 +26,7 @@ class SecureAdminIndexView(AdminIndexView):
 
     def inaccessible_callback(self, name, **kwargs):
         flash("You do not have permission to view this resource.", "error")
-        return redirect(url_for('show_login', next=request.url))
+        return redirect(url_for("show_login", next=request.url))
 
 
 class SecureModelView(ModelView):
@@ -39,6 +39,7 @@ class SecureModelView(ModelView):
     def inaccessible_callback(self, name, **kwargs):
         flash("You do not have permission to view this resource.", "error")
         return redirect(url_for("show_login"))
+
 
 ###############################################################################
 
@@ -82,19 +83,29 @@ class BaseModelView(SecureModelView):
 
 
 class UserModelView(BaseModelView):
-    column_exclude_list = ('hash',)
     column_searchable_list = ('username',)
+
+
+class LanguageModelView(BaseModelView):
+    column_searchable_list = ('code', 'name')
 
 
 ###############################################################################
 
 
-class BaseMetaModelView(BaseModelView):
-    pass
+class TagModelView(BaseModelView):
+    column_searchable_list = ('code', 'tag', 'name', 'description')
 
 
-class BaseDataModelView(BaseModelView):
-    pass
+class DataModelView(BaseModelView):
+    column_searchable_list = (
+        'example',
+        'iso_transliteration',
+        'sanskrit_translation',
+        'english_translation',
+        'markers'
+    )
+
 
 
 ###############################################################################

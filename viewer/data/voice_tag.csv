@@ -1,0 +1,4 @@
+id,code,tag,name,english_translation,description,subject_verb_agreement
+1,vachya_01,kartr-vachya,कर्तृ-वाच्य,Active Voice,"Active voice is formed when the subject of the verb is the main subject of the sentence, then it is called कृत्य वाच्य ",कर्ता -- क्रिया
+2,vachya_02,karma-vachya,कर्म-वाच्य,Passive Voice,"The passive voice in Hindi is called कर्मवाच्य (karmavachchh). It is a grammatical voice in which the subject of the sentence is acted upon by the verb. The verb is conjugated in the third person singular form, and the object of the active sentence becomes the subject of the passive sentence.",कर्म -- क्रिया
+3,vachya_03,bhava-vachya,भाव-वाच्य,Impersonal Passive Voice,The impersonal passive voice is a verb voice that decreases the valency of an intransitive verb (which has valency one) to zero.,Verb in 3rd person singular
