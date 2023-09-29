@@ -27,9 +27,9 @@
 
 {% block javascript %}
     <script>
-        const DEFAULT_CATEGORY = "sentence_type_meaning_tag";
-        const DEFAULT_TAG_IDS = [1];
-        const MAX_SELECT = 2;
+        const DEFAULT_CATEGORY = "{{data.default_category}}";
+        const DEFAULT_TAG_IDS = JSON.parse("{{data.default_tag_ids}}");
+        const MAX_SELECT = "{{data.max_select}}";
 
         const API_URL_LIST_TAGS = "{{url_for('list_tags')}}";
         const API_URL_TEMPLATE_LIST_CATEGORY_TAGS = "{{url_for('list_category_tags', tag_category='TAG_CATEGORY')}}";
@@ -50,7 +50,8 @@
                 for (const category of response) {
                     var $option = $("<option />", {
                         value: category.category,
-                        html: `${category.devanagari} (${category.english})`
+                        html: `${category.hindi} (${category.english})`,
+                        selected: (category.category == DEFAULT_CATEGORY)
                     });
                     $tag_category_selector.append($option);
                 };
@@ -78,6 +79,7 @@
                     var $option = $("<option />", {
                         value: tag.id,
                         html: `${tag.code}: ${tag.name}`,
+                        selected: DEFAULT_TAG_IDS.includes(tag.id)
                     });
                     $tag_selector.append($option);
                 };

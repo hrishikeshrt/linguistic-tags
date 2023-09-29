@@ -194,18 +194,18 @@ def list_tags():
     response = [
         {
             "category": tag_category,
-            "devanagari": _devanagari,
+            "hindi": _hindi,
             "english": _english,
             "count": _model_tag.query.count() if _model_tag is not None else 0
         }
-        for tag_category, (_devanagari, _english, _model_tag, _model_data) in TAG_LIST.items()
+        for tag_category, (_hindi, _english, _model_tag, _model_data) in TAG_LIST.items()
     ]
     return jsonify(response)
 
 
 @webapp.route("/api/list/<string:tag_category>", methods=["GET"])
 def list_category_tags(tag_category: str):
-    name_devanagari, name_english, model_tag, model_data = TAG_LIST[tag_category]
+    name_hindi, name_english, model_tag, model_data = TAG_LIST[tag_category]
     response = {
         model.id: model_to_dict(model)
         for model in model_tag.query.all()
@@ -215,8 +215,9 @@ def list_category_tags(tag_category: str):
 
 @webapp.route("/api/get/<string:tag_category>/<string:tag_ids>", methods=["GET"])
 def get_category_tags(tag_category: str, tag_ids: str = None):
-    name_devanagari, name_english, model_tag, model_data = TAG_LIST[tag_category]
-    tags = model_tag.query.filter(model_tag.id.in_(tag_ids.split(","))).all()
+    name_hindi, name_english, model_tag, model_data = TAG_LIST[tag_category]
+    tag_ids = tag_ids.split(",")[:4]
+    tags = model_tag.query.filter(model_tag.id.in_(tag_ids)).all()
     if tags is None:
         return jsonify({})
 
@@ -328,6 +329,14 @@ def show_home():
 @webapp.route("/tag/")
 def show_tag():
     data = {"title": "Tag Information"}
+
+    default_category = SentenceTypeMeaningTag.__tablename__
+    default_tag_ids = [1]
+
+    data["default_category"] = request.args.get("category", default_category)
+    data["default_tag_ids"] = default_tag_ids
+    data["max_select"] = settings.MAX_SELECT
+
     return render_template("tag.html", data=data)
 
 

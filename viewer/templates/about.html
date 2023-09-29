@@ -21,21 +21,28 @@
 {% block javascript %}
     <script>
         const API_URL_LIST_TAGS = "{{url_for('list_tags')}}";
+        const URL_SHOW_TAG = "{{url_for('show_tag')}}";
     </script>
     <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
     <script>
-        const $tag_category_table = $("#tag-category-list");
+        const $tag_category_table_container = $("#tag-category-list");
+
+
+        function show_category_formatter(value, row, index, field) {
+            return `<a class="btn btn-sm btn-primary" target="_blank" href="${URL_SHOW_TAG}?category=${row.category}"><i class="fas fa-arrow-right"></i></a>`;
+        }
 
         function render_tags_table() {
             const api_url = API_URL_LIST_TAGS;
             const columns = [
                 // {field: "category", title: "Category"},
-                {field: "devanagari", title: "Devanagari"},
+                {field: "hindi", title: "Hindi"},
                 {field: "english", title: "English"},
-                {field: "count", title: "Count"}
+                {field: "count", title: "Count"},
+                {field: "view", title: "View", formatter: "show_category_formatter"}
             ];
             $.getJSON(api_url, function(response) {
-                render_table($tag_category_table, {
+                render_table($tag_category_table_container, {
                     columns: columns,
                     rows: response
                 }, {
