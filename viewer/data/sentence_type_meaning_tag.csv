@@ -1,9 +1,9 @@
-id,code,tag,name,description
-1,vakya_01,vidhana-vakya,विधानवाचक वाक्य,Assertive/Declarative sentence - This type of sentence makes a statement of fact or opinion.
-2,vakya_02,prashna-vakya,प्रश्नवाचक वाक्य,Interrogative sentence - This type of sentence asks a question.
-3,vakya_03,udgara-vakya,उद्रारवाचक वाक्य ,Exclamatory sentence - This type of sentence expresses strong emotion or surprise.
-4,vakya_04,aagya-vakya,आज्ञार्थक वाक्य,"Imperative sentence- An imperative sentence is a sentence that expresses a direct command, request, invitations, warning, or instruction."
-5,vakya_05,iccha-vakya,इच्छावाचक वाक्य,Optative sentence -This type of sentence gives an order or makes a request.
-6,vakya_06,nishedha-vakya,निषेधवाचक वाक्य ,"Negative sentence - A negative sentence is a sentence that denies something. It usually contains the words meaning ""not"", ""no"", ""never"", or ""nothing""."
-7,vakya_07,hetumad-vakya,हेतु-हेतुमद् वाक्य,"A conditional sentence - A sentence that expresses a condition or hypothesis, and the result of that condition. It is made up of two clauses: the if clause and the main clause. The if clause expresses the condition, and the main clause expresses the result. (रचनानुसार - मिश्र वाक्य) A conditional sentence is a sentence that has two clauses; an “if clause” (conditional clause), and a “then clause” (main clause)."
-8,vakya_08,sandeha-vakya,संदेह वाक्य,Dubitative sentence-A doubt-expressing sentence is a sentence in which uncertainty or hesitation about an action is expressed.
+id,code,tag,name,english_name,description
+1,vakyartha_01,vidhana-vakya,विधानवाचक वाक्य,Assertive/Declarative sentence ,Assertive/Declarative sentence - This type of sentence makes a statement of fact or opinion.
+2,vakyartha_02,prashna-vakya,प्रश्नवाचक वाक्य,Interrogative sentence,Interrogative sentence - This type of sentence asks a question.
+3,vakyartha_03,udgara-vakya,उद्गारवाचक वाक्य ,Exclamatory sentence ,Exclamatory sentence - This type of sentence expresses strong emotion or surprise.
+4,vakyartha_04,aagya-vakya,आज्ञार्थक वाक्य,Imperative sentence-,"Imperative sentence- An imperative sentence is a sentence that expresses a direct command, request, invitations, warning, or instruction."
+5,vakyartha_05,iccha-vakya,इच्छावाचक वाक्य,Optative sentence ,Optative sentence -This type of sentence gives an order or makes a request.
+6,vakyartha_06,nishedha-vakya,निषेधवाचक वाक्य ,Negative sentence,"Negative sentence - A negative sentence is a sentence that denies something. It usually contains the words meaning ""not"", ""no"", ""never"", or ""nothing""."
+7,vakyartha_07,hetumad-vakya,हेतु-हेतुमद् वाक्य,A conditional sentence ,"A conditional sentence - A sentence that expresses a condition or hypothesis, and the result of that condition. It is made up of two clauses: the if clause and the main clause. The if clause expresses the condition, and the main clause expresses the result. (रचनानुसार - मिश्र वाक्य) A conditional sentence is a sentence that has two clauses; an “if clause” (conditional clause), and a “then clause” (main clause)."
+8,vakyartha_08,sandeha-vakya,संदेह वाक्य,Dubitative sentence,Dubitative sentence-A doubt-expressing sentence is a sentence in which uncertainty or hesitation about an action is expressed.

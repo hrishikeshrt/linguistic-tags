@@ -74,6 +74,7 @@ class SentenceTypeMeaningTag(db.Model):
     code = Column(String(255), nullable=False, index=True)
     tag = Column(String(255), nullable=False)
     name = Column(String(255), nullable=False)
+    english_name = Column(String(255))
     description = Column(Text)
 
 
