@@ -39,7 +39,7 @@ from models import (
     SentenceTypeStructureTag, SentenceTypeStructureData,
     VoiceTag, VoiceData,
     PartsOfSpeechTag, PartsOfSpeechData,
-    VerbalTag,VerbalData,
+    VerbalTag, VerbalData,
     DependencyTag, DependencyData,
     TAG_LIST, TAG_SCHEMA
 )
@@ -114,13 +114,17 @@ admin.add_view(UserModelView(User, db.session))
 admin.add_view(LanguageModelView(Language, db.session))
 
 admin.add_view(TagModelView(SentenceTypeMeaningTag, db.session, category="Tag Info"))
+admin.add_view(TagModelView(SentenceTypeStructureTag, db.session, category="Tag Info"))
 admin.add_view(TagModelView(VoiceTag, db.session, category="Tag Info"))
 admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tag Info"))
+admin.add_view(TagModelView(VerbalTag, db.session, category="Tag Info"))
 admin.add_view(TagModelView(DependencyTag, db.session, category="Tag Info"))
 
 admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Tag Data"))
+admin.add_view(DataModelView(SentenceTypeStructureData, db.session, category="Tag Data"))
 admin.add_view(DataModelView(VoiceData, db.session, category="Tag Data"))
 admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Tag Data"))
+admin.add_view(DataModelView(VerbalData, db.session, category="Tag Data"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Tag Data"))
 
 ###############################################################################

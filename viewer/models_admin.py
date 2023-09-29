@@ -103,9 +103,7 @@ class DataModelView(BaseModelView):
         'iso_transliteration',
         'sanskrit_translation',
         'english_translation',
-        'markers'
     )
-
 
 
 ###############################################################################
