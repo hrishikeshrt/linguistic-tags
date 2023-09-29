@@ -21,7 +21,7 @@ class SecureAdminIndexView(AdminIndexView):
     def is_accessible(self):
         return (
             current_user.is_authenticated
-            and current_user.username in settings.ADMIN_USERS
+            and current_user.role == "admin"
         )
 
     def inaccessible_callback(self, name, **kwargs):
@@ -33,7 +33,7 @@ class SecureModelView(ModelView):
     def is_accessible(self):
         return (
             current_user.is_authenticated
-            and current_user.username in settings.ADMIN_USERS
+            and current_user.role == "admin"
         )
 
     def inaccessible_callback(self, name, **kwargs):

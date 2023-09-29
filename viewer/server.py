@@ -137,7 +137,7 @@ def load_user(user_id):
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
-    return redirect(url_for("login"))
+    return redirect(url_for("show_login"))
 
 
 ###############################################################################
@@ -148,8 +148,8 @@ def unauthorized_handler():
 # def init_database():
 with webapp.app_context():
     db.create_all()
-    for admin_username, admin_password in settings.ADMIN_USERS.items():
-        create_user(admin_username, admin_password)
+    for user in settings.USERS:
+        create_user(user["username"], user["password"], user["role"])
 
     data_tables = [
         Language,
@@ -222,6 +222,7 @@ def list_tags():
 
 
 @webapp.route("/api/list/<string:tag_category>", methods=["GET"])
+@login_required
 def list_category_tags(tag_category: str):
     name_hindi, name_english, model_tag, model_data = TAG_LIST[tag_category]
     response = {
@@ -232,6 +233,7 @@ def list_category_tags(tag_category: str):
 
 
 @webapp.route("/api/get/<string:tag_category>/<string:tag_ids>", methods=["GET"])
+@login_required
 def get_category_tags(tag_category: str, tag_ids: str = None):
     name_hindi, name_english, model_tag, model_data = TAG_LIST[tag_category]
     tag_ids = tag_ids.split(",")[:4]
@@ -345,6 +347,7 @@ def show_home():
 
 
 @webapp.route("/tag/")
+@login_required
 def show_tag():
     data = {"title": "Tag Information"}
 

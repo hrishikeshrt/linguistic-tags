@@ -8,7 +8,7 @@ Models
 
 ###############################################################################
 
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, Index
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, Enum, Index
 from sqlalchemy.orm import relationship, backref
 
 from flask_login import UserMixin
@@ -29,6 +29,7 @@ class User(UserMixin, db.Model):
     username = Column(String(255), unique=True, nullable=False)
     # hash of password
     password = Column(String(255), nullable=False)
+    role = Column(Enum('user', 'admin'), default='user', nullable=False)
 
 
 @event.listens_for(User.password, 'set', retval=True)

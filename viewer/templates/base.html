@@ -127,8 +127,10 @@
             </span>
             <span class="float-end">
                 {% if current_user.is_authenticated %}
+                {% if current_user.role == "admin" %}
                 <a class="text-primary text-decoration-none mx-2" href="{{url_for('admin.index')}}">Admin</a>
-                <a class="text-secondary text-decoration-none mx-2" href="{{url_for('logout')}}">Logout</a>
+                {% endif %}
+                <a class="text-info text-decoration-none mx-2" href="{{url_for('logout')}}">Logout</a>
                 {% endif %}
 
                 {% for id in footer_links %}

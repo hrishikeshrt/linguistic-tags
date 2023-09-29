@@ -28,19 +28,34 @@ LOG_FILE = "samanvaya.log"
 
 # --------------------------------------------------------------------------- #
 
+MAX_SELECT = 3
+
 NAVIGATION = {
     "about": ("show_home", "About"),
-    "list": ("show_tag_list", "List"),
-    "tag": ("show_one_tag", "Tag"),
-    "compare": ("show_compare_tag", "Compare"),
+    "tag": ("show_tag", "View"),
+}
+
+FOOTER_LINKS = {
+    "terms": ("show_terms", "Terms"),
+    "team": ("show_team", "Team"),
+    "contact": ("show_contact", "Contact"),
 }
 
 # --------------------------------------------------------------------------- #
 # list of administrators
 
-ADMIN_USERS = {
-    "admin": "admin",
-}
+USERS = [
+    {
+        "username": "admin",
+        "password": "admin",
+        "role": "admin"
+    },
+    {
+        "username": "user",
+        "password": "user",
+        "role": "user"
+    },
+]
 
 # team
 TEAM = [

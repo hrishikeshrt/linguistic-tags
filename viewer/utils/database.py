@@ -23,9 +23,9 @@ LOGGER = logging.getLogger(__name__)
 ###############################################################################
 
 
-def create_user(username: str, password: str):
+def create_user(username: str, password: str, role: str):
     if not User.query.filter_by(username=username).one_or_none():
-        user = User(username=username, password=password)
+        user = User(username=username, password=password, role=role)
         db.session.add(user)
         db.session.commit()
         return user
