@@ -192,34 +192,48 @@ TAG_LIST = {
 
 TAG_SCHEMA = {
     SentenceTypeMeaningTag.__tablename__: {
-        "example": "Example",
-        "iso_transliteration": "ISO Transliteration",
-        "sanskrit_translation": "Sanskrit Translation",
-        "english_translation": "English Translation",
-        "markers": "Markers"
+        "meta": {},
+        "data": {
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "markers": "Markers"
+        },
     },
     VoiceTag.__tablename__: {
-        "example": "Example",
-        "iso_transliteration": "ISO Transliteration",
-        "sanskrit_translation": "Sanskrit Translation",
-        "english_translation": "English Translation",
-        "markers": "Markers"
+        "meta": {},
+        "data": {
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "markers": "Markers"
+        },
     },
     PartsOfSpeechTag.__tablename__: {
-        "example": "Example",
-        "iso_transliteration": "ISO Transliteration",
-        "sanskrit_translation": "Sanskrit Translation",
-        "english_translation": "English Translation",
-        "markers": "Markers"
+        "meta": {
+            "bis_tag": "BIS Annotation"
+        },
+        "data": {
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "markers": "Markers"
+        },
     },
     DependencyTag.__tablename__: {
-        "example": "Example",
-        "iso_transliteration": "ISO Transliteration",
-        "sanskrit_translation": "Sanskrit Translation",
-        "english_translation": "English Translation",
-        "accuracy": "Accuracy",
-        "markers": "Markers",
-    }
+        "meta": {},
+        "data": {
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "accuracy": "Accuracy",
+            "markers": "Markers",
+        },
+    },
 }
 
 ###############################################################################

@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------------- */
 
 String.prototype.toTitleCase = function(){
-    return this.replace(/(?:^|\s)\w/g, function(match) {
+    return this.replace("_", " ").replace(/(?:^|\s)\w/g, function(match) {
         return match.toUpperCase();
     });
 };
@@ -26,7 +26,7 @@ function render_table($parent, data, options, download_name = 'result') {
 
     $table.bootstrapTable({
         columns: data.columns,
-        search: true,
+        search: false,
         searchHighlight: true,
         showColumns: true,
         stickyHeader: true,

@@ -139,12 +139,12 @@
             for (const meta_key of meta_keys) {
                 meta_columns.push({
                     field: meta_key,
-                    title: meta_key.toTitleCase()
+                    title: schema.meta[meta_key] || meta_key.toTitleCase()
                 });
             }
 
             var fields = ["header"];
-            var data_columns = [{field: "header", title: ""}];
+            var data_columns = [{field: "header", title: "", switchable: false}];
             var data_rows = {};
 
             for (const language of Object.values(languages)) {
@@ -172,7 +172,7 @@
                 const data_keys = all_data_keys.filter(key => !ignore_data_keys.includes(key));
                 const rows = data_keys.map(key => {
                     const row_object = {
-                        "header": schema[key] || key
+                        "header": schema.data[key] || key.toTitleCase()
                     };
                     data.forEach(row => {
                         const language_code = languages[row.language_id].code;
