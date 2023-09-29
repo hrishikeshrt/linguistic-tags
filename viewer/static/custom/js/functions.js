@@ -1,4 +1,12 @@
 /* ------------------------------------------------------------------------- */
+
+String.prototype.toTitleCase = function(){
+    return this.replace(/(?:^|\s)\w/g, function(match) {
+        return match.toUpperCase();
+    });
+};
+
+/* ------------------------------------------------------------------------- */
 // Render Table
 
 function render_table($parent, data, options, download_name = 'result') {

@@ -38,8 +38,8 @@
 
         const $tag_category_selector = $("#tag-category-selector");
         const $tag_selector = $("#tag-selector");
-        const $tag_meta_div = $("#tag-meta");
-        const $tag_data_table = $("#tag-data");
+        const tag_meta_container = $("#tag-meta");
+        const tag_data_container = $("#tag-data");
 
     </script>
     <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
@@ -103,7 +103,7 @@
                 }
                 if (this.selected_options.length > MAX_SELECT) {
                     $.notify({
-                        "message": `You can compare only upto ${MAX_SELECT} tags at a time.`
+                        "message": `You can select at most ${MAX_SELECT} tags at a time.`
                     }, {
                         "type": "warning"
                     });
@@ -118,7 +118,7 @@
         }
 
         function render_tag_meta_div(metadata) {
-            $tag_meta_div;
+            tag_meta_container;
         }
 
 
@@ -130,8 +130,22 @@
             const tags = response.tags;
             const tag_count = Object.keys(tags).length;
 
+            var meta_columns = [];
+            var meta_rows = [];
+            const all_meta_keys = Object.keys(Object.values(tags)[0].tag);
+            const ignore_meta_keys = ["id", "tag"];
+            const meta_keys = all_meta_keys.filter(key => !ignore_meta_keys.includes(key));
+            for (const meta_key of meta_keys) {
+                meta_columns.push({
+                    field: meta_key,
+                    title: meta_key.toTitleCase()
+                });
+            }
+
             var fields = ["header"];
-            var columns = [{field: "header", title: ""}];
+            var data_columns = [{field: "header", title: ""}];
+            var data_rows = {};
+
             for (const language of Object.values(languages)) {
                 for (const [tag_id, tag_data] of Object.entries(tags)) {
                     fields.push(`${language.code}_${tag_id}`);
@@ -141,23 +155,21 @@
                         ? `${language.english_name} (${language.name})`
                         : `${language.english_name} (${language.name})<hr>${tag_data.tag.code}: ${tag_data.tag.name}`
                     );
-                    columns.push({
+                    data_columns.push({
                         field: field_name,
                         title: field_title
                     });
                 }
             }
-            console.log(columns);
-
-            var ROWS = {};
+            // console.log(data_columns);
             for (const [tag_id, tag_data] of Object.entries(tags)) {
+                meta_rows.push(tag_data.tag);
+
                 const data = tag_data.data;
-                const all_keys = Object.keys(data[0]);
-                console.log(all_keys);
-                const ignore_keys = ["id", "tag_id", "language_id"];
-                console.log(ignore_keys);
-                const keys = all_keys.filter(key => !ignore_keys.includes(key));
-                const rows = keys.map(key => {
+                const all_data_keys = Object.keys(data[0]);
+                const ignore_data_keys = ["id", "tag_id", "language_id"];
+                const data_keys = all_data_keys.filter(key => !ignore_data_keys.includes(key));
+                const rows = data_keys.map(key => {
                     const row_object = {
                         "header": schema[key] || key
                     };
@@ -169,52 +181,21 @@
                     return row_object;
                 });
                 for (const row of rows) {
-                    if (ROWS[row.header] == undefined) {
-                        ROWS[row.header] = row;
+                    if (data_rows[row.header] == undefined) {
+                        data_rows[row.header] = row;
                     } else {
-                        for (const [k, v] of Object.entries(row)) {
-                            ROWS[row.header][k] = v;
+                        for (const [_key, _value] of Object.entries(row)) {
+                            data_rows[row.header][_key] = _value;
                         }
                     }
                 }
-                console.log(ROWS);
+                console.log(data_rows);
             }
-            return {table: {columns: columns, rows: Object.values(ROWS)}}
+            return {
+                info: {columns: meta_columns, rows: meta_rows},
+                table: {columns: data_columns, rows: Object.values(data_rows)}
+            }
         }
-
-        /*
-        function parse_tag_data_response(response) {
-            console.log(response);
-
-            const schema = response.schema;
-            const data = response.data;
-            const languages = response.languages;
-
-            var fields = ["header"];
-            var columns = [{field: "header", title: ""}];
-            for (const language of Object.values(languages)) {
-                fields.push(language.code)
-                columns.push({
-                    field: language.code,
-                    title: `${language.english_name} (${language.name})`
-                });
-            }
-
-            const all_keys = Object.keys(data[0]);
-            const ignore_keys = ["id", "tag_id", "language_id"];
-            const keys = all_keys.filter(key => !ignore_keys.includes(key));
-            const rows = keys.map(key => {
-                const row_object = {
-                    "header": schema[key] || key
-                };
-                data.forEach(row => {
-                    row_key = languages[row.language_id].code;
-                    row_object[row_key] = row[key].replace(/\n/g, "<br />");
-                });
-                return row_object;
-            });
-            return {columns: columns, rows: rows}
-        } */
 
         function render_tag_data_table(tag_category, tag_ids) {
             const api_url = (
@@ -223,8 +204,19 @@
                 .replace('TAG_IDS', tag_ids)
             );
             $.getJSON(api_url, function(response) {
-                const tag_data_table_data = parse_tag_data_response(response);
-                render_table($tag_data_table, tag_data_table_data.table, {}, `${tag_category}_${tag_ids.join("_")}`);
+                const tag_data_object = parse_tag_data_response(response);
+
+                render_table(
+                    tag_meta_container,
+                    tag_data_object.info,
+                    {search: false, showExport: false, showColumns: false},
+                    `${tag_category}_${tag_ids.join("_")}`
+                );
+                render_table(
+                    tag_data_container,
+                    tag_data_object.table, {},
+                    `${tag_category}_${tag_ids.join("_")}`
+                );
             });
         }
     </script>
