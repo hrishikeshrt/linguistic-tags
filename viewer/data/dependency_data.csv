@@ -1,0 +1,551 @@
+tag_id,language_id,example,iso_transliteration,accuracy,sanskrit_translation,english_translation,markers
+1,1,तिलेषु तैलम्,tilēṣu tailam,,,,
+1,2,घर मे बैठा है।,ghara mē baiṭhā hai.,,,,
+1,3,ಮನೆಯಲ್ಲಿ ಕುಳಿತಿದ್ದಾನೆ,maneyalli kuḷitiddāne,,,,
+2,1,कटे आस्ते,kaṭē āstē,,,,
+2,2,छत पर बैठा है।,chata para baiṭhā hai.,,,,
+2,3,ಕೋಲ್ಕತ್ತಾದಲ್ಲಿರುವ ಪ್ರಸಿದ್ಧ ಕಾಳಿಮಾತೆಯ ದೇವಾಲಯವು ತುಂಬಾ ಭವ್ಯವಾಗಿದೆ,Kōlkattādalliruva prasiddha kāḷi\_māteya dēvālayavu tuṁbā bhavyavāgide.,,,,
+3,1,गङ्गायां घोषः।,gaṅgāyāṁ ghōṣaḥ.,,,,
+3,2,,,,,,
+3,3,,,,,,
+4,1,दुग्घात् दधिः।,dugghāt dadhiḥ.,,,,
+4,2,दूध से दही।,dūdha sē dahī.,,,,
+4,3,ಹಾಲಿನಿಂದ ಮೊಸರಾಗಿದೆ.,hāliniṁda mosarāgide.,,,,
+5,1,वृक्षात् पर्णं पतति।,vr̥kṣāt parṇaṁ patati.,,,,
+5,2,"गोपाल शर्मा ने बताया कि अहमदाबाद में मारा गया आतंकी बाबर , [घाटी से] ही वहां भेजा गया था ।
+word: घाटी        head: भेजा","gōpāla śarmā nē batāyā ki ahamadābāda mēṁ mārā gayā ātaṁkī bābara , [ghāṭī sē] hī vahāṁ bhējā gayā thā .
+word: ghāṭī head: bhējā","Training support - 1183
+Test support - 166
+Accuracy - 62.65",,,
+5,3,"ವೃಕ್ಷದಿಂದ ಎಲೆಯು ಬೀಳುತ್ತದೆ. ವೃಕ್ಷದಿಂದ - from the tree.  Vr̥kṣadinda eleyu bīḷuttade. Vr̥kṣadinda - from the tree.
+","vr̥kṣadiṁda eleyu bīḷuttade. vr̥kṣadiṁda - from the tree. Vr̥kṣadinda eleyu bīḷuttade. Vr̥kṣadinda - from the tree.
+","Training support -
+Test support -
+Accuracy - ",,,
+6,1,"मृदः घटः।
+शृङ्गात् शरः।
+गोमयात् वृश्चिकः।","mr̥daḥ ghaṭaḥ.
+śr̥ṅgāt śaraḥ.
+gōmayāt vr̥ścikaḥ.",,,,
+6,2,[चमडे से] बनी चप्पल।,[camaḍē sē] banī cappala.,,,,
+6,3,ಮಣ್ಣಿನಿಂದ ಮಡಿಕೆಯು ಆಗಿದೆ. ,maṇṇiniṁda maḍikeyu āgide.,,,,
+7,1,रामेण सीता वनं गच्छति।,rāmēṇa sītā vanaṁ gacchati.,,,,
+7,2,,,,,,
+7,3,,,,,,
+8,1,रामेण सह सीता वनं गच्छति।,rāmēṇa saha sītā vanaṁ gacchati.,,,,
+8,2,"राम के साथ सीता वन में गई।
+राम संग सीता वन गई।","rāma kē sātha sītā vana mēṁ gaī.
+rāma saṁga sītā vana gaī.",,,,
+8,3,,,,,,
+9,1,चन्द्रम् इव मुखं पश्य। चन्द्रं --> इव--> मुखं -- >पश्य ; चन्द्रम् --इव सुन्दरं --->मुखं OR पश्य चन्द्र--- इव-->सुन्दर-->मुख--,candram iva mukhaṁ paśya. candraṁ --> iva--> mukhaṁ -- >paśya ; candram --iva sundaraṁ --->mukhaṁ or paśya candra--- iva-->sundara-->mukha--,,,,
+9,2,"पुलिस कमिश्नर ने दोहराया कि हमले का तौर तरीका अल कायदा आतंकियों जैसा ही है ।
+word: आतंकियों        head: है","pulisa kamiśnara nē dōharāyā ki hamalē kā taura tarīkā ala kāyadā ātaṁkiyōṁ jaisā hī hai .
+word: ātaṁkiyōṁ head: hai","Training support -
+Test support -
+Accuracy - ",,,
+9,3,"ಚಂದ್ರನ ಹಾಗೆ ಇರುವ ಮುಖವನ್ನು ನೋಡು. ಚಂದ್ರನ ಹಾಗೆ- like chandra                                                                  Candrana hāge iruva mukhavannu nōḍu. Candrana hāge- like chandra
+","caṁdrana hāge iruva mukhavannu nōḍu. caṁdrana hāge- like chandra Candrana hāge iruva mukhavannu nōḍu. Candrana hāge- like chandra
+",,,,
+10,1,बालः कुञ्चिकया तालम् उद्घाटयति। ,bālaḥ kuñcikayā tālam udghāṭayati.,,,,
+10,2,"हिमाचल प्रदेश में भी लाहौल , स्पीति और पिन बर्फ की सफेद चादर से ढके हुए हैं ।
+word: चादर        head: ढके","himācala pradēśa mēṁ bhī lāhaula , spīti aura pina barpha kī saphēda cādara sē ḍhakē huē haiṁ .
+word: cādara head: ḍhakē","Training support - 522
+Test support - 63
+Accuracy - 25.4",,,
+10,3,"ಮಗುವು ಬೀಗದಕೈನಿಂದ ಬೀಗವನ್ನು ತೆಗೆಯಿತು. ಬೀಗದಕೈನಿಂದ - key  Maguvu bīgadakaininda bīgavannu tegeyitu. Bīgadakaininda - key.
+.","maguvu bīgadakainiṁda bīgavannu tegeyitu. bīgadakainiṁda - key Maguvu bīgadakaininda bīgavannu tegeyitu. Bīgadakaininda - key.
+.",,,,
+11,1,"रामः पचति।
+रामेण गम्यते","rāmaḥ pacati.
+rāmēṇa gamyatē",,,,
+11,2,"उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी .
+word: पुलिस        head: तलाश
+","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī .
+word: pulisa head: talāśa
+","Training support - 19332
+Test support - 2302
+Accuracy - 91.23",,,
+11,3,"ರಾಮನು ಅಡುಗೆಯನ್ನು ಮಾಡುತ್ತಾನೆ.   Rāmanu aḍugeyannu māḍuttāne.
+","rāmanu aḍugeyannu māḍuttāne. Rāmanu aḍugeyannu māḍuttāne.
+",,,,
+12,1,"अहं त्वां मूढं मन्ये।
+अहं त्वां तृणं मन्ये।
+मम रामः बुद्धिमान् इति भाति।
+Verb semantics: भाति, भासते but not with मन्-मन्यते। but मम मन्तव्यं रामः बुद्धिमान् इति।","ahaṁ tvāṁ mūḍhaṁ manyē.
+ahaṁ tvāṁ tr̥ṇaṁ manyē.
+mama rāmaḥ buddhimān iti bhāti.
+verb semantics: bhāti, bhāsatē but not with man-manyatē. but mama mantavyaṁ rāmaḥ buddhimān iti.",,,,
+12,2,मुझ को राम बुद्धिमान् लगता है। ,mujha kō rāma buddhimān lagatā hai.,"Training support - 410
+Test support - 27
+Accuracy - 37.04",,,
+12,3,"ನನಗೆ ರಾಮನು ಬುದ್ಧಿವಂತನೆಂದು ಅನಿಸುತ್ತದೆ.  Nanage rāmanu bud'dhivantanendu anisuttade.
+","nanage rāmanu buddhivaṁtaneṁdu anisuttade. Nanage rāmanu bud'dhivantanendu anisuttade.
+","Training support - 561
+Test support - 144
+Accuracy - ",,,
+13,1,"रामस्य गमनं।
+Word: Head","rāmasya gamanaṁ.
+word: head",,,,
+13,2,"रिपोर्ट में बताया गया है कि मात्र २० से २५ फीसदी तक ही मामले में इसका सही उपयोग हो रहा है ।
+word: इसका	head: उपयोग
+","ripōrṭa mēṁ batāyā gayā hai ki mātra 20 sē 25 phīsadī taka hī māmalē mēṁ isakā sahī upayōga hō rahā hai .
+word: isakā head: upayōga
+","Training support - 520
+Test support - 28
+Accuracy - 32.14",,,
+13,3,"ರಾಮನ ಗಮನ. Rāmana gamana.
+Word: Head","rāmana gamana. Rāmana gamana.
+Word: Head","Training support - 19
+Test support - 9
+Accuracy - ",,,
+14,1,देवदत्तः विश्वामित्रेण ओदनं पाचयति।,dēvadattaḥ viśvāmitrēṇa ōdanaṁ pācayati.,,,,
+14,2,"राहत शिविरों में मठ के लोग भोजन उपलब्ध करा रहे हैं ।
+word: लोग        head: करा                       (8)","rāhata śivirōṁ mēṁ maṭha kē lōga bhōjana upalabdha karā rahē haiṁ .
+word: lōga head: karā (8)","Training support - 8
+Test support - 0
+Accuracy - 0",,,
+14,3,"ದೇವದತ್ತನು ವಿಶ್ವಾಮಿತ್ರನಿಂದ ಅನ್ನವನ್ನು ಮಾಡಿಸುತ್ತಾನೆ. Dēvadattanu viśvāmitraninda annavannu māḍisuttāne.
+ ","dēvadattanu viśvāmitraniṁda annavannu māḍisuttāne. Dēvadattanu viśvāmitraninda annavannu māḍisuttāne.
+",no examples,,,
+15,1,देवदत्तः विश्वामित्रेण ओदनं पाचयति। ,dēvadattaḥ viśvāmitrēṇa ōdanaṁ pācayati.,,,,
+15,2,देवदत्त विश्वामित्र से खाना बनवाता है।,dēvadatta viśvāmitra sē khānā banavātā hai.,"Training support - 10
+Test support -0
+Accuracy - 0",,,
+15,3," Dēvadattanu viśvāmitraninda annavannu māḍisidanu.
+ದೇವದತ್ತನು ವಿಶ್ವಾಮಿತ್ರನಿಂದ ಅನ್ನವನ್ನು ಮಾಡಿಸಿದನು."," Dēvadattanu viśvāmitraninda annavannu māḍisidanu.
+dēvadattanu viśvāmitraniṁda annavannu māḍisidanu.",no examples,,,
+16,1,माता धात्र्या पुत्रं दुग्धं पाययति।,mātā dhātryā putraṁ dugdhaṁ pāyayati.,,,,
+16,2,"सूत्रों ने कुछ और दावेदारों द्वारा सोनिया से मुलाकात किए जाने की बात कही है ।
+word: दावेदारों        head: कही                            (1)","sūtrōṁ nē kucha aura dāvēdārōṁ dvārā sōniyā sē mulākāta kiē jānē kī bāta kahī hai .
+word: dāvēdārōṁ head: kahī (1)","Training support - 1
+Test support -0
+Accuracy - 0",,,
+16,3,"ತಾಯಿಯು ಧಾತ್ರಿಯಿಂದ ಮಗನಿಗೆ ಹಾಲನ್ನು ಕುಡಿಸಿದಳು. ಧಾತ್ರಿಯಿಂದ- with the help of dhaatri. Tāyiyu dhātriyinda maganige hālannu kuḍisidaḷu. Dhātriyinda- with the help of dhaatri.
+","tāyiyu dhātriyiṁda maganige hālannu kuḍisidaḷu. dhātriyiṁda- with the help of dhaatri. Tāyiyu dhātriyinda maganige hālannu kuḍisidaḷu. Dhātriyinda- with the help of dhaatri.
+",no examples,,,
+17,1,,,,,,
+17,2,"खुद कांग्रेस अध्यक्ष सोनिया गांधी ने केरल में वामदलों को अपना सबसे बड़ा विरोधी कहा है ।
+word: खुद	head: गांधी
+","khuda kāṁgrēsa adhyakṣa sōniyā gāṁdhī nē kērala mēṁ vāmadalōṁ kō apanā sabasē baṛā virōdhī kahā hai .
+word: khuda head: gāṁdhī
+","Training support - 43
+Test support - 5
+Accuracy - 80",,,
+17,3,,,no examples,,,
+18,1,"रामेण ग्रामः गम्यते।
+ शत्रून् जयति।
+रामेण प्रजानां शासनं क्रियते।  ","rāmēṇa grāmaḥ gamyatē.
+śatrūn jayati.
+rāmēṇa prajānāṁ śāsanaṁ kriyatē. ",,,,
+18,2,"उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी .
+word: उसे        head: तलाश
+","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī .
+word: usē head: talāśa
+","Training support - 14350
+Test support - 1926
+Accuracy - 78.66",,,
+18,3,In kannada bhaave prayoga is not used . ,In kannada bhaave prayoga is not used .,,,,
+19,1,"श्लोकस्य पाठः।
+आश्चर्यो गवां दोहोऽगोपालकेन।
+रोचते ओदनस्य भोजनं देवदत्तेन।
+साधु खलु पयसः पानं देवदत्तेन।
+विचित्रा सूत्रस्य कृतिः पाणिनिना।
+word:  श्लोकस्य  Head: पाठः","ślōkasya pāṭhaḥ.
+āścaryō gavāṁ dōhō’gōpālakēna.
+rōcatē ōdanasya bhōjanaṁ dēvadattēna.
+sādhu khalu payasaḥ pānaṁ dēvadattēna.
+vicitrā sūtrasya kr̥tiḥ pāṇininā.
+word: ślōkasya head: pāṭhaḥ",,,,
+19,2,"मौसम विभाग ने यहां अगले २४ घंटे में आंधी - तूफान की आशंका जताई है ।
+word: तूफान	head: आशंका","mausama vibhāga nē yahāṁ agalē 24 ghaṁṭē mēṁ āṁdhī - tūphāna kī āśaṁkā jatāī hai .
+word: tūphāna head: āśaṁkā","Training support - 2396
+Test support - 277
+Accuracy - 86.28",,,
+19,3,"ಶ್ಲೋಕದ ಪಾಠ. Ślōkada pāṭha.
+word: Head: ","ślōkada pāṭha. Ślōkada pāṭha.
+word: Head: ","Training support - 2
+Test support - 1
+Accuracy - ",,,
+20,1,रामः ग्रामाय गच्छति।?  रामः ग्रामं गच्छति।,rāmaḥ grāmāya gacchati.? rāmaḥ grāmaṁ gacchati.,,,,
+20,2,"राम घर गया।    वह सब को अपने घर बुलाते है।  राम को दिल्ली जाना पडा।  बुश बुधवार रात को ही दिल्ली पहुंच चुके हैं ।
+word: दिल्ली        head: पहुंच
+","rāma ghara gayā. vaha saba kō apanē ghara bulātē hai. rāma kō dillī jānā paḍā. buśa budhavāra rāta kō hī dillī pahuṁca cukē haiṁ .
+word: dillī head: pahuṁca
+","Training support - 450
+Test support - 48
+Accuracy - 62.5",,,
+20,3,"ರಾಮನು ಗ್ರಾಮಕ್ಕೆ ಹೋಗುತ್ತಾನೆ. ಗ್ರಾಮಕ್ಕೆ - to graama    Rāmanu grāmakke hōguttāne. Grāmakke - to graama
+ಊಟಕ್ಕಾಗಿ ಹೋಗುತ್ತಾನೆ (sanskrit chaturthi)","rāmanu grāmakke hōguttāne. grāmakke - to graama Rāmanu grāmakke hōguttāne. Grāmakke - to graama
+ūṭakkāgi hōguttāne (sanskrit chaturthi)","Training support - 660
+Test support - 180
+Accuracy - ",,,
+21,1,"गौणकर्म - सः अजां ग्रामं (गौणकर्म) नयति।  गोपालः गां दुग्धं दोग्धि।
+Glos: cowherd{nom} cow{acc} milk{ac} milches.
+Eng: The cowherd milches the milk from/of the cow.
+Analysis:
+1 गोपालः कर्ता,4
+2 गां गौणकर्म,4
+3 दुग्धं मुख्यकर्म,4
+4 दोग्धि","gauṇakarma - saḥ ajāṁ grāmaṁ (gauṇakarma) nayati. gōpālaḥ gāṁ dugdhaṁ dōgdhi.
+glos: cowherd{nom} cow{acc} milk{ac} milches.
+eng: the cowherd milches the milk from/of the cow.
+analysis:
+1 gōpālaḥ kartā,4
+2 gāṁ gauṇakarma,4
+3 dugdhaṁ mukhyakarma,4
+4 dōgdhi",,,,
+21,2,गोपाल गाय का दूध निकालता है। वैज्ञानिक इसे ' बेबी प्लेनेट ' भी कह रहे हैं . ,gōpāla gāya kā dūdha nikālatā hai. vaijñānika isē ' bēbī plēnēṭa ' bhī kaha rahē haiṁ .,"Training support - 38
+Test support - 1
+Accuracy - 0",,,
+21,3,ಗೌಣ ಕರ್ಮ- ಅವನು ಮೇಕೆಯನ್ನು ಗ್ರಾಮಕ್ಕೆ ಕರೆದುಕೊಂಡುಹೋಗುತ್ತಾನೆ.                                                            ಗೋಪಾಲನು ಗೋವಿನ / ಗೋವಿನಿಂದ ಹಾಲನ್ನು ಕರೆದನು. ,gauṇa karma- avanu mēkeyannu grāmakke karedukoṁḍuhōguttāne. gōpālanu gōvina / gōviniṁda hālannu karedanu.,"Training support - 113
+Test support - 45
+Accuracy - ",,,
+22,1,Word: Head:    ,word: head:,,,,
+22,2,"चाबी मेज़ पर रख दो  which means “मेज पर चाबी रखो” Morphological indicator: Compound verbs are formed by combining the stem of a main verb with an inflected form of an auxiliary verb. The main verb provides the basic meaning, and the auxiliary modifies the meaning with some nuance. उदाहरण:  उठ बैठा, रख लो, लिख दो","cābī mēza para rakha dō which means “mēja para cābī rakhō” morphological indicator: compound verbs are formed by combining the stem of a main verb with an inflected form of an auxiliary verb. the main verb provides the basic meaning, and the auxiliary modifies the meaning with some nuance. udāharaṇa: uṭha baiṭhā, rakha lō, likha dō",,,,
+22,3, Word: Head:    ,Word: Head:,no examples,,,
+23,1,,,,,,
+23,2,,,,,,
+23,3,,,no examples,,,
+24,1,,,,,,
+24,2,"उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी .
+word: थी	head: रही","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī .
+word: thī head: rahī","Training support - 5717
+Test support - 727
+Accuracy - 99.45
+(not present in kannada data)",,,
+24,3,,,no example,,,
+25,1,,,,,,
+25,2,"पांच लाख का इनामी और कुख्यात स्वयंभू नक्सल कमांडर कमलेश्वर बैठा पटना के बाहरी इलाके में पकड़ा गया है .
+word: गया	head: पकड़ा","pāṁca lākha kā ināmī aura kukhyāta svayaṁbhū naksala kamāṁḍara kamalēśvara baiṭhā paṭanā kē bāharī ilākē mēṁ pakaṛā gayā hai .
+word: gayā head: pakaṛā","Training support - 13494
+Test support - 1647
+Accuracy - 98.3
+
+(not present in kannada data)",,,
+25,3,,,no example,,,
+26,1,,,,,,
+26,2,,,,,,
+26,3,,,,,,
+27,1,"रामः पठति।
+कृष्णः शयनं करोति।","rāmaḥ paṭhati.
+kr̥ṣṇaḥ śayanaṁ karōti.",,,,
+27,2,"उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी .
+word: तलाश        head: ROOT","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī .
+word: talāśa head: root",,,,
+27,3,"ಏನಾದರು ನೀನು ಇಚ್ಛಿಸಿದರೆ ನಾನು ನಿಮ್ಮ ಮನೆಗೆ ಬರುತ್ತೇನೆ.  ಬರುತ್ತೇನೆ- will come. Ēnādaru nīnu icchisidare nānu nim'ma manege baruttēne. Baruttēne- will come.
+","ēnādaru nīnu icchisidare nānu nimma manege baruttēne. baruttēne- will come. Ēnādaru nīnu icchisidare nānu nim'ma manege baruttēne. Baruttēne- will come.
+",,,,
+28,1, ,,,,,
+28,2,"खंडपीठ ने अपने फैसले में इन तीनों को एक महीने के अंदर सामूहिक रूप से ३७,००० रुपये लौटाने के आदेश दिए हैं ।
+
+word: रूप        head: लौटाने
+","khaṁḍapīṭha nē apanē phaisalē mēṁ ina tīnōṁ kō ēka mahīnē kē aṁdara sāmūhika rūpa sē 37,000 rupayē lauṭānē kē ādēśa diē haiṁ .
+
+word: rūpa head: lauṭānē
+","Training support - 1960
+Test support - 206
+Accuracy - 73.3%",,,
+28,3,"ಆನೆಯು ಮಾರ್ಗದಲ್ಲಿ ನಿಧಾನವಾಗಿ ಹೋಗುತ್ತದೆ       ನಿಧಾನ- slow   Āneyu mārgadalli nidhānavāgi hōguttade    Word: Head:
+","āneyu mārgadalli nidhānavāgi hōguttade nidhāna- slow Āneyu mārgadalli nidhānavāgi hōguttade Word: Head:
+","Training support -
+Test support -
+Accuracy - ",,,
+29,1,न खादतु।,na khādatu.,,,,
+29,2,मत खाओ।,mata khāō.,,,,
+29,3,,,,,,
+30,1,मनुष्यः न सिंहः । घटः न अस्ति।,manuṣyaḥ na siṁhaḥ . ghaṭaḥ na asti.,,,,
+30,2,मनुष्य है सिंह नही।,manuṣya hai siṁha nahī.,,,,
+30,3,,,,,,
+31,1,फलाय वनं गच्छामि।,phalāya vanaṁ gacchāmi.,,,,
+31,2,"कांग्रेस ने भी इसका विरोध इसलिए किया कि उसमें पर्याप्त संरक्षण उपाय नहीं किए गए थे ।
+word: नहीं	head: किए","kāṁgrēsa nē bhī isakā virōdha isaliē kiyā ki usamēṁ paryāpta saṁrakṣaṇa upāya nahīṁ kiē gaē thē .
+word: nahīṁ head: kiē","Training support - 1945
+Test support - 199
+Accuracy - 100
+
+(not present in kannada data)",,,
+31,3,"ಘಟವು ಇಲ್ಲ. ಇಲ್ಲ - is not there. Ghaṭavu illa. Illa - is not there. illa = न iru (अस्)
+Kannada one word only. Bangla may or may not be one word depending on lakara.न can be translated as alla and illa.","ghaṭavu illa. illa - is not there. Ghaṭavu illa. Illa - is not there. illa = न iru (अस्)
+Kannada one word only. Bangla may or may not be one word depending on lakara.न can be translated as alla and illa.",no example,,,
+32,1,"यदि त्वं इच्छसि तर्हि अहं भवतः गृहं आगमिष्यामि। इच्छसि-अनुयोगी यदि-अनुयोगीmarker, आगमिष्यामि-प्रतियोगी तर्हि-प्रतियोगीmarker ","yadi tvaṁ icchasi tarhi ahaṁ bhavataḥ gr̥haṁ āgamiṣyāmi. icchasi-anuyōgī yadi-anuyōgīmarker, āgamiṣyāmi-pratiyōgī tarhi-pratiyōgīmarker",,,,
+32,2,"इस नक्सली नेता से पूछताछ के लिए उत्तर प्रदेश और झारखंड से भी एसटीएफ के लोग आ रहे हैं .
+word: नेता        head: पूछताछ","isa naksalī nētā sē pūchatācha kē liē uttara pradēśa aura jhārakhaṁḍa sē bhī ēsaṭīēpha kē lōga ā rahē haiṁ .
+word: nētā head: pūchatācha",,,,
+32,3,,,,,,
+33,1,"यदि त्वं इच्छसि तर्हि अहं भवतः गृहं आगमिष्यामि। इच्छसि-अनुयोगी यदि-अनुयोगीmarker, आगमिष्यामि-प्रतियोगी तर्हि-प्रतियोगीmarker ","yadi tvaṁ icchasi tarhi ahaṁ bhavataḥ gr̥haṁ āgamiṣyāmi. icchasi-anuyōgī yadi-anuyōgīmarker, āgamiṣyāmi-pratiyōgī tarhi-pratiyōgīmarker",,,,
+33,2,यदि आप चाहे तो मै आप के घर आऊंगा। ,yadi āpa cāhē tō mai āpa kē ghara āūṁgā.,,,,
+33,3,,,,,,
+34,1,"यदि त्वं इच्छसि तर्हि अहं भवतः गृहं आगमिष्यामि। इच्छसि-अनुयोगी यदि-अनुयोगीmarker, आगमिष्यामि-प्रतियोगी तर्हि-प्रतियोगीmarker ","yadi tvaṁ icchasi tarhi ahaṁ bhavataḥ gr̥haṁ āgamiṣyāmi. icchasi-anuyōgī yadi-anuyōgīmarker, āgamiṣyāmi-pratiyōgī tarhi-pratiyōgīmarker",,,,
+34,2,यदि आप चाहे तो मै आप के घर आऊंगा। ,yadi āpa cāhē tō mai āpa kē ghara āūṁgā.,"Training support - 14089
+Test support - 1804
+Accuracy - 97.78",,,
+34,3,"ಏನಾದರು ನೀನು ಇಚ್ಛಿಸಿದರೆ ನಾನು ನಿಮ್ಮ ಮನೆಗೆ ಬರುತ್ತೇನೆ.  ಬರುತ್ತೇನೆ- will come. Ēnādaru nīnu icchisidare nānu nim'ma manege baruttēne. Baruttēne- will come.
+","ēnādaru nīnu icchisidare nānu nimma manege baruttēne. baruttēne- will come. Ēnādaru nīnu icchisidare nānu nim'ma manege baruttēne. Baruttēne- will come.
+",,,,
+35,1,"वर्षति चेत् न आगच्छामि।
+word: head:","varṣati cēt na āgacchāmi.
+word: head:",,,,
+35,2,"वर्ष २००३ में राज्य में जहाँ ३४०१ आतंकी घटनाएं हुई थी वहीं इस साल सिर्फ १४१५ आतंकी घटनाएं हुई है ।
+word: हुई	head: वहीं
+","varṣa 2003 mēṁ rājya mēṁ jahām̐ 3401 ātaṁkī ghaṭanāēṁ huī thī vahīṁ isa sāla sirpha 1415 ātaṁkī ghaṭanāēṁ huī hai .
+word: huī head: vahīṁ
+","Training support - 28
+Test support -1
+Accuracy - 0",,,
+35,3,word: head:,word: head:,no examples,,,
+36,1,रामः (समुच्चित) सीता (समुच्चित) च (समुच्चय-द्योतक) वनं गच्छतः।  Word: Head:  ,rāmaḥ (samuccita) sītā (samuccita) ca (samuccaya-dyōtaka) vanaṁ gacchataḥ. word: head:,,,,
+36,2," उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी . Word: Head:  ","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī . word: head:",,,,
+36,3,ರಾಮ ಮತ್ತು ಸೀತೆ ಕಾಡಿಗೆ ಹೋದರು.  Word: Head:  ,rāma mattu sīte kāḍige hōdaru. Word: Head:,,,,
+37,1,"अहं गृहं गमिष्यामि इति सः अवदत्।
+word: Head:","ahaṁ gr̥haṁ gamiṣyāmi iti saḥ avadat.
+word: head:",,,,
+37,2,"वार्ता , केवल हुर्रियत से होगी या फिर इसमें और लोग भी शामिल होंगे के बारे में पूछे जाने पर जायसवाल ने कहा कि यह जरूरी नहीं कि यह एक व्यक्ति तक सीमित हो ।
+word:    सीमित हो      head:       कि","vārtā , kēvala hurriyata sē hōgī yā phira isamēṁ aura lōga bhī śāmila hōṁgē kē bārē mēṁ pūchē jānē para jāyasavāla nē kahā ki yaha jarūrī nahīṁ ki yaha ēka vyakti taka sīmita hō .
+word: sīmita hō head: ki","Training support rs- 1483
+Test support - 167
+Accuracy - 76.65
+Training support k1s- 2596
+Test support - 346
+Accuracy - 74.57""",,,
+37,3,"""ದೇವದತ್ತನು ಅಧ್ಯಾಪಕನಾಗಿದ್ದಾನೆ. ಅಧ್ಯಾಪಕ- teacher  ಮಗುವು ಮಲಗಿಕೊಂಡಿದೆ. ಮಲಗಿಕೊಂಡಿದೆ - sleeping                                    Dēvadattanu adhyāpakanāgiddāne. Adhyāpaka- teacher maguvu malagikoṇḍide. Malagikoṇḍide - sleeping
+ ""
+word: head:","""dēvadattanu adhyāpakanāgiddāne. adhyāpaka- teacher maguvu malagikoṁḍide. malagikoṁḍide - sleeping Dēvadattanu adhyāpakanāgiddāne. Adhyāpaka- teacher maguvu malagikoṇḍide. Malagikoṇḍide - sleeping
+""
+word: head:","Training support for k1s - 3051
+Test support - 867
+Accuracy - ",,,
+38,1,"अहं गृहं गमिष्यामि इति सः अवदत्।
+word: Head:","ahaṁ gr̥haṁ gamiṣyāmi iti saḥ avadat.
+word: head:",,,,
+38,2,"वार्ता , केवल हुर्रियत से होगी या फिर इसमें और लोग भी शामिल होंगे के बारे में पूछे जाने पर जायसवाल ने कहा कि यह जरूरी नहीं कि यह एक व्यक्ति तक सीमित हो । word: सीमित हो head: कि","vārtā , kēvala hurriyata sē hōgī yā phira isamēṁ aura lōga bhī śāmila hōṁgē kē bārē mēṁ pūchē jānē para jāyasavāla nē kahā ki yaha jarūrī nahīṁ ki yaha ēka vyakti taka sīmita hō . word: sīmita hō head: ki","Training support - 8
+Test support - 0
+Accuracy - na",,,
+38,3,"ನಾನು ಮನೆಗೆ ಹೋಗುತ್ತೇನೆ ಎಂದು ಅವನು ಹೇಳಿದನು.  ಎಂದು-that  Nānu manege hōguttēne endu avanu hēḷidanu. Endu-that
+Word: Head:","nānu manege hōguttēne eṁdu avanu hēḷidanu. eṁdu-that Nānu manege hōguttēne endu avanu hēḷidanu. Endu-that
+Word: Head:",,,,
+39,1,रामः अध्यापकः भूत्वा छात्रान् पाठयति।,rāmaḥ adhyāpakaḥ bhūtvā chātrān pāṭhayati.,,,,
+39,2,"उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी .
+word: ,        head: प्रदेश","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī .
+word: , head: pradēśa","Training support - 20438
+Test support - 2753
+Accuracy - 99.93",,,
+39,3,word: head:,word: head:,,,,
+40,1,,,,,,
+40,2,"पांच लाख का इनामी और कुख्यात स्वयंभू नक्सल कमांडर कमलेश्वर बैठा पटना के बाहरी इलाके में पकड़ा गया है .
+word: और	head: बैठा","pāṁca lākha kā ināmī aura kukhyāta svayaṁbhū naksala kamāṁḍara kamalēśvara baiṭhā paṭanā kē bāharī ilākē mēṁ pakaṛā gayā hai .
+word: aura head: baiṭhā","Training support - 5202
+Test support - 698
+Accuracy - 65.76",,,
+40,3,"ರಾಮನು ಅಧ್ಯಾಪಕನಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪಾಠಮಾಡುತ್ತಾನೆ. ಅಧ್ಯಾಪಕನಾಗಿ-being teacher.  Rāmanu adhyāpakanāgi vidyārthigaḷige pāṭhamāḍuttāne. Adhyāpakanāgi-being teacher.
+","rāmanu adhyāpakanāgi vidyārthigaḷige pāṭhamāḍuttāne. adhyāpakanāgi-being teacher. Rāmanu adhyāpakanāgi vidyārthigaḷige pāṭhamāḍuttāne. Adhyāpakanāgi-being teacher.
+","Training support - 4519
+Test support - 1247
+Accuracy - ",,,
+41,1,,,,,,
+41,2,"उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी .
+word: पिछले	head: दशक
+","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī .
+word: pichalē head: daśaka
+","Training support - 24405
+Test support - 3017
+Accuracy - 91.85",,,
+41,3,,,no examples,,,
+42,1,,,,,,
+42,2, इसके साथ ही बताया गया कि किन कृत्यों को राष्ट्रध्वज का अपमान माना जाएगा । बजट इस बात पर निर्भर करता है कि आप यात्रा के किस साधन का इस्तेमाल कर रहे हैं और वह बाँधवगढ़ से कितना दूर हैं .,isakē sātha hī batāyā gayā ki kina kr̥tyōṁ kō rāṣṭradhvaja kā apamāna mānā jāēgā . bajaṭa isa bāta para nirbhara karatā hai ki āpa yātrā kē kisa sādhana kā istēmāla kara rahē haiṁ aura vaha bām̐dhavagaṛha sē kitanā dūra haiṁ .,"Training support - 72
+Test support - 7
+Accuracy - 100",,,
+42,3,,,no examples,,,
+43,1,"शयानं बालकं पश्य।
+लिखिते पत्रे इदं कथितम्।","śayānaṁ bālakaṁ paśya.
+likhitē patrē idaṁ kathitam.",,,,
+43,2,"कांग्रेस अध्यक्ष सोनिया गांधी ने भी महाजन की पत्नी रेखा को लिखे पत्र में कहा है कि वो इस घटना से स्तब्ध हैं ।
+word: लिखे        head: पत्र ( Sans trans - लिखिते पत्रे)","kāṁgrēsa adhyakṣa sōniyā gāṁdhī nē bhī mahājana kī patnī rēkhā kō likhē patra mēṁ kahā hai ki vō isa ghaṭanā sē stabdha haiṁ .
+word: likhē head: patra ( sans trans - likhitē patrē)","Training support - 1171
+Test support - 105
+Accuracy - 84.76",,,
+43,3,"ಮಲಗಿರುವ ಮಗುವನ್ನು ನೋಡು. ಬರೆದಿರುವ ಪತ್ರ ಇದನ್ನು ಓದಿ ಹೇಳಿ    ಮಲಗಿರುವ - sleeping ಬರೆದಿರುವ- written।      Malagiruva maguvannu nōḍu. Barediruva patra idannu ōdi hēḷi malagiruva - sleeping barediruva- written
+","malagiruva maguvannu nōḍu. barediruva patra idannu ōdi hēḷi malagiruva - sleeping barediruva- written. Malagiruva maguvannu nōḍu. Barediruva patra idannu ōdi hēḷi malagiruva - sleeping barediruva- written
+",no examples,,,
+44,1,,,,,,
+44,2,"गोपाल शर्मा ने बताया कि अहमदाबाद में मारा गया आतंकी बाबर , घाटी से ही वहां भेजा गया था ।
+word: मारा        head: आतंकी
+","gōpāla śarmā nē batāyā ki ahamadābāda mēṁ mārā gayā ātaṁkī bābara , ghāṭī sē hī vahāṁ bhējā gayā thā .
+word: mārā head: ātaṁkī
+","Training support - 343
+Test support - 47
+Accuracy - 21.28",,,
+44,3,,,no examples,,,
+45,1,"""हस्ती मन्दं मन्दं चलति।
+word: head:""","""hastī mandaṁ mandaṁ calati.
+word: head:""",,,,
+45,2,वृन्दावन के कण कण में कृष्ण है। ,vr̥ndāvana kē kaṇa kaṇa mēṁ kr̥ṣṇa hai.,"Training support - 16
+Test support - 3
+Accuracy - 100",,,
+45,3,,,no examples,,,
+46,1,बालः शयानः हसति। (वर्तमानकाल-सम्बन्धः),bālaḥ śayānaḥ hasati. (vartamānakāla-sambandhaḥ),,,,
+46,2, बच्चा सोते हुए हस रहा है।,baccā sōtē huē hasa rahā hai.,,,,
+46,3,ಮಗು ಮಲಗಿಕೊಂಡು ನಗುತ್ತಿದೆ.,magu malagikoṁḍu naguttide.,,,,
+47,1,,,,,,
+47,2,,,,,,
+47,3,,,,,,
+48,1,,,,,,
+48,2,,,,,,
+48,3,,,,,,
+49,1,"हस्ती मन्दं मन्दं चलति।
+word: head:","hastī mandaṁ mandaṁ calati.
+word: head:",,,,
+49,2,"कांची कामकोटि पीठ के शंकराचार्य जयेंद्र सरस्वती ने वार्ता के जरिये अयोध्या मसला सुलझाने की दिशा में एक बार फिर मदद की पेशकश की है ।
+word: बार	head: फिर
+","kāṁcī kāmakōṭi pīṭha kē śaṁkarācārya jayēṁdra sarasvatī nē vārtā kē jariyē ayōdhyā masalā sulajhānē kī diśā mēṁ ēka bāra phira madada kī pēśakaśa kī hai .
+word: bāra head: phira
+","Training support for rbmod, - 33
+Test support - 6
+Accuracy - 83.33
+Training support for pof_redup - 201
+Test support - 18
+Accuracy - 94.44",,,
+49,3,"ಆನೆಯು ಮೆಲ್ಲ ಮೆಲ್ಲನೆ ನಡೆಯುತ್ತದೆ.   Āneyu mella mellane naḍeyuttade. word: head:
+","āneyu mella mellane naḍeyuttade. Āneyu mella mellane naḍeyuttade. word: head:
+",no examples,,,
+50,1,देवदत्तः अध्यापकः अस्ति।   ,dēvadattaḥ adhyāpakaḥ asti.,,,,
+50,2,"दिल्लीवासियों के लिए बृहस्पतिवार का दिन काफी सुहावना रहा ।
+word: सुहावना	head: रहा
+","dillīvāsiyōṁ kē liē br̥haspativāra kā dina kāphī suhāvanā rahā .
+word: suhāvanā head: rahā
+","Training support k1s- 2596
+Test support - 346
+Accuracy - 74.57",,,
+50,3,"ದೇವದತ್ತನು ಅಧ್ಯಾಪಕನಾಗಿದ್ದಾನೆ. ಅಧ್ಯಾಪಕ- teacher  ಮಗುವು ಮಲಗಿಕೊಂಡಿದೆ. ಮಲಗಿಕೊಂಡಿದೆ - sleeping                                    Dēvadattanu adhyāpakanāgiddāne. Adhyāpaka- teacher maguvu malagikoṇḍide. Malagikoṇḍide - sleeping
+ ","dēvadattanu adhyāpakanāgiddāne. adhyāpaka- teacher maguvu malagikoṁḍide. malagikoṁḍide - sleeping Dēvadattanu adhyāpakanāgiddāne. Adhyāpaka- teacher maguvu malagikoṇḍide. Malagikoṇḍide - sleeping
+",,,,
+51,1,Word: Head:    ,word: head:,,,,
+51,2,"उल्लेखनीय है कि उत्तर प्रदेश और बिहार की सरकारों ने उसके बारे में सूचना देने वाले के लिए दो - दो लाख रुपये का इनाम रखा है .
+word: सूचना        head: देने","ullēkhanīya hai ki uttara pradēśa aura bihāra kī sarakārōṁ nē usakē bārē mēṁ sūcanā dēnē vālē kē liē dō - dō lākha rupayē kā ināma rakhā hai .
+word: sūcanā head: dēnē","Training support - 11585
+Test support - 1508
+Accuracy - 88.79",,,
+51,3,,,,,,
+52,1,,,,,,
+52,2,"पांच लाख का इनामी और कुख्यात स्वयंभू नक्सल कमांडर कमलेश्वर बैठा पटना के बाहरी इलाके में पकड़ा गया है .
+word: नक्सल        head: कमांडर
+
+","pāṁca lākha kā ināmī aura kukhyāta svayaṁbhū naksala kamāṁḍara kamalēśvara baiṭhā paṭanā kē bāharī ilākē mēṁ pakaṛā gayā hai .
+word: naksala head: kamāṁḍara
+
+","Training support - 19067
+Test support - 2701
+Accuracy - 91.56",,,
+52,3,,,no examples,,,
+53,1,,,,,,
+53,2,"सौरमंडल के दूसरे सबसे बड़े ग्रह शनि के रहस्यों का पता लगाने के लिए प्रक्षेपित किया गया अमेरिकी - यूरोपीयन कैसिनी - हूयजेंस अंतरिक्ष यान शनि की कक्षा में पहुंच गया है ।
+word: अमेरिकी         head: यूरोपीयन","sauramaṁḍala kē dūsarē sabasē baṛē graha śani kē rahasyōṁ kā patā lagānē kē liē prakṣēpita kiyā gayā amērikī - yūrōpīyana kaisinī - hūyajēṁsa aṁtarikṣa yāna śani kī kakṣā mēṁ pahuṁca gayā hai .
+word: amērikī head: yūrōpīyana","Training support - 2264
+Test support - 296
+Accuracy - 84.12",,,
+53,3,,,no examples,,,
+54,1,रामः (समुच्चित) सीता (समुच्चित) च वनं गच्छतः। Word: सीता Head: ;,rāmaḥ (samuccita) sītā (samuccita) ca vanaṁ gacchataḥ. word: sītā head: ;,,,,
+54,2,"उत्तर प्रदेश , बिहार और झारखंड की पुलिस उसे पिछले एक दशक से तलाश रही थी .
+word: प्रदेश        head: और
+","uttara pradēśa , bihāra aura jhārakhaṁḍa kī pulisa usē pichalē ēka daśaka sē talāśa rahī thī .
+word: pradēśa head: aura
+","Training support - 19040
+Test support - 2490
+Accuracy - 94.18",,,
+54,3,"ರಾಮ ಮತ್ತು ಸೀತೆ ಕಾಡಿಗೆ ಹೋದರು.  ಮತ್ತು-and
+                                                                                                          Rāma mattu sīte kāḍige hōdaru. Mattu-and
+  Word: Head:  ","rāma mattu sīte kāḍige hōdaru. mattu-and
+Rāma mattu sīte kāḍige hōdaru. Mattu-and
+Word: Head: ","Training support - 11090
+Test support - 2891
+Accuracy - ",,,
+55,1,देवदत्तः ब्राह्मणाय गां ददाति।,dēvadattaḥ brāhmaṇāya gāṁ dadāti.,,,,
+55,2,देवदत्त ब्राह्मणको गाय देता है।,dēvadatta brāhmaṇakō gāya dētā hai.,"Training support - 2135
+Test support -282
+Accuracy - 72.7",,,
+55,3,"ದೇವದತ್ತನು ಬ್ರಾಹ್ಮಣನಿಗೆ ಗೋವನ್ನು ಕೊಟ್ಟನು. ಬ್ರಾಹ್ಮಣನಿಗೆ-to brahmin.   Dēvadattanu brāhmaṇanige gōvannu koṭṭanu. Brāhmaṇanige-to brahmin.
+","dēvadattanu brāhmaṇanige gōvannu koṭṭanu. brāhmaṇanige-to brahmin. Dēvadattanu brāhmaṇanige gōvannu koṭṭanu. Brāhmaṇanige-to brahmin.
+",,,,
+56,1,रामस्य मतानुसारं सीता गृहे अस्ति।,rāmasya matānusāraṁ sītā gr̥hē asti.,,,,
+56,2,"राम के अनुसार सीता घर पर है।
+शर्मा के मुताबिक ' कांग्रेस व यूपीए की सरकार आतंकवाद से सख्ती से निपटने को प्रतिबद्ध है लेकिन वह पोटा के पक्ष में नहीं है
+word: शर्मा        head: है
+","rāma kē anusāra sītā ghara para hai.
+śarmā kē mutābika ' kāṁgrēsa va yūpīē kī sarakāra ātaṁkavāda sē sakhtī sē nipaṭanē kō pratibaddha hai lēkina vaha pōṭā kē pakṣa mēṁ nahīṁ hai
+word: śarmā head: hai
+","Training support - 703
+Test support - 113
+Accuracy - 92.92",,,
+56,3,"ರಾಮನ ಅನುಸಾರವಾಗಿ ಸೀತೆಯು ಮನೆಯಲ್ಲಿ ಇಲ್ಲ.  Rāmana anusāravāgi sīteyu maneyalli illa.
+षष्ठी + अव्यय or word in सप्तमी- Malyalam, Bangla, Marathi Kannada- prakara is more common","rāmana anusāravāgi sīteyu maneyalli illa. Rāmana anusāravāgi sīteyu maneyalli illa.
+षष्ठी + अव्यय or word in सप्तमी- Malyalam, Bangla, Marathi Kannada- prakara is more common","Training support - 113
+Test support - 31
+Accuracy - ",,,
+57,1,सीता अपि  वनं गच्छति।,sītā api vanaṁ gacchati.,,,,
+57,2,"राम भी जंगल जाता है। इस नक्सली नेता से पूछताछ के लिए उत्तर प्रदेश और झारखंड से भी एसटीएफ के लोग आ रहे हैं .
+word: भी        head: झारखंड            और सोमवार की रात को ही नक्सल कमांडर कमलेश्वर बैठा को शहर के बाहरी इलाके में धर दबोचा .
+word: ही        head: रात","rāma bhī jaṁgala jātā hai. isa naksalī nētā sē pūchatācha kē liē uttara pradēśa aura jhārakhaṁḍa sē bhī ēsaṭīēpha kē lōga ā rahē haiṁ .
+word: bhī head: jhārakhaṁḍa aura sōmavāra kī rāta kō hī naksala kamāṁḍara kamalēśvara baiṭhā kō śahara kē bāharī ilākē mēṁ dhara dabōcā .
+word: hī head: rāta","Training support - 4171
+Test support - 545
+Accuracy - 97.8
+
+(not present in kannada data)",,,
+57,3,"ಸೀತೆಯು ಕೂಡ ವನಕ್ಕೆ ಹೋಗುತ್ತಾಳೆ. ರಾಮನೊಬ್ಬನೆ ಸುಂದರವಾಗಿದ್ದಾನೆ. ಒಬ್ಬನೆ- only.  Sīteyu kūḍa vanakke hōguttāḷe. Rāmanobbane sundaravāgiddāne. Obbane- only.
+","sīteyu kūḍa vanakke hōguttāḷe. rāmanobbane suṁdaravāgiddāne. obbane- only. Sīteyu kūḍa vanakke hōguttāḷe. Rāmanobbane sundaravāgiddāne. Obbane- only.
+",no example,,,
+58,1, रामः एव सुन्दरः।,rāmaḥ ēva sundaraḥ.,,,,
+58,2,राम ही सुंदर है।,rāma hī suṁdara hai.,,,,
+58,3,,,,,,
+59,1,"अहंं भवन्तं मम गृहे भोक्तुम् आह्वयामि।
+अध्यापकस्य पुस्तकं छात्राः पठन्ति।
+word: मम head: गृहे","ahaṁṁ bhavantaṁ mama gr̥hē bhōktum āhvayāmi.
+adhyāpakasya pustakaṁ chātrāḥ paṭhanti.
+word: mama head: gr̥hē",,,,
+59,2,"रिलायंस समूह में अंबानी बंधुओं के बीच चल रहा स्वामित्व विवाद सुलझाने की प्रक्रिया अचानक तेज होकर सुर्खियों में आ गई है ।
+word: सुलझाने	head: प्रक्रिया","rilāyaṁsa samūha mēṁ aṁbānī baṁdhuōṁ kē bīca cala rahā svāmitva vivāda sulajhānē kī prakriyā acānaka tēja hōkara surkhiyōṁ mēṁ ā gaī hai .
+word: sulajhānē head: prakriyā","Training support for r6v- 27
+Test support - 1
+Accuracy - 0
+Training support for r6- 16337
+Test support - 2287
+Accuracy - 93.7",,,
+59,3,"ನಾನು ನಿಮ್ಮನ್ನು ನಮ್ಮ ಮನೆಯಲ್ಲಿ ಊಟ ಮಾಡಲು ಆಹ್ವಾನಿಸುತ್ತೇನೆ.   Nānu nim'mannu nam'ma maneyalli ūṭa māḍalu āhvānisuttēne.
+word: head:","nānu nimmannu namma maneyalli ūṭa māḍalu āhvānisuttēne. Nānu nim'mannu nam'ma maneyalli ūṭa māḍalu āhvānisuttēne.
+word: head:","Training support - 92
+Test support - 24
+Accuracy - ",,,
+60,1,"अम्ब, जलं यच्छतु।
+भो राम, मां उद्धर word:  head:","amba, jalaṁ yacchatu.
+bhō rāma, māṁ uddhara word: head:",,,,
+60,2,"उसने तालिब की मां खुशनूदा से कहा : अम्मी मैं आज से आपकी बहू हूं ।
+word: अम्मी        head: हूं            (6)","usanē tāliba kī māṁ khuśanūdā sē kahā : ammī maiṁ āja sē āpakī bahū hūṁ .
+word: ammī head: hūṁ (6)","Training support - 6
+Test support - 0
+Accuracy - na",,,
+60,3,"ಹೇ ರಾಮ! ನನ್ನನ್ನು ಉದ್ಧರಿಸು.  Hē rāma! Nannannu ud'dharisu.
+word:  head:","hē rāma! nannannu uddharisu. Hē rāma! Nannannu ud'dharisu.
+word: head:","Training support - 390
+Test support - 125
+Accuracy - ",,,
+61,1,विद्यार्थी अध्ययनेन विद्यालये वसति। word: head:,vidyārthī adhyayanēna vidyālayē vasati. word: head:,,,,
+61,2,"हिमपात से पूरा रिसॉर्ट बर्फ की चार फुट मोटी चादर से आच्छादित हो गया है ।
+word: हिमपात        head: हो    Morphological indicator: की and से","himapāta sē pūrā risôrṭa barpha kī cāra phuṭa mōṭī cādara sē ācchādita hō gayā hai .
+word: himapāta head: hō morphological indicator: kī and sē","Training support - 1280
+Test support - 143
+Accuracy - 100",,,
+61,3,"""ವಿದ್ಯಾರ್ಥಿಯು ಓದುವುದಕ್ಕಾಗಿ ವಿದ್ಯಾಲಯದಲ್ಲಿ ಇರುತ್ತಾನೆ.   Vidyārthiyu ōduvudakkāgi vidyālayadalli iruttāne.
+word: head:""","""vidyārthiyu ōduvudakkāgi vidyālayadalli iruttāne. Vidyārthiyu ōduvudakkāgi vidyālayadalli iruttāne.
+word: head:""","Training support - 1571
+Test support - 440
+Accuracy - ",,,
+62,1,व्याघ्रात् बिभेति। जलात् भयम् अस्ति।,vyāghrāt bibhēti. jalāt bhayam asti.,,,,
+62,2,"वह शेरसे डरता है।
+वह पानीसे डरता है। ","vaha śērasē ḍaratā hai.
+vaha pānīsē ḍaratā hai. ",,,,
+62,3,ಅವನು ಸಿಂಹವನ್ನು ಕಂಡು ಹೆದರುತ್ತಾನೆ.,avanu siṁhavannu kaṁḍu hedaruttāne.,,,,
+63,1,सः अतीव सुन्दरं बालकं पश्यति। Word: Head: ,saḥ atīva sundaraṁ bālakaṁ paśyati. word: head:,,,,
+63,2,यह बहुत ही स्वादिष्ट भोजन है। ,"yaha bahuta hī svādiṣṭa bhōjana hai.
+",,,,
+63,3,ಅವನು ಅತ್ಯಂತ ಸುಂದರವಾದ ಬಾಲಕನನ್ನು ನೋಡಿದನು. ಅತ್ಯಂತ- so beautiful   ," Avanu atyanta sundaravāda bālakanannu nōḍidanu.
+Atyanta- so beautiful Word: Head:
+",,,,

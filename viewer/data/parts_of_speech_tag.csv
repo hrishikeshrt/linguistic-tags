@@ -1,0 +1,45 @@
+id,code,tag,name,english_name,bis_tag,description
+1,shabda_prakara_01,N,संज्ञा or नामपद noun,,N,
+2,shabda_prakara_01.1,NN,सामान्य नाम or जातिवाचक संज्ञा,common noun,N_NN,The current scheme has only one tag (NN) for common nouns without getting into any distinction based on the grammatical  information contained in a given noun word.
+3,shabda_prakara_01.2,NNP,विशेष नाम or व्यक्तिवाचक संज्ञा, proper noun,N_NNP,"In the context of Indian languages, annotating proper nouns with a separate tag will not be very fruitful from machine learning point of view. Finally, it was decided to have a separate tag for proper nouns for manual
+annotation and ignore it for  machine learning algorithms.  Following this decision, the tag NNP is included in the tag set."
+4,shabda_prakara_01.4,NST,देश-काल सापेक्ष, Nloc,N_NST,"These words often occur as temporal or spatial arguments of a verb in a given sentence taking the appropriate vibhakti (case marker) Apart from occuring as a nominal expression, they also occur as a part of a postposition along with 'ke'."
+5,shabda_prakara_2,PR,सर्वनाम ,pronoun,PR,
+6,shabda_prakara_2.5,PRQ,प्रश्नवाचक ,Wh-word,PR_PRQ,
+7,shabda_prakara_3.3,DMQ,प्रश्नवाचक ,Wh-word,DM_DMQ,
+8,shabda_prakara_4,V,क्रियापद ,verb,V,
+9,shabda_prakara_4.1,VF,समापिका-क्रिया ,Finite Verb,V_VM_VF,Finite verb को हिंदी में परिमित क्रिया कहते हैं। यह क्रिया वाक्य के subject के अनुसार अपना रूप बदलती है और tense का बोध कराती है।
+10,shabda_prakara_4.2,VNF ,असमापिका क्रिया,Non-finite ,V_VM_VNF,Non-finite verb को हिंदी में अपूर्ण क्रिया कहते हैं। यह क्रिया वाक्य के subject के अनुसार अपना रूप नहीं बदलती है और tense का बोध भी नहीं कराती है।
+11,shabda_prakara_4.2.1,VINF,निमित्तार्थक क्रिया ,Infinitive,V_VM_VINF,क्रिया का मूल रुप
+12,shabda_prakara_4.2.2,VNG,क्रियावाचक or विभक्तिक्षम कृदन्त ,Gerund ,V_VM_VNG,यह क्रिया को noun के रूप में इस्तेमाल किया जाता है
+13,shabda_prakara_4.2.3,samanakala,समानकाल,,,
+14,shabda_prakara_4.2.4,purvakala,पूर्वकाल,,,
+15,shabda_prakara_4.2.5,krdanta,कृदन्त ,Verbal,,
+16,shabda_prakara_5,JJ,विशेषण,Adjective,,
+17,shabda_prakara_6,RB,क्रियाविशेषण ,Adverb,,
+18,shabda_prakara_8,CC,योजक or उभयान्वयी अव्यय  ,Conjunction,CC,
+19,shabda_prakara_8.1,CCD,सन्वयक,Co-ordinator,CC_CCD,
+20,shabda_prakara_8.2,CCS,अधीनस्थ,Subordinator,CC_CCS,
+21,shabda_prakara_8.2.1,UT,उक्तिवाचक orउद्गारवाचक ,quotative,CC_CCS_UT,
+22,shabda_prakara_9,RP,अव्यय, particles,RP,
+23,shabda_prakara_9.3,INJ,विस्मयादिबोधक ,Interjection,RP_INJ,
+24,shabda_prakara_9.4,INTF,तीव्रक ,intensifier,RP_INTF,
+25,shabda_prakara_9.5,NEG,नकारात्मक, negation,RP_NEG,
+26,shabda_prakara_10,QT,संख्यावाची ,quantifiers,QT,
+27,shabda_prakara_10.1,QTF,सामान्य ,general,QT_QTF,
+28,shabda_prakara_10.2,QTC,गणनासूचक or गणनावाचक, quaridinal,QT_QTC,
+29,shabda_prakara_10.3,QTO,क्रमसूचक or क्रमवाचक  ,ordinal,QT_QTO,
+30,shabda_prakara_11,RD,अवशेष ,residuals,RD,
+31,shabda_prakara_11.1,RDF,विदेशी शब्द, foreign word,RD_RDF,
+32,shabda_prakara_11.2,SYM,प्रतीक, symbol,RD_SYM,
+33,shabda_prakara_11.3,PUNC,विरामादि चिह्न ,punctuatiation,RD_PUNC,
+34,shabda_prakara_11.4,UNK,अज्ञात ,unknown,RD_UNK,
+35,shabda_prakara_11.5,ECH,नादानुकारी ,echowards,RD_ECH,"Indian languages have a highly productive usage of echo words such as Hindi 'चाय-वाय' ('tea' 'echo'), where 'चाय' is a regular lexical item of Hindi vocabulary and 'वाय' is an echo word indicating the sense “etc” . These words,
+on their own, are 'nonsense' words and do not find a place in any dictionary."
+36,shabda_prakara_11.6,RDP,अभ्यस्त, reduplication,RDP,"In this phenomenon of Indian languages, the same word is written twice for
+various purposes such as indicating emphasis, deriving a category from another
+category etc. eg. छोटे छोटे ('small' 'small'; very small), लाल लाल ('red'
+'red'; red), जल्दी जल्दी ('quickyl' 'quickly' ; very quickly)
+There are two ways in which such word sequences may be written. They can be
+written – (a) separated by a space or (b) separated by a hyphen."
+37,shabda_prakara_12,NUM,संख्या,numeral,NUM,
