@@ -1,0 +1,14 @@
+tag_id,language_id,example,iso_transliteration,english_translation,sanskrit_translation,markers
+1,1,रोहनः क्रीडति।,rōhanaḥ krīḍati,Rohan Plays,,
+1,2,रोहन खेलता है।,rōhana khēlatā hai.,Rohan Plays.,,
+1,3,,,,,
+2,1,"जनाः मां पश्यन्ति, सर्वतः च धावन्ति।","janāḥ māṁ paśyanti, sarvataḥ ca dhāvanti.","People see me, and run here and there.",,
+2,2,मेहता साहब कल आएंगे और मैं उन्हें देखूंगा। ,mēhatā sāhaba kala āēṁgē aura maiṁ unhēṁ dēkhūṁgā.,Mr. Mehta will come tomorrow and I will see him.,,
+2,3,,,,,
+3,1,"भिक्षाम् अट गां च आनय।
+Here, अट् - is a मुख्य क्रियापद and गां च आनय। is its अन्वाचय।
+पश्य,  मृगो धावति।","bhikṣām aṭa gāṁ ca ānaya.
+---
+paśya, mr̥gō dhāvati.",,,
+3,2,"जब मैं कल मेहता साहब से मिलूंगा, तो मैं उन्हें अपनी नई कार दिखाऊंगा।","jaba maiṁ kala mēhatā sāhaba sē milūṁgā, tō maiṁ unhēṁ apanī naī kāra dikhāūṁgā.","When I meet Mr. Mehta tomorrow, I will show him my new car.",,
+3,3,,,,,

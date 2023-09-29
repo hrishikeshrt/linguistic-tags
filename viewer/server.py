@@ -36,8 +36,10 @@ from flask_wtf import CSRFProtect
 from models import (
     db, User, Language,
     SentenceTypeMeaningTag, SentenceTypeMeaningData,
+    SentenceTypeStructureTag, SentenceTypeStructureData,
     VoiceTag, VoiceData,
     PartsOfSpeechTag, PartsOfSpeechData,
+    VerbalTag,VerbalData,
     DependencyTag, DependencyData,
     TAG_LIST, TAG_SCHEMA
 )
@@ -148,8 +150,10 @@ with webapp.app_context():
     data_tables = [
         Language,
         SentenceTypeMeaningTag, SentenceTypeMeaningData,
+        SentenceTypeStructureTag, SentenceTypeStructureData,
         VoiceTag, VoiceData,
         PartsOfSpeechTag, PartsOfSpeechData,
+        VerbalTag, VerbalData,
         DependencyTag, DependencyData
     ]
 

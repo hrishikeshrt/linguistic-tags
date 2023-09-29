@@ -94,6 +94,32 @@ class SentenceTypeMeaningData(db.Model):
 ###############################################################################
 
 
+class SentenceTypeStructureTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255))
+    description = Column(Text)
+
+
+class SentenceTypeStructureData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{SentenceTypeStructureTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    markers = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{SentenceTypeStructureTag.__tablename__}_data'))
+    tag = relationship(SentenceTypeStructureTag.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
 class VoiceTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
@@ -148,6 +174,35 @@ class PartsOfSpeechData(db.Model):
 ###############################################################################
 
 
+class VerbalTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255))
+    description = Column(Text)
+
+
+class VerbalData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{VerbalTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    verbal = Column(String(255))
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    case = Column(Text)
+    gender_marking = Column(Text)
+    is_part_of_tam = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{VerbalTag.__tablename__}_data'))
+    tag = relationship(VerbalTag.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
 class DependencyTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
@@ -178,11 +233,11 @@ class DependencyData(db.Model):
 
 TAG_LIST = {
     SentenceTypeMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Type (Meaning)", SentenceTypeMeaningTag, SentenceTypeMeaningData),
-    "2": ("रचनानुसार-वाक्यप्रकार", "Sentence Type (Structure)", None, None),
+    SentenceTypeStructureTag.__tablename__: ("रचनानुसार-वाक्यप्रकार", "Sentence Type (Structure)", SentenceTypeStructureTag, SentenceTypeStructureData),
     VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", VoiceTag, VoiceData),
     PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", PartsOfSpeechTag, PartsOfSpeechData),
     # "5": ("शब्द-रूप", "Morphology", None, None),
-    "6": ("क्रियामूलक-कृद्", "Verbal", None, None),
+    VerbalTag.__tablename__: ("क्रियामूलक-कृद्", "Verbal", VerbalTag, VerbalData),
     "7": ("क्रिया-कालादि", "Tense-aspect-mood (TAM)", None, None),
     # "8": ("शब्द-समूह", "Group", None, None),
     DependencyTag.__tablename__: ("आश्रय", "Dependency", DependencyTag, DependencyData),
@@ -200,6 +255,16 @@ TAG_SCHEMA = {
             "english_translation": "English Translation",
             "markers": "Markers"
         },
+    },
+    SentenceTypeStructureTag.__tablename__: {
+        "meta": {},
+        "data": {
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "markers": "Markers"
+        }
     },
     VoiceTag.__tablename__: {
         "meta": {},
@@ -221,6 +286,19 @@ TAG_SCHEMA = {
             "sanskrit_translation": "Sanskrit Translation",
             "english_translation": "English Translation",
             "markers": "Markers"
+        },
+    },
+    VerbalTag.__tablename__: {
+        "meta": {},
+        "data": {
+            "verbal": "Kṛt Pratyaya",
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "case": "Case",
+            "gender_marking": "Gender Marking",
+            "is_part_of_tam": "Part of TAM Tags?"
         },
     },
     DependencyTag.__tablename__: {

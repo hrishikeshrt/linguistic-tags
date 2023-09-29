@@ -1,0 +1,4 @@
+id,code,tag,name,english_name,description
+1,vakyarachana_01,saral-vakya,सरल वाक्य,Simple sentences,Simple sentences (सरल वाक्य) are sentences that have only one verb. One उद्देश्य and one विधेय.
+2,vakyarachana_02,samyukta-vakya,संयुक्त वाक्य,Compound Sentences,"Compound sentences have two or more independent clauses. They are joined by coordinating conjunctions such as और (aur), या (ya), या तो...या (ya to...ya), और भी (aur bhi), and लेकिन (lekin) in Hindi, च, किन्तु, यदि-तर्हि"
+3,vakyarachana_03,mishra-vakya,मिश्र वाक्य,Complex Sentences,"Complex sentences have one independent clause and one or more dependent clauses. The dependent clauses are introduced by subordinating conjunctions such as जब (jab), जब तक (jab tak), जब से (jab se), अगर (agar), क्योंकि (kyunki), और (aur), और भी (aur bhi), and लेकिन (lekin). "
