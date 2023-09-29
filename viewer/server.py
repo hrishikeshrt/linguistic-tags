@@ -251,7 +251,7 @@ def show_login():
         flash("Already logged in.")
         return redirect(url_for("show_home"))
 
-    data = {}
+    data = {"title": "Login"}
     data["mode"] = "login"
     if request.method == "POST":
         username = request.form.get("username")
@@ -321,12 +321,14 @@ def show_contact():
 
 @webapp.route("/")
 def show_home():
-    return render_template("about.html")
+    data = {"title": "About"}
+    return render_template("about.html", data=data)
 
 
 @webapp.route("/tag/")
 def show_tag():
-    return render_template("tag.html")
+    data = {"title": "Tag Information"}
+    return render_template("tag.html", data=data)
 
 
 ###############################################################################

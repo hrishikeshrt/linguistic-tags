@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&bull; {{title}} &bull;{% block title %}{% endblock %}</title>
+    <title>&bull; {{title}} &bull;{% block title %}{% if data.title %} {{data.title}} &bull;{% endif %}{% endblock %}</title>
     <link rel="stylesheet" href="https://bootswatch.com/5/united/bootstrap.min.css">
     <!-- Sticky Footer -->
     <link rel="stylesheet" href="{{url_for('static', filename='custom/css/sticky-footer.css')}}">
