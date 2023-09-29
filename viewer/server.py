@@ -37,6 +37,8 @@ from models import (
     db, User, Language,
     SentenceTypeMeaningTag, SentenceTypeMeaningData,
     VoiceTag, VoiceData,
+    PartsOfSpeechTag, PartsOfSpeechData,
+    DependencyTag, DependencyData,
     TAG_LIST, TAG_SCHEMA
 )
 from models_admin import (
@@ -108,10 +110,16 @@ admin = Admin(
 
 admin.add_view(UserModelView(User, db.session))
 admin.add_view(LanguageModelView(Language, db.session))
+
 admin.add_view(TagModelView(SentenceTypeMeaningTag, db.session, category="Tag Info"))
 admin.add_view(TagModelView(VoiceTag, db.session, category="Tag Info"))
+admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tag Info"))
+admin.add_view(TagModelView(DependencyTag, db.session, category="Tag Info"))
+
 admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Tag Data"))
 admin.add_view(DataModelView(VoiceData, db.session, category="Tag Data"))
+admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Tag Data"))
+admin.add_view(DataModelView(DependencyData, db.session, category="Tag Data"))
 
 ###############################################################################
 
@@ -141,6 +149,8 @@ with webapp.app_context():
         Language,
         SentenceTypeMeaningTag, SentenceTypeMeaningData,
         VoiceTag, VoiceData,
+        PartsOfSpeechTag, PartsOfSpeechData,
+        DependencyTag, DependencyData
     ]
 
     for data_table_model in data_tables:

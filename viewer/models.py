@@ -99,7 +99,7 @@ class VoiceTag(db.Model):
     code = Column(String(255), nullable=False, index=True)
     tag = Column(String(255), nullable=False)
     name = Column(String(255), nullable=False)
-    english_translation = Column(String(255))
+    english_name = Column(String(255))
     description = Column(Text)
     subject_verb_agreement = Column(Text)
 
@@ -118,6 +118,60 @@ class VoiceData(db.Model):
     tag = relationship(VoiceTag.__qualname__, backref=backref('data'))
 
 
+###############################################################################
+
+
+class PartsOfSpeechTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255))
+    bis_tag = Column(String(255))
+    description = Column(Text)
+
+
+class PartsOfSpeechData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{PartsOfSpeechTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    markers = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{PartsOfSpeechTag.__tablename__}_data'))
+    tag = relationship(PartsOfSpeechTag.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
+class DependencyTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    existing_tag = Column(String(255))
+    intrasentence_relation = Column(String(255))
+    description = Column(Text)
+
+
+class DependencyData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{DependencyTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    accuracy = Column(Text)
+    markers = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{DependencyTag.__tablename__}_data'))
+    tag = relationship(DependencyTag.__qualname__, backref=backref('data'))
+
 
 ###############################################################################
 
@@ -126,12 +180,12 @@ TAG_LIST = {
     SentenceTypeMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Type (Meaning)", SentenceTypeMeaningTag, SentenceTypeMeaningData),
     "2": ("रचनानुसार-वाक्यप्रकार", "Sentence Type (Structure)", None, None),
     VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", VoiceTag, VoiceData),
-    "4": ("शब्द-प्रकार", "Parts-of-Speech (POS)", None, None),
+    PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", PartsOfSpeechTag, PartsOfSpeechData),
     # "5": ("शब्द-रूप", "Morphology", None, None),
     "6": ("क्रियामूलक-कृद्", "Verbal", None, None),
     "7": ("क्रिया-कालादि", "Tense-aspect-mood (TAM)", None, None),
     # "8": ("शब्द-समूह", "Group", None, None),
-    "9": ("आश्रय", "Dependency", None, None),
+    DependencyTag.__tablename__: ("आश्रय", "Dependency", DependencyTag, DependencyData),
     "10": ("प्रयोजक-क्रिया", "Causative", None, None),
     # "11": ("कर्म-प्रधानता", "Ergativity", None, None)
 }
@@ -150,6 +204,21 @@ TAG_SCHEMA = {
         "sanskrit_translation": "Sanskrit Translation",
         "english_translation": "English Translation",
         "markers": "Markers"
+    },
+    PartsOfSpeechTag.__tablename__: {
+        "example": "Example",
+        "iso_transliteration": "ISO Transliteration",
+        "sanskrit_translation": "Sanskrit Translation",
+        "english_translation": "English Translation",
+        "markers": "Markers"
+    },
+    DependencyTag.__tablename__: {
+        "example": "Example",
+        "iso_transliteration": "ISO Transliteration",
+        "sanskrit_translation": "Sanskrit Translation",
+        "english_translation": "English Translation",
+        "accuracy": "Accuracy",
+        "markers": "Markers",
     }
 }
 
