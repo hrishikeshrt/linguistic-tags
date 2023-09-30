@@ -42,6 +42,7 @@ from models import (
     VerbalTag, VerbalData,
     TenseAspectMoodTag, TenseAspectMoodData,
     DependencyTag, DependencyData,
+    DerivedVerbTag, DerivedVerbData,
     TAG_LIST, TAG_SCHEMA
 )
 from models_admin import (
@@ -114,21 +115,23 @@ admin = Admin(
 admin.add_view(UserModelView(User, db.session))
 admin.add_view(LanguageModelView(Language, db.session))
 
-admin.add_view(TagModelView(SentenceTypeMeaningTag, db.session, category="Tag Info"))
-admin.add_view(TagModelView(SentenceTypeStructureTag, db.session, category="Tag Info"))
-admin.add_view(TagModelView(VoiceTag, db.session, category="Tag Info"))
-admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tag Info"))
-admin.add_view(TagModelView(VerbalTag, db.session, category="Tag Info"))
-admin.add_view(TagModelView(TenseAspectMoodTag, db.session, category="Tag Info"))
-admin.add_view(TagModelView(DependencyTag, db.session, category="Tag Info"))
+admin.add_view(TagModelView(SentenceTypeMeaningTag, db.session, category="Tags"))
+admin.add_view(TagModelView(SentenceTypeStructureTag, db.session, category="Tags"))
+admin.add_view(TagModelView(VoiceTag, db.session, category="Tags"))
+admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tags"))
+admin.add_view(TagModelView(VerbalTag, db.session, category="Tags"))
+admin.add_view(TagModelView(TenseAspectMoodTag, db.session, category="Tags"))
+admin.add_view(TagModelView(DependencyTag, db.session, category="Tags"))
+admin.add_view(TagModelView(DerivedVerbTag, db.session, category="Tags"))
 
-admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Tag Data"))
-admin.add_view(DataModelView(SentenceTypeStructureData, db.session, category="Tag Data"))
-admin.add_view(DataModelView(VoiceData, db.session, category="Tag Data"))
-admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Tag Data"))
-admin.add_view(DataModelView(VerbalData, db.session, category="Tag Data"))
-admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Tag Data"))
-admin.add_view(DataModelView(DependencyData, db.session, category="Tag Data"))
+admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Examples"))
+admin.add_view(DataModelView(SentenceTypeStructureData, db.session, category="Examples"))
+admin.add_view(DataModelView(VoiceData, db.session, category="Examples"))
+admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Examples"))
+admin.add_view(DataModelView(VerbalData, db.session, category="Examples"))
+admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Examples"))
+admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
+admin.add_view(DataModelView(DerivedVerbData, db.session, category="Examples"))
 
 ###############################################################################
 
@@ -162,7 +165,8 @@ with webapp.app_context():
         PartsOfSpeechTag, PartsOfSpeechData,
         VerbalTag, VerbalData,
         TenseAspectMoodTag, TenseAspectMoodData,
-        DependencyTag, DependencyData
+        DependencyTag, DependencyData,
+        DerivedVerbTag, DerivedVerbData,
     ]
 
     for data_table_model in data_tables:
