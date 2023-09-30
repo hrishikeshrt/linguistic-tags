@@ -205,6 +205,39 @@ class VerbalData(db.Model):
 ###############################################################################
 
 
+class TenseAspectMoodTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255))
+    type = Column(String(255))
+    sanskrit_lakara = Column(String(255))
+    tense_tag = Column(String(255))
+    aspect_tag = Column(String(255))
+    mood_tag = Column(String(255))
+    description = Column(Text)
+
+
+class TenseAspectMoodData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{TenseAspectMoodTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    pattern = Column(Text)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    gender_marking = Column(Text)
+    syntactic_condition = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{TenseAspectMoodTag.__tablename__}_data'))
+    tag = relationship(TenseAspectMoodTag.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
 class DependencyTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
@@ -240,7 +273,7 @@ TAG_LIST = {
     PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", PartsOfSpeechTag, PartsOfSpeechData),
     # "5": ("शब्द-रूप", "Morphology", None, None),
     VerbalTag.__tablename__: ("क्रियामूलक-कृद्", "Verbal", VerbalTag, VerbalData),
-    "7": ("क्रिया-कालादि", "Tense-aspect-mood (TAM)", None, None),
+    TenseAspectMoodTag.__tablename__: ("क्रिया-कालादि", "Tense-Aspect-Mood (TAM)", TenseAspectMoodTag, TenseAspectMoodData),
     # "8": ("शब्द-समूह", "Group", None, None),
     DependencyTag.__tablename__: ("आश्रय", "Dependency", DependencyTag, DependencyData),
     "10": ("प्रयोजक-क्रिया", "Causative", None, None),
@@ -302,6 +335,28 @@ TAG_SCHEMA = {
             "gender_marking": "Gender Marking",
             "is_part_of_tam": "Part of TAM Tags?"
         },
+    },
+    TenseAspectMoodTag.__tablename__: {
+        "meta": {
+            "tag": "TAM Tag",
+            "name": "Name",
+            "english_name": "English Name",
+            "type": "Type",
+            "sanskrit_lakara": "Sanskrit Lakāra",
+            "tense_tag": "Tense Tag (K)",
+            "aspect_tag": "Aspect Tag (P)",
+            "mood_tag": "Mood Tag (V)",
+            "description": "Description",
+        },
+        "data": {
+            "pattern": "Pattern",
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "gender_marking": "Gender Marking",
+            "syntactic_condition": "Syntactic Condition",
+        }
     },
     DependencyTag.__tablename__: {
         "meta": {},

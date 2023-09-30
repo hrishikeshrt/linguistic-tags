@@ -40,6 +40,7 @@ from models import (
     VoiceTag, VoiceData,
     PartsOfSpeechTag, PartsOfSpeechData,
     VerbalTag, VerbalData,
+    TenseAspectMoodTag, TenseAspectMoodData,
     DependencyTag, DependencyData,
     TAG_LIST, TAG_SCHEMA
 )
@@ -118,6 +119,7 @@ admin.add_view(TagModelView(SentenceTypeStructureTag, db.session, category="Tag 
 admin.add_view(TagModelView(VoiceTag, db.session, category="Tag Info"))
 admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tag Info"))
 admin.add_view(TagModelView(VerbalTag, db.session, category="Tag Info"))
+admin.add_view(TagModelView(TenseAspectMoodTag, db.session, category="Tag Info"))
 admin.add_view(TagModelView(DependencyTag, db.session, category="Tag Info"))
 
 admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Tag Data"))
@@ -125,6 +127,7 @@ admin.add_view(DataModelView(SentenceTypeStructureData, db.session, category="Ta
 admin.add_view(DataModelView(VoiceData, db.session, category="Tag Data"))
 admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Tag Data"))
 admin.add_view(DataModelView(VerbalData, db.session, category="Tag Data"))
+admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Tag Data"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Tag Data"))
 
 ###############################################################################
@@ -158,6 +161,7 @@ with webapp.app_context():
         VoiceTag, VoiceData,
         PartsOfSpeechTag, PartsOfSpeechData,
         VerbalTag, VerbalData,
+        TenseAspectMoodTag, TenseAspectMoodData,
         DependencyTag, DependencyData
     ]
 
