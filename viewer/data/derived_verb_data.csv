@@ -1,0 +1,149 @@
+tag_id,language_id,example,iso_transliteration,sanskrit_translation,english_translation,explanation,markers,syntactic_clues
+1,1,"
+रामो रावणं हन्ति (simple sentence)
+सीता रामेण रावणं घातयति (causative)
+","rāmo rāvaṇaṃ hanti (simple sentence)
+sītā rāmeṇa rāvaṇaṃ ghātayati (causative)",,"Rama kills Ravana (simple transitive sentence)
+Sita causes Ravana to be killed by Rama OR Sita causes Rama to kill  Ravana OR Sita kills Ravana through Rama OR Sita has Rama kill Ravana OR Sita gets Rama to kill Ravana etc.(causative)
+","Note that Rama which was the subject of the first (simple )  sentence becomes instrumental in the causative. Ravana who is the object of the killing, remains in the accusative in both the sentences.
+
+ [This is equivalent to the transitive-causative pair in Hindi.]
+
+Causative with the accusative of agent that is caused to do the action
+
+rāvaṇaḥ svargam agacchat रावणः स्वर्गम् अगच्छत् – Ravana went to heaven(simple intransitive sentence)
+
+rāmo rāvaṇaṃ svargam agamayat रामो रावणं स्वर्गम् अगमयत् – Rama caused Ravana to go to heaven OR Rama sent Ravana to heaven (causative)
+
+Note that Ravana which was the subject of the first (simple ) sentence becomes accusative in the causative.
+
+ [This is equivalent to the intransitive-transitive pair in Hindi.]
+
+This construction is taken by all intransitive verbs.
+
+This is also taken by those those transitive verbs that imply any of the following categories of action: motion, knowledge, information and eating. (There are some exceptions to this like √bhakṣ √भक्ष् “eat”)
+
+rāma odanam āśnat राम ओदनम् आश्नत् (Rama ate rice) – simple
+
+sa rāmam odanam āśayat स रामम् ओदनम् आशयत् (He caused Rama to eat rice) – causative
+
+Note here that even though the verb is transitive, since it implies eating,  in the causative, the agent caused to do the action is in the accusative.
+
+Note: There are some roots like √kr̥ √कृ and √hr̥ √हृ that take either the accusative or the instrumental in the causative.
+
+Causative Passive
+
+In this the agent caused to do the action is in the nominative (regardless of whether it is in the instrumental or the accusative in the active). The direct object in the primitive sentence remains in the accusative.
+
+rāmo rāvaṇaṃ hanti रामो रावणं हन्ति – Rama kills Ravana (simple transitive sentence)
+
+rāmo rāvaṇaṃ ghātyate रामो रावणं घात्यते – Rama is caused to kill Ravana (causative passive)
+
+Of course, in this construction, the agent who causes the action to be done is in the instrumental (like normally in the passive).
+
+sītayā rāmo rāvaṇaṃ ghātyate सीतया रामो रावणं घात्यते – Rama is caused to kill Ravana by Sita
+
+Note: Roots of the tenth class (whose class sign is -aya- -अय- ) have the same primitive and causative forms. So, corayati चोरयति can mean “he steals” or “he causes to steal”
+
+Note: For many roots, the causative passive and primitive passive may be the same. For example, gamyate गम्यते can mean “it is gone” or “he is caused to go”.","Formation of the causative
+
+The causative is formed by adding an -aya- -अय- to a strengthened root. It is then conjugated in the active and middle like a thematic verb (see lesson 3). [The active conjugation is more common.  Even most verbs that are only conjugated in the middle in the present are conjugated in the active in the causative.]
+
+The general rules strengthening of the root before the addition of the -aya- -अय- is as follows (there are some exceptions):
+
+   A final vowel takes vr̥ddhi वृद्धि. Thus bhāvaya भावय from √bhū √भू; kāraya कारय from √kr̥ √कृ
+    Medial i इ, u उ, r̥ ऋ and ऌ take the guṇa गुण (if capable of it: see lesson 3). Thus vedaya वेदय from √vid √विद्; codaya चोदय from √cud  √चुद्
+    Medial or initial a अ in a light syllable (that is, not followed by a double consonant) is sometimes lengthened and sometimes not. Thus bhājaya भाजय from √bhaj √भज्; svāpaya स्वापय from √svap √स्वप्; but, janaya जनय from √jan √जन् and gamaya गमय from √gam √गम्
+    Most roots in final ā आ and the root √r̥ √ऋ add p प् before the -aya- -अय-. Thus dāpaya दापय from √dā √दा; sthāpaya स्थापय from √sthā √स्था and arpaya अर्पय from √r̥ √ऋ. But, pāyaya पायय from √pā √पा (“drink”)
+    If a nasal is taken in any of the strong forms of a root, it usually appears in the causative stem also. Thus rundhaya रुन्धय from √rudh √रुध्
+
+There are some exceptions and anomalous cases: Examples: ghātaya घातय from √han√हन्; jāpaya जापय from √ji √जि; pālaya पालय from √pā √पा (“protect”).
+
+Forms of the causative
+
+Once the causative stem is formed, it can be conjugated in the present system like any thematic verb.
+
+Let us take the root √kr̥ √कृ. The causative stem is kāraya कारय.
+
+Present indicative active
+
+kārayati kārayataḥ kārayanti कारयति कारयतः कारयन्ति etc.
+
+Present indicative middle
+
+kārayate kārayete kārayante कारयते कारयेते कारयन्ते etc.
+
+In a similar fashion you can form the imperfect, the imperative and the optative.
+
+The present active participle is kārayant कारयन्त् and the middle participle is kārayamāṇa कारयमाण.
+
+The perfect is normally the periphrastic perfect. kārayāṃ cakāra कारयां चकार etc.
+
+Both the s-future and the periphrastic future also can be formed.
+
+kārayiṣyati kārayiṣyataḥ kārayiṣyanti कारयिष्यति कारयिष्यतः कारयिष्यन्ति etc. for active;
+
+Similarly the middle, the participle and the conditional can be formed.
+
+The periphrastic future can be formed as kārayitā kārayitārau कारयिता कारयितारौ etc.
+
+The causative passive is formed by adding the usual passive sign  -ya- -य- instead of the sign  -aya- -अय- to the causatively strengthened root. As usual it is conjugated in the middle. So, for the root √kr̥ √कृ, he causative stem is kāraya कारय and the causative passive stem is kārya कार्य. So the conjugation would be kāryate kāryete kāryante कार्यते कार्येते कार्यन्ते etc.
+
+Using the causative
+
+As we said before, a causative of a root communicates the sense that a person or thing causes or makes another thing or person to undergo the state denoted by the root. That is, the causative changes the sense of the root from “do X” to “cause to do X”.
+
+As mentioned before, we can use the causative in two constructions – where the agent that is caused to do the action is put in the instrumental and where it is put in the accusative.
+
+Causative with the instrumental of agent that is caused to do the action",
+1,2,"मैंने उससे कुर्सी ठीक करवाई
+मैंने अपना चश्मा ठीक करवाया
+मैंने उससे कुछ खाना पकवाया
+
+
+","maiṁnē usasē kursī ṭhīka karavāī
+maiṁnē apanā caśmā ṭhīka karavāyā
+maiṁnē usasē kucha khānā pakavāyā",,"I had him fix the chair.
+I had my eyeglasses fixed.
+I had him cook some food",,"Hindi प्रयोजक verb formation shows progression from intransitive to transitive to causative. Hindi often indicates transitive and causative verbs with distinct morphemes (आ and वा), or else with certain morphological changes (changes to the vowels or consonants of the intransitive verb stem). Note how the transitive verb stem appends the morpheme आ and the causative verb stem appends the morpheme वा.  This is the most basic pattern of transitive and causative verbs.
+Progression of Intransitive verbs to causative verbs:
+Intransitive             Transitive                             Causative
+पकना to be cooked             पकाना to cook (something)   पकवाना to cause to cook
+बनना to be made                     बनाना to make                     बनवाना to cause to make
+उठना to rise                    उठाना to raise                     उठवाना to cause to raise
+लगना to be applied             लगाना to apply                     लगवाना to cause to apply
+जलना to be burned             जलाना to burn (something)     जलवाना to cause to burn
+Progression of transitive verbs to causative verbs
+Some Hindi verbs have no intransitive form. However, such verbs may still exist in groups of three related verbs transitive, first causative, and second causative. The first causative indicates that the subject is somehow directly involved in the action of the verb, whereas the second causative indicates that the subject of the verb is only indirectly involved in the action of the verb.
+
+Intransitive                               First Causative                             Second Causative
+सीखना to learn            सिखाना to teach (to cause to learn)             सिखवाना to have someone teach
+देखना to see             दिखाना to show (to cause to see)             दिखवाना to have someone show
+समझना to understand समझाना to explain (to cause to understand) समझवाना to have someone explain
+सुनना to hear                     सुनाना to recite, to tell (to cause to hear)     सुनवाना to cause to recite
+खाना to eat                     खिलाना to feed (to cause to eat)             खिलवाना to have someone feed
+पीना to drink     पिलाना to give someone something to drink (to cause to drink)     पिलवाना to have someone give someone something to drink","Some important Syntactic clues
+All transitive adjectival conjunct verbs (adjective + करना) have adjective + होना as their intransitive form.
+Likewise, all transitive nominal conjunct verbs (noun + करना) have noun + होना as their intransitive form.
+In the same manner, transitive causative conjunct verbs are formed as adjective/noun + करवाना/कराना.
+All causative and transitive verbs are “ने verbs”.
+With regard to syntax, the external agent, if mentioned, generally comes after the subject. If the subject has both direct and indirect objects, the agent may be mentioned before or after the indirect object."
+1,3,"ನನಗೆ ಕಾಫಿ ಮಾಡಿಸು. (Nanage kaafi maadisu.) - Make me a coffee.
+ಮಕ್ಕಳಿಗೆ ಊಟ ಕೊಡಿಸು. (Makkalige oota kodisu.) - Feed the children.
+ನನ್ನ ಜೊತೆಗೆ ಬನ್ನಿ ಎಂದು ಅವನನ್ನು ಕೇಳಿಸು. (Nanna jotege banni endu avanannu kelissu.) - Ask him to come with me.
+ಅವಳಿಗೆ ಸಹಾಯ ಮಾಡಿಸು. (Avalige sahaaya maadisu.) - Help her.
+ಅವರು ಈ ಕೆಲಸವನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಒಂದು ವಾರ ನನ್ನನ್ನು ಕಾಯಿಸುತ್ತಿದ್ದಾರೆ. (Avaru ee kaelsavenu poornagolisisalu ondu vara nannannu kaayisuththidaru.) - They are making me wait for a week to finish this work.","Nanage kaafi maadisu.
+Makkalige oota kodisu
+Nanna jotege banni endu avanannu kelissu. Avalige sahaaya maadisu)
+Avaru ee kaelsavenu poornagolisisalu ondu vara nannannu kaayisuththidaru.) -",,"Make me a coffee.
+Feed the children.
+Ask him to come with me.
+Help her.
+They are making me wait for a week to finish this work.",,"    ಬರೆಯಿಸು (bareyisu) - to cause someone to write
+    ಕುಡಿಸು (kudisu) - to cause someone to drink
+    ಕೊಡಿಸು (kodisu) - to cause someone to give
+    ಹೇಳಿಸು (heelisu) - to cause someone to say
+    ತೋರಿಸು (thoorisu) - to cause someone to show",
+2,1,,,,,,,
+2,2,,,,,,,
+2,3,,,,,,,
