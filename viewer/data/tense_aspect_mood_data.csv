@@ -1,0 +1,409 @@
+tag_id,language_id,pattern,example,iso_transliteration,sanskrit_translation,english_translation,gender_marking,syntactic_condition
+1,1,m. तत्रभवान् f. तत्रभवती  गच्छतु।   m.अत्रभवान् f.अत्रभवती,अत्रभवती  उपविशतु। ,atrabhavatī upaviśatu.,"You sit here, please!",,,
+1,2,,,,,,,
+1,3,,,,,,,
+2,1,त्वं + लोट्,"त्वं खाद/खादतात्,।
+त्वं पिब/पिबतात्|, 
+त्वं स्वपिहि/स्वपितात्|, 
+त्वं एहि|","tvaṁ khāda/khādatāt,.
+tvaṁ piba/pibatāt|,
+tvaṁ svapihi/svapitāt|,
+tvaṁ ēhi|","You eat. 
+You drink.
+You sleep.
+You come.",,,
+2,2,"तू खा/पी,/सो/भाग।",तू फल खा। तू पानी पी।,tū phala khā. tū pānī pī.,,,,
+2,3,,ನೀನು ಹಣ್ಣು ತಿನ್ನು. ನೀನು ನೀರು ಕುಡಿ.,,,,,
+3,1,,"भवान् अपि गच्छतु/ 
+भवान् एव गच्छतु। 
+भवान् मा गच्छतु।
+त्वया न गन्तव्यम्। ","bhavān api gacchatu/
+bhavān ēva gacchatu.
+bhavān mā gacchatu.
+tvayā na gantavyam. ","You also go.
+You only go.
+You dont go.
+You should not go.",,,use of Imperative or potential with अपि/एव or मा/न in negation.
+3,2," The imperfective participle + present tense form of होना in the third person plural can indicate an exhortation. The Hindi hortative form
+attaches suffix ते to the verb.
+
+जाते हैं – “Let’s go”
+
+खाते हैं – “Let’s eat”",हम चलते रहेंगे । वे आएंगे । हम जाते/चलते है वे आयेंगे। ,hama calatē rahēṁgē . vē āēṁgē . hama jātē/calatē hai vē āyēṁgē.,,,,
+3,3,"the hortative adds -ōṇa, as in māḍ-ōṇa ‘let us do, make","ನಾವು ಹೋಗುತ್ತಿರೋಣ, ಅವರು ಬರುತ್ತಾರೆ.
+",nāvu prati varṣa namma haḷḷige hōguttēve. avaḷu kathe bareyuttāḷe. avanu kavana racisu ttāne.,,"Let us keep going, they will come.",,
+4,1,"Adverbs/अव्यय + लकार लोट्? Root+प्रत्ययः (य/तव्य/अनीयर्) कर्तव्यम्. वक्तव्यम्, करणीयम्, गेयम्, पेयम्।",मया सत्वरम्/अतिशीघ्रं देहलीनगरीम् गन्तव्यम्।,mayā atiśīghraṁ dēhalīnagarīm gantavyam.,I have to go the Delhi urgently.,,,
+4,2,"Based on English translation मुझे/तुम्हे/ तुम को/उसको/उन्हे+ present tense, मुझे/तुम्हे/ तुम को/उसको/उन्हे+ compulsive ",Based on English translation of Kannada sentences मुझे तुरंत दिल्ली जाना है। मुझे तुरंत दिल्ली जाना पडा।     मुझे बहुत काम करना है। ,based on english translation of kannada sentences mujhē turaṁta dillī jānā hai. mujhē turaṁta dillī jānā paḍā. mujhē bahuta kāma karanā hai.,,,,
+4,3,suffix – beku/agu/iru,"ನಾನು ಜರೂರ ಬೆಂಗಳೂರಿಗೆ ಹೋಗಬೇಕು.
+ನನಗೆ ತುಂಬಾ ಕೆಲಸ ಇದೆ.
+ನಿಮ್ಮ ಆರೋಗ್ಯ ಕುರಿತು ಖಂಡಿತ ಪತ್ರ ಬರೆಯಬೇಕು.
+
+","nānu baruva varege nīnu kāyi, ārya mādhava, nānu baruva tanaka ī chāyāgrahaṇavannu hiḍiduko.",,"I have to go the Delhi urgently.
+I have lot of work.
+Please write a letter regarding your health immediately.",,
+5,1,"तुमुन् - Verbs meaning desire like इच्छति, काङ्क्षे or 
+ verbs formed with the  सन्  suffix 
+(possible in all लकारs)","अहं गन्तुम् इच्छामि। 
+सः प्रष्टुम् इच्छति। 
+अहं जिगमिषामि। (सन्नन्तः)","ahaṁ gantum icchāmi.
+saḥ praṣṭum icchati.
+ahaṁ jigamiṣāmi. (sannantaḥ)","I want to go.
+He wants to ask.
+I want to go.",,,
+5,2,Modal verbs of desire इच्छा करना। चाहना।,वो आना चाहता है।,vō ānā cāhatā hai.,,,,
+5,3,,ಅವರು ಬರಲು ಬಯಸುತ್ತಾರೆ.,sūrya udayisuttiddāne. avanu haṇṇu tinnuttiddāne. nīru tuṁbuttide. maḷe baruttide.,,,,
+6,1,,"रामेण पायसस्य खादनम् आपतितम्।
+रामस्य  पायस-खादनम् आपतितम्। ","rāmēṇa pāyasasya khādanam āpatitam.
+rāmasya pāyasa-khādanam āpatitam. ",Ram had to eat the kheer.,,,
+6,2,"karta with postposition को verb with siffix ना_पडा(compulsive, past) ना_होगा(compulsive future) karta with postposition को verb with siffix ना_पडा(compulsive, past) ना_होगा(compulsive future)",आपको/तुम्हे करना पडेगा। मुझे पढना पडेगा। राम को खीर खानी पडी। ,āpakō/tumhē karanā paḍēgā. mujhē paḍhanā paḍēgā. rāma kō khīra khānī paḍī.,,,,
+6,3,"bēku (needed) is added to the infinitive. To make it more obligatory, the verbal forms like ē is added to another affirmative verb. For example, māḍabēku means that ‘it is necessary to do’, ‘it needs to be done’. nīnu ōdabēku means that ‘you are needed to study’, ‘it is necessary for you to study’.  āgabēku is also added to the adverbial participle to give obligatory meaning.
+","ನೀವು/ನೀವು ಮಾಡಬೇಕು. ನಾನು ಓದಬೇಕು ರಾಮನಿಗೆ ಖೀರ್ ತಿನ್ನಬೇಕಾಯಿತು.ನೀನು ಮಾಡಬೇಕು       
+ಅವರು ಬರಬೇಕು        
+ಅವಳು ಓದಬೇಕು        
+ನಾನು ಓದಲೇಬೇಕು       
+ನೀನು ಬರಲೇಬೇಕು        
+ನೀವು ಹೋಗಲೇಬೇಕು        
+ನಾನು ತಿನ್ನಲೇಬೇಕು        
+ನಾನು ಓದಿ ಆಗಬೇಕು       ","aṁgaḍigaḷu muccirabahudu.""",," It is necessary for you to do / You should do.
+They should come.
+She should read.
+I must read.
+You must come.
+You (pl.) go.
+I must eat.
+ I must read",,
+7,1,"लिङ्  प्रायः/सम्भवतः/प्रायशः etc. + लट्?  प्रायः+लट्/लृट्ते, शतृ-शानच् Aux verb अस् in लट्/लृट्/लिङ् "," तेन कृतं स्यात्/ 
+सः कृतवान् स्यात्। 
+प्रायः सः गच्छति/गमिष्यति।"," tēna kr̥taṁ syāt/
+saḥ kr̥tavān syāt.
+prāyaḥ saḥ gacchati/gamiṣyati.",He must have done.,,,
+7,2,"होगा, होगी, होंगे","वह अभी पढ़ रहा होगा ।
+He must be studying now. / He is probably studying now.","vaha abhī paṛha rahā hōgā .
+he must be studying now. / he is probably studying now.",,,,
+7,3,,ಅವನು ಈಗ ಓದುತ್ತಿರಬಹುದು.,avaru beḷagginiṁdalē kelasa māḍtiddāre.,,,,
+8,1,त्वम्/भवान्/भवती + खादतु/खादतात्/भवन्तः/भवत्यः खादन्तु,त्वं फलं खाद।,tvaṁ phalaṁ khāda.,You eat a fruit.,,,
+8,2,"तुम +खाओ, पीओ, सोओ",तुम फल खाओ। तुम पानी पियो/पिओ।,tuma phala khāō. tuma pānī piyō/piō.,,,,
+8,3,"Imperative- The plural is also used as the honorific singular. The final u of the verbal base is dropped in plural and replaced by i. ri is also added to express more honor or politeness. When ri is added to the i or e ending verbs, yi comes as a glide between the verbal base and the suffixes.",ನೀವು ಹಣ್ಣು ತಿನ್ನು. ನೀನು ನೀರು ಕುಡಿ. ,avanu nāḍiddu śālege hōguttāne.,,,,
+9,1,लिङ् (क्त + अस in लिङ्),"लोकयानं/बसयानं न लब्धं / प्राप्तं  स्यात्। 
+आपणाः पीहिताः स्युः","āpaṇāḥ pīhitāḥ syuḥ
+lōkayānaṁ/basayānaṁ na labdhaṁ / prāptaṁ syāt.
+",Shops might be close.,,,
+9,2,"हुआ होगा, गया होगा, ","बस छूट गई होगी।
+तू गया होगा।
+दुकानें बंद हो चुकी होगी।","basa chūṭa gaī hōgī.
+tū gayā hōgā.
+dukānēṁ baṁda hō cukī hōgī.",,,,
+9,3,,"ಬಸ್ಸು ತಪ್ಪಿಹೋಗಿರಬಹುದು.
+ನೀನು ಹೋಗಿರಬಹುದು.
+ಅಂಗಡಿಗಳು ಮುಚ್ಚಿರಬಹುದು.",avanu ōdiddanu.,,,,
+10,1,"लकार/क्तान्त +  किम्, अपि at the beginning of the sentence, वा न वेति,  वा, किल, ननु etc - mostly at the end of the sentence","बालाः आगताः नु। 
+किं फलं मधुरम् अस्ति।","bālāḥ āgatāḥ nu.
+kiṁ phalaṁ madhuram asti.","Kids have come,",,,
+10,2,"प्रश्न is not marked on verb. Instead, the Adverb ना is used at the end of the sentence to form a yes/no type question or interrogative क्या is added to the sentence",बच्चे आये ना? क्या बच्चे आये? वह बहुत बात करता है ना? क्या वह बहोत बात करता है।,baccē āyē nā? kyā baccē āyē? vaha bahuta bāta karatā hai nā? kyā vaha bahōta bāta karatā hai.,,,,
+10,3,"clitic –a/na @annarao ji
+makkaLu ba -nd -ar -aa?
+ children come -Pst. -3pl. -Q
+ ‘Did the children come?’","ಮಕ್ಕಳು ಬಂದರು ಅಲ್ಲವೆ ? 
+ಮಕ್ಕಳು ಬಂದರಾ? 
+ಅವನು ತುಂಬಾ ಮಾತನಾಡುತ್ತಾನೆ ಅಲ್ಲವೇ? 
+ಅವನು ತುಂಬಾ ಮಾತನಾಡುತ್ತಾನೆಯೇ?
+",nīnu hōgirabahudu.,,,,
+11,1,लुट्,सः परश्वः विद्यालयं गन्ता ।,saḥ paraśvaḥ vidyālayaṁ gantā .,,He may go to school tomorrow.,,
+11,2,-गा,वह परसों विद्यालय जायेगा ।,vaha parasōṁ vidyālaya jāyēgā .,,,,
+11,3,,ಅವನು ನಾಡಿದ್ದು ಶಾಲೆಗೆ ಹೋಗುತ್ತಾನೆ.,nāvu āḍidevu We played,,,,
+12,1,,"श्वः वृष्टिः भविष्यति। 
+अग्रिमवर्षे अहम् भारतदेशं गमिष्यामि।","śvaḥ vr̥ṣṭiḥ bhaviṣyati. 
+agrimavarṣē aham bhāratadēśaṁ gamiṣyāmi.",Tomorrow it might rain.,,,
+12,2,"(m. sing)-गा/(f.sing, plu)गी/(plu)गे","""कल  बारिश होगी | “It will rain tomorrow.
+अगले साल, मैं भारत जाऊँगा | “I will go to India next year.”""","""kala bāriśa hōgī . “it will rain tomorrow.
+agalē sāla, maiṁ bhārata jāūm̐gā . “i will go to india next year.”""",,,,
+12,3,,ನಾಳೆ ಮಳೆಯಾಗುತ್ತದೆ.,nīnu āḍide You played (singular),,,,
+13,1,"Future- सः/सा/तत् भविष्यति (3s),  ते/ताः/तानि भविष्यन्ति (3s pl), त्वं भविष्यसि  (2n si), यूयं भविष्यथ (2n pl), अहं भविष्यामि (1s si), वयं भविष्यामः (1s pl) ",अत्र वर्षा भविष्यति,atra varṣā bhaviṣyati,It will rain here.,,,
+13,2,"Future -होगा, होगी, होगे, होंगे वो होगा, वे होंगे। हम होंगे, आप होंगे। तुम होगे। तुम होगी।",यहाँ बारिश होगी।,yahām̐ bāriśa hōgī.,,,,
+13,3,,ಇಲ್ಲಿ ಮಳೆ ಆಗುತ್ತದೆ.,"avaru pustakavannu ōdiddaru""""""",,,,
+14,1, शतृ+ लङ्/लुङ्/ ,यावद् अहम बालकः आसम् तावद् जनाः अवकाशार्थं शिमलानगरीं गच्छन्ति स्म अधुना तु मसूरीनगरीं गच्छन्ति। पुरा सर्वे बालाः क्रीडाङ्गणे क्रीडन्ति स्म अधुना तु सङगणके क्रीडन्ति।,yāvad ahama bālakaḥ āsam tāvad janāḥ avakāśārthaṁ śimalānagarīṁ gacchanti sma adhunā tu masūrīnagarīṁ gacchanti. purā sarvē bālāḥ krīḍāṅgaṇē krīḍanti sma adhunā tu saṅagaṇakē krīḍanti.,,,,"The Kannada word for durative is ಪ್ರವಹಿಸುತ್ತಿರುವ (pravahisuthuva). It is a verb form that expresses a continuous action. It is formed by adding the suffix -isuthuva to the root verb. For example, the verb ಕುಡಿಯುವ (kudiyuva) means ""to drink,"" and the durative form of this verb is ಕುಡಿಯುತ್ತಿರುವ (kudiyisuthuva), which means ""to be drinking.""
+
+Here are some other examples of durative verbs in Kannada:
+
+    ಓದುತ್ತಿರುವ (odayisuthuva) - to be reading
+    ಬರೆಯುತ್ತಿರುವ (bareyisuthuva) - to be writing
+    ಹಾಡುತ್ತಿರುವ (haadisuthuva) - to be singing
+    ನಡೆಯುತ್ತಿರುವ (nadeyisuthuva) - to be walking
+    ತೆರೆಯುತ್ತಿರುವ (tereyisuthuva) - to be opening
+
+Durative verbs are often used to describe actions that are in progress or that happen over a period of time. They can also be used to describe actions that are repeated or habitual. "
+14,2,रहा था/रही थी/रहे थे,जब मै बच्चा था/बच्ची थी ... लोग छुट्टी के लिए शिमला जाया करते थे आजकल मसूरी जाते है। .... सब बच्चे मैदान में खेलते थे आजकल कम्प्यूटर पे खेलते है। ,jaba mai baccā thā/baccī thī ... lōga chuṭṭī kē liē śimalā jāyā karatē thē ājakala masūrī jātē hai. .... saba baccē maidāna mēṁ khēlatē thē ājakala kampyūṭara pē khēlatē hai.,,,,
+14,3,,"ನಾನು ಚಿಕ್ಕವನು/ಮಗು ಇದ್ದಾಗ... ಜನರು ರಜೆಗೆ ಶಿಮ್ಲಾಕ್ಕೆ ಹೋಗುತ್ತಿದ್ದವರು ಈಗ ಮಸ್ಸೂರಿಗೆ ಹೋಗುತ್ತಾರೆ. .... ಎಲ್ಲಾ ಮಕ್ಕಳು ಮೈದಾನದಲ್ಲಿ ಆಡುತ್ತಿದ್ದರು, ಇಂದಿನ ದಿನಗಳಲ್ಲಿ ಕಂಪ್ಯೂಟರ್ನಲ್ಲಿ ಆಡುತ್ತಾರೆ.",,,,,
+15,1,,सः पठन् आसीत्।,saḥ paṭhan āsīt.,,,,
+15,2,हो रहा था/थी,मनीषा कपड़ा धो रही थी। नल से पानी टपक रहा था।,manīṣā kapaṛā dhō rahī thī. nala sē pānī ṭapaka rahā thā.,,,,
+15,3,,ಮನೀಷಾ ಬಟ್ಟೆ ಒಗೆಯುತ್ತಿದ್ದಳು. ನಲ್ಲಿಯಿಂದ ನೀರು ಜಿನುಗುತ್ತಿತ್ತು.,"""nānu āḍide(nu) I played",,,,
+16,1,, छात्राः वसन्ति स्म।,chātrāḥ vasanti sma.,,,,
+16,2,रहा करते थे,पहले यहां छात्र रहा करते थे।,pahalē yahāṁ chātra rahā karatē thē.,,,,0-vibakti + imperfective participle with _ता + subjunctive form of होना
+16,3,,ಮೊದಲು ಇಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳು ಇರುತ್ತಿದ್ದರು.,avaru āḍidaru They played,,,,
+17,1,"Past- सः/सा/तत् अभवत् (3s), ते/ताः/तानि अभवन् (3s pl) , त्वम् अभवः (2n si), यूयम् अभवत (2n pl), अहम् अभवम् (1s si), वयम् अभवाम (1s pl)  ",अत्र वर्षा अभवत्।,atra varṣā abhavat.,,,,
+17,2,"Past- हुआ, हुई, हुए",यहाँ बारिश हुई।,yahām̐ bāriśa huī.,,,,
+17,3,,ಇಲ್ಲಿ ಮಳೆ ಆಯಿತು.,ā dina nīvu aḍuge māḍiddiri.,,,,
+18,1,निष्ठान्त,अहम् पठितवान्।,aham paṭhitavān.,,,,"The completive-perfect-past in Kannada is expressed by the auxiliary verb ಹೊಂದಿದೆ (hondide). It is formed by adding the auxiliary verb to the past participle of the main verb. For example, the verb ಕಲಿಯಲು (kaliyalu) means ""to learn"". The completive-perfect-past form of this verb is ಕಲಿತಿದೆ (kalitide).
+
+The completive-perfect-past aspect indicates that an action has been completed and its result is still relevant. For example, the sentence ನಾನು ಕನ್ನಡವನ್ನು ಕಲಿತಿದೆ (naanu kannadavaannu kalitide) means ""I have learned Kannada"". This sentence indicates that the speaker has learned Kannada and is still able to speak and understand the language.
+
+Here are some other examples of completive-perfect-past forms in Kannada:
+
+    ತಿಂಡಿ ತಿಂದು ಹೊಂದಿದೆ (tindhi tindu hondide) - I have eaten lunch.
+    ಪುಸ್ತಕ ಓದಿ ಹೊಂದಿದೆ (pustakanu oori hondide) - I have read the book.
+    ಬಟ್ಟೆ ಒಗೆಯಲು ಹೊಂದಿದೆ (battae ogeyalu hondide) - I have washed the clothes.
+
+The completive-perfect-past aspect can also be used to express an action that was completed before a certain time or event. For example, the sentence ಅವನು ಬರುವ ಮೊದಲು ನಾನು ಊಟ ಮಾಡಿದೆ (avanu baruva modalu naanu oota maadide) means ""I had eaten before he came"". This sentence indicates that the speaker had eaten lunch before the person mentioned in the sentence arrived."
+18,2,"कर चुका है, चुका था, चुकी थी, चुके थे,  subject+ergative marker ने लिया है, लिया था",मै पढ चुका हॅू। मैने पढ लिया है। ,mai paḍha cukā hæū. mainē paḍha liyā hai.,,,,
+18,3,,ನಾನು ಓದಿದ್ದೇನೆ. ನಾನು ಓದಿದ್ದೇನೆ,"nāvu āḍidevu We played """,,,,
+19,1,लिट्,"रामः रावणं ममार।  वाल्मीकिः रामायणं लिलेख।
+ रामः राजा बभूव । पाचयाञ्चकार। पाचयाम्बभूव। पाचयामास।","rāmaḥ rāvaṇaṁ mamāra. vālmīkiḥ rāmāyaṇaṁ lilēkha.
+rāmaḥ rājā babhūva . pācayāñcakāra. pācayāmbabhūva. pācayāmāsa.",,,,
+19,2,Subject Eargative ने + सामान्य भूतकाल आ/या प्रत्यय,Transitive: श्री राम ने रावण को मारा। वाल्मीकि जी ने रामायण लिखा। Intransitive: राम राजा हुए। ,transitive: śrī rāma nē rāvaṇa kō mārā. vālmīki jī nē rāmāyaṇa likhā. intransitive: rāma rājā huē.,,,,उत्तम पुरुष में लिट् लकार का प्रयोग स्वप्न या उन्मत्त अवस्था में ही किया जाता है।
+19,3,,,avaḷu āḍidaḷu She played,,,,
+20,1,अनद्यतन भूतकाल लङ्,भवान् तस्मिन् दिने भोजनमपचत्,bhavān tasmin dinē bhōjanamapacat,,,,
+20,2," verb with आ प्रत्यय and Auxiliary verbs: था, थे, थी, थीं ",आपने उस दिन भोजन पकाया था,āpanē usa dina bhōjana pakāyā thā,,,,
+20,3,,ಆ ದಿನ ನೀವು ಅಡುಗೆ ಮಾಡಿದ್ದಿರಿ.,"nāvu āḍidevu We played""",,,,
+21,1,आसन्न / अद्यतन भूतकाल,मैने अभी पुस्तक पढी है। उसने पढ लिया है। मैने किताब पढ ली है। -- we require Sanskrit example,mainē abhī pustaka paḍhī hai. usanē paḍha liyā hai. mainē kitāba paḍha lī hai. -- we require Sanskrit example,,,,
+21,2,आसन्न भूत (Immediate Past),मैने अभी पुस्तक पढी है। उसने पढ लिया है। मैने किताब पढ ली है। ,mainē abhī pustaka paḍhī hai. usanē paḍha liyā hai. mainē kitāba paḍha lī hai.,,,,
+21,3,,"""ನಾನು ಪುಸ್ತಕ ಓದಿದೆ.
+ಅವನು ಓದಿದ್ದನು.
+ನಾನು ಪುಸ್ತಕ ಓದಿದ್ದೆ.
+ಅವನು ಹೋಗಿಬಿಟ್ಟಿದ್ದನು.
+ಅವರು ಪುಸ್ತಕವನ್ನು ಓದಿದ್ದರು""",avaru āḍidaru They played,,,,
+22,1,"-अक, -कर in compound",सा लेखिका आसीत्।,sā lēkhikā āsīt.,,,,
+22,2,जातिवाचक कृदन्त ,वह लेखक था।,vaha lēkhaka hai.,,,,
+22,3,The habitual aspect in Kannada is expressed using the verb root followed by  suffixes -ಪ್ರತಿ (-prathi) and -ತುತ್ತ (-tutha) [google],,,,,,
+23,1,त्-त,अहम् अक्रीडम्। वयम् अक्रीडाम। त्वम् अक्रीडः। सः/सा अक्रीडत्। ह्यः वृष्टिः आसीत्/,aham akrīḍam. vayam akrīḍāma. tvam akrīḍaḥ. saḥ/sā akrīḍat. hyaḥ vr̥ṣṭiḥ āsīt/,,,,
+23,2,"Verb - आ, ई, ए + Aux verb था, थी, थे","पिछले साल, मैं भारत गया था |","pichalē sāla, maiṁ bhārata gayā thā .",,,,
+23,3,adding d before personal endings,"ನಾನು ಆಡಿದೆ(ನು) I played
+ ನಾವು ಆಡಿದೆವು We played
+ ನೀನು ಆಡಿದೆ You played (singular)
+ ನೀವು ಆಡಿದಿರಿ You played (plural)
+ ಅವನು ಆಡಿದ(ನು) He played
+ ಅವಳು ಆಡಿದಳು She played
+ ಅವರು ಆಡಿದರು They played
+ ನಾವು ಆಡಿದೆವು We played","""nānu āḍide(nu) I played",,,,
+24,1,Noun/कृदन्त+ Aux verb अस्/भू,ह्यः वृष्टिः वर्षन्ती आसीत्?,hyaḥ vr̥ṣṭiḥ varṣantī āsīt?,,,,
+24,2,"Verb in past with suffix- आ, ई, ए + Aux verb (m. sing)था, (f.sing) थी, (m.plu)थे","""मै खेला था। हम खेले थे। तुम खेले थे। वो खेला था। वह खेली थी। कल बारिश हो रही थी | “It was raining yesterday.”
+पिछले साल, मैं भारत गया था | “I had gone to India last year.”""","""mai khēlā thā. hama khēlē thē. tuma khēlē thē. vō khēlā thā. vaha khēlī thī. kala bāriśa hō rahī thī . “it was raining yesterday.”
+pichalē sāla, maiṁ bhārata gayā thā . “i had gone to india last year.”""",,,,
+24,3,,"ನಾನು ಆಡಿದೆ(ನು)        I played
+ನಾವು ಆಡಿದೆವು        We played
+ನೀನು ಆಡಿದೆ        You played (singular)
+ನೀವು ಆಡಿದಿರಿ        You played (plural)
+ಅವನು ಆಡಿದ(ನು)        He played
+ಅವಳು ಆಡಿದಳು        She played
+ಅವರು ಆಡಿದರು        They played
+ನಾವು ಆಡಿದೆವು        We played  ",nāvu āḍidevu We played,,,,
+25,1,"लोट् / विधिलिङ्/आशीर्लिङ् only in positive -  भव - भवतु /भवेत्  अभिलाषो मे + लिङ्, कामो मे+लिङ्, कच्चित्+लट्","सर्वे अत्र सुखिनः सन्तु।
+तव पुत्रः यशस्वी भूयात्।","sarvē atra sukhinaḥ santu.
+tava putraḥ yaśasvī bhūyāt.",,,,
+25,2,"1s/2s/3s/ हो, रहो, आप You-plural-honor बने, रहे,  काश",मेरा तुम्हारा उसका  सत्यानाश हो।  1s/2s/3s.gen destruction be.opt May I/you/he be destroyed.  आप यहासे जाए। You.pl/hon. here-abl. go-3P/hon. You may go from here. आप मुख्यमंत्री बने। काश मै अमीर होता।,mērā tumhārā usakā satyānāśa hō. 1s/2s/3s.gen destruction be.opt may i/you/he be destroyed. āpa yahāsē jāē. you.pl/hon. here-abl. go-3p/hon. you may go from here. āpa mukhyamaṁtrī banē. kāśa mai amīra hōtā.,,,,
+25,3,"/avaLu/+/ma:Dali/=/avaLu 
+ma:Dali/(Let her do).","1.           ಹುಡುಗರು ಮೊದಲು ಊಟ ಮಾಡಲಿ.
+1.           Let the kids eat first
+2.           ಅವನು ಬಂದರೆ ಬಂದರೆ ಬರಲಿ ನನಗೇನು
+2.           Let him come if he will, what do I care
+3.           ದೇವರೆ ಸಕಾಲಕ್ಕೆ ಮಳೆ ಬೀಳಲಿ.
+3.           O god let the rains come in time                    
+4.           ಅವನು ಸಂತೋಷವಾಗಿ ನಿವೃತ್ತಿ ಜೀವನ ಕಳೆಯಲಿ.
+4.           May he spend the retirement happily?
+","nānu cikkavanu/magu iddāga... janaru rajege śimlākke hōguttiddavaru īga massūrige hōguttāre. .... ellā makkaḷu maidānadalli āḍuttiddaru, iṁdina dinagaḷalli kaṁpyūṭarnalli āḍuttāre.",,,,
+26,1,लट् (यावद् - तावद्),"यावद् अहम् आगच्छामि तावद् अपेक्षस्व। आर्य माधव्य, अवलम्बस्व चित्रफलकं यावद् आगच्छामि। (बृहद् अनुवाद चन्द्रिका) ","yāvad aham āgacchāmi tāvad apēkṣasva. ārya mādhavya, avalambasva citraphalakaṁ yāvad āgacchāmi. (br̥had anuvāda candrikā)",,,,
+26,2,,"जब तक मै वापस आऊ, तुम प्रतीक्षा करो। आर्य माधव्य, मेरे आने तक इस चित्रफलक को पकडो। (बृहद् अनुवाद चन्द्रिका)","jaba taka mai vāpasa āū, tuma pratīkṣā karō. ārya mādhavya, mērē ānē taka isa citraphalaka kō pakaḍō. (br̥had anuvāda candrikā)",,,,
+26,3,,"ನಾನು ಬರುವ ವರೆಗೆ ನೀನು ಕಾಯಿ, ಆರ್ಯ ಮಾಧವ, ನಾನು ಬರುವ ತನಕ ಈ ಛಾಯಾಗ್ರಹಣವನ್ನು ಹಿಡಿದುಕೊ.",,,,,
+27,1,लट्,सूर्यः उदेति। सः फलं खादति। जलं आपूर्यमाणम् अस्ति। जलं पूर्यते। वर्षा भवति।,sūryaḥ udēti. saḥ phalaṁ khādati. jalaṁ āpūryamāṇam asti. jalaṁ pūryatē. varṣā bhavati.,,,,"The iterative aspect in Kannada is called ಪುನರಾವರ್ತನೆ (punaravartane). It is used to express an action that is repeated a number of times. The iterative aspect is formed by adding the suffix -ಪು (-pu) to the verb stem. For example, the verb ಕಲಿಯು (kaliyu) means ""to learn."" The iterative form of this verb is ಕಲಿಯುಪು (kaliyupu), which means ""to learn repeatedly.""
+
+Here are some examples of the iterative aspect in Kannada:
+
+    ನಾನು ಪುಸ್ತಕವನ್ನು ಓದುತ್ತಿದ್ದೆ. (naanu pusthakavannu odutthidde.) - I was reading the book.
+    ನಾನು ಪುಸ್ತಕವನ್ನು ಮತ್ತೆ ಮತ್ತೆ ಓದುತ್ತಿದ್ದೆ. (naanu pusthakavannu matte matte odutthidde.) - I was reading the book repeatedly.
+    ನಾನು ಅವನನ್ನು ಕೇಳುತ್ತಿದ್ದೆ. (naanu avanannu keluttidde.) - I was asking him.
+    ನಾನು ಅವನನ್ನು ಮತ್ತೆ ಮತ್ತೆ ಕೇಳುತ್ತಿದ್ದೆ. (naanu avanannu matte matte keluttidde.) - I was asking him repeatedly.
+
+The iterative aspect can also be used to express an action that is done in a series of steps. For example, the verb ಬೇಯಿಸು (beyisu) means ""to cook."" The iterative form of this verb is ಬೇಯಿಸುತ್ತಿದ್ದು (beyisutthiddu), which means ""to cook in a series of steps.""
+
+Here is an example of the iterative aspect used to express an action that is done in a series of steps:
+
+    ಅವಳು ಅಡುಗೆ ಮಾಡುತ್ತಿದ್ದಳು. (avalu aduve maaduththiddlu.) - She was cooking.
+    ಅವಳು ಅಡುಗೆಯನ್ನು ಹಂತ ಹಂತವಾಗಿ ಮಾಡುತ್ತಿದ್ದಳು. (avalu aduveyannu hanta hantaavaagi maaduththiddlu.) - She was cooking the dish in a series of steps."
+27,2,"रहा, रहे, रही, हो रहा है, हो रही है, हो रहे है",सूरज उग रहा है। वह फल खा रहा है।  पानी भर रहा है। बारिश हो रही है।,sūraja uga rahā hai. vaha phala khā rahā hai. pānī bhara rahā hai. bāriśa hō rahī hai.,,,,"The iterative aspect in Hindi is called पौनःपुन्य पक्ष (pōnaḥpuny pakṣa). It is a grammatical aspect that expresses the repetition of an event observable on one single occasion. For example, the Hindi sentence वह दरवाज़ा खटखटा रहा है (vah darwaza khatkhaṭa raha hai) means ""He is knocking on the door,"" which expresses the repetition of the action of knocking.
+
+Here are some other examples of iterative aspect in Hindi:
+
+    वह खाना खा रहा है (vah khānā khā raha hai) - He is eating food (repeatedly)
+    वह हँस रहा है (vah hans raha hai) - He is laughing (repeatedly)
+    वह दौड़ रहा है (vah daud raha hai) - He is running (repeatedly)
+
+The iterative aspect is often marked by the repetition of the verb stem, as in the examples above. However, it can also be marked by the use of certain auxiliary verbs, such as रहना (rahnā) or जाना (jānā). For example, the Hindi sentence वह खाता रहा (vah khātā raha) means ""He kept eating,"" which expresses the repeated action of eating."
+27,3,,ಸೂರ್ಯ ಉದಯಿಸುತ್ತಿದ್ದಾನೆ. ಅವನು ಹಣ್ಣು ತಿನ್ನುತ್ತಿದ್ದಾನೆ. ನೀರು ತುಂಬುತ್ತಿದೆ. ಮಳೆ ಬರುತ್ತಿದೆ.,,,,,
+28,1,शतृ/शानच् +अस्,सः प्रातःकालात् कार्यं कुर्वन् अस्ति।,saḥ prātaḥkālāt kāryaṁ kurvan asti.,,,,"The present continuous progressive tense in Kannada is called the ಹೋಗುತ್ತಿರುವ (hogutthiriuva) tense. It is used to describe an action that is happening now and continuing for a period of time. The tense is formed by combining the auxiliary verb ಇರು (iru) ""to be"" with the continuous form of the verb. The continuous form of the verb is created by adding the suffix -ುತ್ತ (-utt) to the root verb.
+
+For example, the sentence ""I am reading a book"" in Kannada would be:
+
+ನಾನು ಪುಸ್ತಕವನ್ನು ಓದುತ್ತಿದ್ದೇನೆ (naanu pusthakavaannu odutthiriddenu)
+
+The verb ಓದುತ್ತಿದ್ದೇನೆ (odutthiriddenu) is the continuous form of the verb ಓದು (odhu) ""to read."" The auxiliary verb ಇರು (iru) is in the present tense, and the suffix -ುತ್ತ (-utt) is added to the root verb to create the continuous form.
+
+Here are some more examples of the present continuous progressive tense in Kannada:
+
+    ಅವರು ಊಟ ಮಾಡುತ್ತಿದ್ದಾರೆ (avaru ootada maaddutthiraare) - They are eating.
+    ನಾವು ಕೆಲಸ ಮಾಡುತ್ತಿದ್ದೇವೆ (naanu kelasa maaddutthiruva) - We are working.
+    ಅವಳು ಹಾಡುತ್ತಿದ್ದಾಳೆ (avalu haadutthiruvaale) - She is singing."
+28,2,जा रहा/रही/रहे है ,वह सुबहसे काम करते जा रहा  है।,vaha subahasē kāma karatē jā rahā hai.,,,,
+28,3,,ಅವರು ಬೆಳಗ್ಗಿನಿಂದಲೇ ಕೆಲಸ ಮಾಡ್ತಿದ್ದಾರೆ.,"""""""nānu pustaka ōdide.",,,,
+29,1,"Present- सः/सा/तत् भवति (3s), ते/ताः/तानि भवन्ति (3s pl), त्वं भवसि (2n si), यूयं भवथ (2n pl), अहं भवामि (1s si), वयं भवामः (1s pl) ",अहम् अत्र अस्मि।,aham atra asmi.,,,,
+29,2,"सामान्य वर्तमानकाल  होना- Present है (3s, pl,1pl), हॅू (1s), हो (2s, pl),  वो है। वह है। वे है। हम है। तुम हो। आप है।",Present मै यहाँ  हॅू।तू यहाँ  है (familiar) तुम/आप यहाँ  हो(polite)। वह है। यहाँ बारिश है।,present mai yahām̐ hæū.tū yahām̐ hai (familiar) tuma/āpa yahām̐ hō(polite). vaha hai. yahām̐ bāriśa hai.,,,,
+29,3,"Present- tense marker *utta
+ಅವರು ಪ್ರತಿ ದಿನ ಎರಡು ಸಲ ಊಟಮಾಡುತ್ತಾರೆ.
+They eat meals twice a day.
+","ನಾನು ಇಲ್ಲಿ ಇದ್ದೇನೆ, ನೀನು ಇಲ್ಲಿ ಇದ್ದಿ. ನೀವು ಎಲ್ಲಿ ಇದ್ದೀರಿ. ಇವರು ಇದ್ದಾರೆ. ಇಲ್ಲಿ ಮಳೆ ಇದೆ.",avanu hōgibiṭṭiddanu.,,,,
+30,1,निष्ठान्त+अस् in लट्,अहम् आगतः अस्मि।,aham āgataḥ asmi.,,,,"The present perfect tense in Kannada is called the ಹಿಂದಿನ ಕಾಲದಲ್ಲಿ ನಡೆದಿರುವ ಭೂತಕಾಲ (hindina kaaladalli nadeddiraagaa bhootakaal). It is used to describe an action or situation that has happened in the past but has a connection to the present. For example, ""I have read this book before"" or ""I have been to this place before.""
+
+The present perfect tense in Kannada is formed by using the auxiliary verb ಹೊಂದಿರುವ (hondiravuga) with the past participle of the main verb. For example, the past participle of the verb ""to read"" is ಓದಿರುವ (oduvuga). So, the present perfect tense form of the verb ""to read"" is ಹೊಂದಿರುವ ಓದಿರುವ (hondiravuga oduvuga), which means ""has read.""
+
+Here are some examples of the present perfect tense in Kannada:
+
+    ನಾನು ಈ ಪುಸ್ತಕವನ್ನು ಹಿಂದೆ ಓದಿದ್ದೇನೆ (naanu ee pusthakavannu hinde oduvdidene) - I have read this book before.
+    ನಾನು ಈ ಸ್ಥಳಕ್ಕೆ ಹಿಂದೆ ಬಂದಿದ್ದೇನೆ (naanu ee sthalakke hinde bandiddene) - I have been to this place before.
+    ಅವರು ಈ ಕೆಲಸವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ್ದಾರೆ (avaru ee kelsavannu poornagolisiddarenu) - They have completed this work"
+30,2,Verb with आ suffix + m. चुका है f. चुकी है।,मै आ चुका हू। हम खेल चुके है। ,mai ā cukā hū. hama khēla cukē hai.,,,,
+30,3,,ನಾನು ಬಂದಿದ್ದೇನೆ. ನಾವು ಆಡಿದ್ದೇವೆ.,nāḷe maḷeyāguttade.,,,,
+31,1,"-अक, -कर in compound",सा लेखिका अस्ति।,sā lēkhikā asti.,,,,"The habitual aspect in Kannada is expressed using the verb ಹಬಿಚೂಅಲ (habichula). This verb is derived from the noun ಹಬ್ಬ (habba), which means ""habit"" or ""custom."" The habitual aspect is used to describe actions that are done regularly or on a repeated basis.
+
+Here are some examples of the habitual aspect in Kannada:
+
+    ನಾನು ಪ್ರತಿದಿನ ಕೆಲಸಕ್ಕೆ ಹೋಗುತ್ತೇನೆ (naanu prathidina kelsakke hoguddenu) - I go to work every day.
+    ಅವರು ಬೆಳಿಗ್ಗೆ ಓದುತ್ತಾರೆ (avaru belagige odataru) - They read in the morning.
+    ನಾವು ವಾರಕ್ಕೊಮ್ಮೆ ಚಿತ್ರಮಂದಿರಕ್ಕೆ ಹೋಗುತ್ತೇವೆ (naanu vaarakkommune chitramandirakke hoguddevenu) - We go to the cinema once a week.
+
+The habitual aspect can also be used to describe actions that are done in the past, but that are still considered to be habitual. For example, you could say:
+
+    ನಾನು ಚಿಕ್ಕವನಿದ್ದಾಗ ಪ್ರತಿದಿನ ಶಾಲೆಗೆ ಹೋಗುತ್ತಿದ್ದೆ (naanu chikkuvaniddagannu prathidina shaalege hoguddidene) - I used to go to school every day when I was a child.
+
+The habitual aspect is a versatile grammatical feature that can be used to express a variety of meanings. By understanding how to use it, you can make your Kannada more expressive and nuanced."
+31,2,जातिवाचक कृदन्त ,वह लेखक है।,vaha lēkhaka hai.,,,,
+31,3,The habitual aspect in Kannada is expressed using the verb root followed by  suffixes -ಪ್ರತಿ (-prathi) and -ತುತ್ತ (-tutha) [google],ಅವರು ಬರಹಗಾರ ಆಗಿದ್ದಾರೆ.,avaḷu āḍidaḷu She played,,,,
+32,1,ति-ते,अद्य वृष्टिः भवति। अहं भारतदेशं गच्छामि। Statement: बालकः हसति। Question: युवां कुत्र गच्छथः। Negation: भवन्तः कथं न पठन्ति।,adya vr̥ṣṭiḥ bhavati. ahaṁ bhāratadēśaṁ gacchāmi. Statement: bālakaḥ hasati. Question: yuvāṁ kutra gacchathaḥ. Negation: bhavantaḥ kathaṁ na paṭhanti.,,,,
+32,2,"Verb: _(3p,m,s)ता है,(3p,f,s and pl) _ती है, (1,2,3p,m.pl)_ते है, (1p,m,s)_ता हूँ, (p,pl)_ती हूँ Auxiliary verbs: हूँ, हो, है, हैं",आज बारिश हो रही है |(Present Progressive in HIndi) “It is raining today.” मैं भारत जा रहा हूँ | “I am going to India.” [Statement: बालक हसता है। Interrogative: तुम दोनो कहा जाते हो? Negetive: आप क्यो नही पढते?],āja bāriśa hō rahī hai .(present progressive in hindi) “it is raining today.” maiṁ bhārata jā rahā hūm̐ . “i am going to india.” [statement: bālaka hasatā hai. interrogative: tuma dōnō kahā jātē hō? negetive: āpa kyō nahī paḍhatē?],,,,"Main verb with present tense marker. Gender and person mapping is required.  कर्ता with zero suffix.
+Pronoun        Masculine Form        Feminine Form
+मैं        करता हूँ        करती हूँ
+हम        करते हैं        करती हैं
+आप        करते हैं        करती हैं
+तुम        करते हो        करती हो
+तू        करता है        करती है
+यह/वह        करता है        करती है
+ये/वे        करते हैं        करती हैं"
+32,3,tt,ಇಂದು ಮಳೆ ಆಗುತ್ತಿದೆ. |  “It is raining today.” ನಾನು ಭಾರತಕ್ಕೆ ಹೋಗುತ್ತಿದ್ದೇನೆ  “ I am going to India.” ಬಾಲಕರು ನಗುತ್ತಾರೆ “Boys laugh ನೀವು ಇಬ್ಬರೂ ಎಲ್ಲಿಗೆ ಹೋದುತ್ತೀರಿ? तुम दोनो कहा जाते हो? ನೀವು ಏಕೆ ಓದುವುದಿಲ್ಲ आप क्यो नही पढते?,ṁdu maḷe āguttide. | “It is raining today.” nānu bhāratakke hōguttiddēne “ I am going to India.” bālakaru naguttāre “Boys laugh nīvu ibbarū ellige hōduttīri? तुम दोनो कहा जाते हो? nīvu ēke ōduvudilla आप क्यो नही पढते?,,,,
+33,1,"अस्ति। भू, वृत्, कृ",एतद् चन्दनम् अस्ति। -- need to change,ētad candanam asti. -- need to change,,,,
+33,2,verb: है,यह चन्दन है। वह दिल्ली में रहती है – “She lives in Delhi”,yaha candana hai. vaha dillī mēṁ rahatī hai – “she lives in delhi”,,,,"[* Should not be mistaken with Hindi continuous aspect of the present tense. हो (होना) + रही (fem of aux verb रहना)+ है combine the verb stem (हो, which represents the basic meaning of the verb, i.e. “to be”), a form of रही (which represents the continuous aspect and is in agreement with the gender and number of the कर्म).]]"
+33,3,verb iru in accordance with the gender and number,ಇಂದು ಚಂದನ.,iṁdu caṁdana.,,,,
+34,1,"लौकिक संस्कृत - Imperative or optative (लोट् or लिङ्)  is used in the sense of subjunctive.  
+भवा॑ति॒ / भवा॑त् (only Vedic cannot be used in लौकिक) 
+""Vedic forms and possible लौकिक forms in the bracket.
+भवाति (भवति), भवान्ति (भवन्ति)
+कृणोति (करोति), अकृण्वन् (अकुर्वन्)
+शृणवत् / शृण्वति (शृणोति)
+पर्षत् (पारयतु) (ऋसं १।९९।१)
+अकारिषम् (करवाणि) (ऋसं ४।४०।६)
+करत् (करोतु) (ऋसं ४।४०।६)
+तारिषत् (तारयतु) (ऋसं ४।४०।६)
+पताति (पतति)
+कृधि (कुरु)""","यद्यहं धनवान् स्याम, तर्हि सर्वेभ्यः सहायतां करोमि।
+देवो नः शुभं कृणोतु।
+यथा भवति तथैव कुरु।","yadyahaṁ dhanavān syāma, tarhi sarvēbhyaḥ sahāyatāṁ karōmi.
+dēvō naḥ śubhaṁ kr̥ṇōtu.
+yathā bhavati tathaiva kuru.","यदि अहम् धनवान् स्याम, तर्हि सर्वेभ्यः सहायतां करोमि।
+देवाः नः शुभं कृणोतु।
+यथा भवति तथा एव कुरु।","If I were wealthy, I would help everyone.
+May God bless us.
+Do as it is.",,
+34,2,"The subjunctive mood is used under certain circumstances in subordinate clauses, typically for actions that are subjective or otherwise uncertain. ","मैं चाहता हूँ कि वह हिंदी सीखें।  अगर आप हिंदी सीखना चाहें तो यह लेख आप के लिए उपयोगी होगा। बच्चा विद्यालय जाना शुरु करे, इससे पहले उसके माता-पिता को कुछ तैयारियां करनी चाहिए। वह खाना ऐसे खा गया जैसे कि उसने कई दिनों से कुछ न खाया हो। EXTRA EXAMPLES: “कृपया मंदिर के बहार अपने जूते उतार दें” – “Please remove your shoes outside the temple”
+“कृपया रेलिंग से दुरी बनाये रखें” – “Please keep a distance from the railing”
+If you fly on an airplane in India, you will hear announcements that use the subjunctive mood, such as:
+
+सभी यात्रियों से निवेदन है कि वे अपनी कुर्सी की पेटी बांध लें – “We request that all passengers fasten their seat belt”
+सभी यात्रियों से अनुरोध है कि वे अपना सामान अकेला न छोड़ें – “We request that all passengers not leave their baggage unattended” काश कि मैं हिंदी बोल सकता (I wish that I could speak Hindi) Subjunctive to form polite QUESTION: मैं क्या करूं What should I do? हम बाहर बैठें – “Shall we sit outside?” कुछ पैसा दूँ – “Should I give some money?” Passive polite QUESTION to request: कुछ खाना खाया जाए? – “Should we eat some food?” This sentence is literally “Shall some food be eaten?”. The implied agency is “by us”. Interrogative Subjunctive  Imperative Subjunctive (Polite) : First Person Imperative अन्दर चलें – “Let’s go inside” जाते हैं – “Let’s go” मैं आपको याद दिला दूं कि उसने क्या किया है – “Let me remind you what he has done”  Second Person Imperative उनको बताएँ – “Please tell them”
+Such imperatives are negated by न:
+
+उनको न बताएँ – “Please do not tell them”
+अपना नाम यहाँ लिखें – “Please write your name here” Third Person Imperative चोट न लग जाए – “Don’t let (someone) get hurt”
+बच्चे सडकों पर न खेलें – “Do not let the children play in the streets” Optative Subjunctive  जन्मदिन मुबारक हो – “Happy birthday” – literally, “May your birthday be happy (auspicious)”
+खुश रहो – “May you remain happy”
+भगवान तुम्हें सफलता दें – “May God grant you success”
+आपके दुश्मान मर जाएं – “May your enemies die!” To Express Nescience Often idioms involving the subjunctive mood like न जाने “no one knows” or कौन जाने “who knows” will be used.
+
+कौन जाने कल बारिश हो या न हो – “Who knows whether it will rain tomorrow or not”
+खुदा जाने – “God only knows”  Permission: क्या मैं अंदर आऊं – “May I come inside?”  Disjunctions
+The subjunctive mood is used with statements like “whether … or”:
+
+मानो या न मानो – “Believe it or not…”   अव्ययs like शायद, काश, कहीं, चाहे","maiṁ cāhatā hūm̐ ki vaha hiṁdī sīkhēṁ. agara āpa hiṁdī sīkhanā cāhēṁ tō yaha lēkha āpa kē liē upayōgī hōgā. baccā vidyālaya jānā śuru karē, isasē pahalē usakē mātā-pitā kō kucha taiyāriyāṁ karanī cāhiē. vaha khānā aisē khā gayā jaisē ki usanē kaī dinōṁ sē kucha na khāyā hō. extra examples: “kr̥payā maṁdira kē bahāra apanē jūtē utāra dēṁ” – “please remove your shoes outside the temple”
+“kr̥payā rēliṁga sē durī banāyē rakhēṁ” – “please keep a distance from the railing”
+if you fly on an airplane in india, you will hear announcements that use the subjunctive mood, such as:
+
+sabhī yātriyōṁ sē nivēdana hai ki vē apanī kursī kī pēṭī bāṁdha lēṁ – “we request that all passengers fasten their seat belt”
+sabhī yātriyōṁ sē anurōdha hai ki vē apanā sāmāna akēlā na chōṛēṁ – “we request that all passengers not leave their baggage unattended” kāśa ki maiṁ hiṁdī bōla sakatā (i wish that i could speak hindi) subjunctive to form polite question: maiṁ kyā karūṁ what should i do? hama bāhara baiṭhēṁ – “shall we sit outside?” kucha paisā dūm̐ – “should i give some money?” passive polite question to request: kucha khānā khāyā jāē? – “should we eat some food?” this sentence is literally “shall some food be eaten?”. the implied agency is “by us”. interrogative subjunctive imperative subjunctive (polite) : first person imperative andara calēṁ – “let’s go inside” jātē haiṁ – “let’s go” maiṁ āpakō yāda dilā dūṁ ki usanē kyā kiyā hai – “let me remind you what he has done” second person imperative unakō batāēm̐ – “please tell them”
+such imperatives are negated by na:
+
+unakō na batāēm̐ – “please do not tell them”
+apanā nāma yahām̐ likhēṁ – “please write your name here” third person imperative cōṭa na laga jāē – “don’t let (someone) get hurt”
+baccē saḍakōṁ para na khēlēṁ – “do not let the children play in the streets” optative subjunctive janmadina mubāraka hō – “happy birthday” – literally, “may your birthday be happy (auspicious)”
+khuśa rahō – “may you remain happy”
+bhagavāna tumhēṁ saphalatā dēṁ – “may god grant you success”
+āpakē duśmāna mara jāēṁ – “may your enemies die!” to express nescience often idioms involving the subjunctive mood like na jānē “no one knows” or kauna jānē “who knows” will be used.
+
+kauna jānē kala bāriśa hō yā na hō – “who knows whether it will rain tomorrow or not”
+khudā jānē – “god only knows” permission: kyā maiṁ aṁdara āūṁ – “may i come inside?” disjunctions
+the subjunctive mood is used with statements like “whether … or”:
+
+mānō yā na mānō – “believe it or not…” avyayas like śāyada, kāśa, kahīṁ, cāhē",,,,
+34,3,,"ಅವನು ಹಿಂದಿ ಕಲಿಯಬೇಕು ಎಂದು ನಾನು ಬಯಸುತ್ತೇನೆ.
+ನೀವು ಹಿಂದಿ ಕಲಿಯಲು ಬಯಸಿದರೆ ಈ ಲೇಖನವು ನಿಮಗೆ ಉಪಯುಕ್ತವಾಗಿರುತ್ತದೆ.
+ಮಗು ಶಾಲೆಗೆ ಹೋಗಲು ಪ್ರಾರಂಭಿಸುವ ಮೊದಲು, ಅವನ ಪೋಷಕರು ಕೆಲವು ಸಿದ್ಧತೆಗಳನ್ನು ಮಾಡಬೇಕು.",nānu baṁdiddēne. nāvu āḍiddēve.,,,,
+35,1,"Potential :लकार- लिङ् (गच्छेत्),  Passive कृदन्त-  य, तव्यत्, अनीयर्,",,,,,,
+35,2,"The potential mood has several suffixes depending on the pronoun :
+I : –ऊँ 
+We : –एँ
+You : –एँ
+He : –ए
+She : –ए
+They : –एँ                                                                                                खाये, पीये, सोये, जाये",राम घर जाए। मुझे/रामको पढ़ना चाहिए। @ chaitali ji this is not correct example for सम्भावना,rāma ghara jāē. mujhē/rāmakō paṛhanā cāhiē. @ chaitali ji this is not correct example for sambhāvanā,,,,
+35,3,"Potential (or the ability to do something)
+is expressed by suffixing auxiliaries to
+the infinitive of the verb. Positive potential
+is expressed by the use of –b@hudu
+‘possible’, -b@ll@ ‘can go’ (3sm) or its
+variants and –a:gu ‘become/happen’
+(Sridhar 1990: 240)","Possibility: ಅನನು ಈ ವರ್ಷ ಪರೀಕ್ಷೆಯಲ್ಲಿ ಪಾಸಾಗಬಹುದು.
+He may pass the exam this year
+                               
+
+",modalu illi vidyārthigaḷu iruttiddaru.,,,,
+36,1,त्वम्/भवान्/भवती + खादतु/खादतात्/पिबतु/पिबतात्/ ददातु/(यच्छतु)/दत्तात्(यच्छतात्)/ स्वपितु/स्वपितात्/धावतु/धावतात्। यूयम्/ भवन्तः/भवत्यः + खादन्तु/पिबन्तु/ददतु/स्वपन्तु/धावन्तु।  ,भवान् जलं पिबतु।,bhavān jalaṁ pibatu.,,,,
+36,2,"आप + खाईये, पीजीये, दीजीये, सोईये, भागीये  There is additionally a highly formal imperative, the deferential imperative. It is formed by suffixing इएगा / इयेगा to the verb stem (i.e., by suffixing गा to the formal imperative).
+
+बैठियेगा – Please sit down",आप घर जाइए।  आप पानी पीजिए।,āpa ghara jāiē. āpa pānī pījiē.,,,,
+36,3,ho:gu/ho:gi home-dat go-2S/go-2pl/hon. Go home! (source: Sridhar 1990:238).,"ನೀವು ಮನೆಗೆ ಹೋಗಿರಿ. ನೀವು ನೀರು ಕುಡಿಯಿರಿ.Imperative- The plural is also used as the honorific singular. The final u of the verbal base is dropped in plural and replaced by i. ri is also added to express more honor or politeness. When ri is added to the i or e ending verbs, yi comes as a glide between the verbal base and the suffixes.",manīṣā baṭṭe ogeyuttiddaḷu. nalliyiṁda nīru jinuguttittu.,,,,
+37,1,"Ability: verb शक् in लट्, noun समर्थ","सः वेगेन धावुतुं शक्नोति।
+सः वक्तुं समर्थः अस्ति।","saḥ vēgēna dhāvutuṁ śaknōti.
+saḥ vaktuṁ samarthaḥ asti.",,,,
+37,2,सकता है,सुनील दो मील तक तैर सकता है।,sunīla dō mīla taka taira sakatā hai.,,,,
+37,3,"Kannada (balle (I know, you know)), balla (he knows), ballaḷu (she knows), and balludu, balluvu (neuter) are used giving the meaning of ability in modern Kannada)",Ability: ಸುನೀಲ ಎರಡು ಕಿಲೋಮೀಟರ್ ಓಡಬಲ್ಲ. Sunil can swim two miles,nānu ōdiddeೕne. nānu ōdiddeೕne,,,,
+38,1,"लृङ् + यदि-तर्हि, लृङ् + तर्हि, Any + यदि-तर्हि, लृङ् + चेद्, लृङ् + यदि-तदि
+","यदि सुवृष्टिर् अभविष्यत्  तदा सुभिक्षम् अभविष्यत्।
+यदि निर्वह्निः स्यात् तर्हि निर्धूमः स्यात्।
+देवश्चेत् वर्षिष्यति धान्यं वप्स्यामः।
+
+","yadi suvr̥ṣṭir abhaviṣyat tadā subhikṣam abhaviṣyat.
+yadi nirvahniḥ syāt tarhi nirdhūmaḥ syāt.
+dēvaścēt varṣiṣyati dhānyaṁ vapsyāmaḥ.",,,,
+38,2,"Subjunctive mood is used for conditional sentences (Can be used with almost all tenses and moods)   यदि + खाता, पीता, सोता तो जाता, आता(verbal form in past)  In Hindi, the words अगर and यदि are optional, but तो is always required. The presence of तो between two clauses is enough to signal a conditional sentence. (Examples of conditional in various tenses can be seen here https://hindilanguage.info/hindi-grammar/conditional-sentences/) In colloquial Hindi, the relative pronoun जो may be used instead of अगर or यदि. ","यदि मैं पढ़ता तो विद्वान हो जाता। अगर मै बाहर जाता तो मै भीग जाता। Extra sentences आपको हिन्दुस्तानी खाना अच्छा लगता है तो आपको मेरे घर आना चाहिए खाना खाने के लिए – “If you like Indian food then you should come to my house to eat” Conditional Present and Future: Present tense condition present tense consequence अगर आपको हिंदी आती है तो आप यह अख़बार पढ़ सकते हैं – “If you understand Hindi, then you can read this newspaper” : Present tense condition future tense consequence अगर आप रोज़ दौड़ते हैं तो आप उस दौड़ में बहुत आसानी से दौड़ सकेंगे – “If you run daily then you will be able to run in that race very easily”,   Future Condition, Future Consequence अगर आप भारत आयेंगे तो मैं आपको घुमाऊँगी/दिखाऊंगी – “If you come to India, I’ll show you around” Simple Past Condition, Future Consequence अगर तुमने ठीक से हिंदी भाषा पढ़ी तो तुम इसको सीख जाओगे – “If you study the Hindi language properly then you will learn it”","yadi maiṁ paṛhatā tō vidvāna hō jātā. agara mai bāhara jātā tō mai bhīga jātā. extra sentences āpakō hindustānī khānā acchā lagatā hai tō āpakō mērē ghara ānā cāhiē khānā khānē kē liē – “if you like indian food then you should come to my house to eat” conditional present and future: present tense condition present tense consequence agara āpakō hiṁdī ātī hai tō āpa yaha ak͟habāra paṛha sakatē haiṁ – “if you understand hindi, then you can read this newspaper” : present tense condition future tense consequence agara āpa rōza dauṛatē haiṁ tō āpa usa dauṛa mēṁ bahuta āsānī sē dauṛa sakēṁgē – “if you run daily then you will be able to run in that race very easily”, future condition, future consequence agara āpa bhārata āyēṁgē tō maiṁ āpakō ghumāūm̐gī/dikhāūṁgī – “if you come to india, i’ll show you around” simple past condition, future consequence agara tumanē ṭhīka sē hiṁdī bhāṣā paṛhī tō tuma isakō sīkha jāōgē – “if you study the hindi language properly then you will learn it”",,,,
+38,3,adding re or rēnē to the infinitive.,"Conditional (suffix  -are –alli) @Annaraoji Yes.
+ಮಳೆ ಬಂದರೆ ಒಳಗೆ ಹೋಗೋಣ
+If it rains, let’s go inside.
+Conditional verbs are formed by adding re or rēnē to the infinitive.ನೀನು ಮಾಡಿದರೆ ನಾನು ನೋಡುತ್ತೇನೆ        I will see if you do.
+ಅವನು ಬಂದರೆ ನಾನು ಹೋಗುತ್ತೇನೆ        I will go if he comes.
+ಅವರು ಕೇಳಿದರೇನೇ ನಾವು ಕೊಡುತ್ತೇವೆ        We will give only if they ask.
+ನೀನು ಪುಸ್ತಕ ಓದಿದರೆ ಒಳ್ಳೆಯದು        It is good if you read books.
+ನಾನು ಮನೆಯನ್ನು ಕೊಂಡುಕೊಂಡರೇನೇ ಅವನು ಕೊಂಡುಕೊಳ್ಳುತ್ತಾನೆ        He will buy a house only if I buy. ",avaru barahagāra āgiddāre.,,,,
