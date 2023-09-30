@@ -47,8 +47,8 @@
                 // {field: "category", title: "Category"},
                 {field: "hindi", title: "Hindi"},
                 {field: "english", title: "English"},
-                {field: "count", title: "Count"},
-                {field: "view", title: "View", formatter: "show_category_formatter"}
+                {field: "count", title: "Count", align: "center"},
+                {field: "view", title: "View", formatter: "show_category_formatter", align: "center"}
             ];
             $.getJSON(api_url, function(response) {
                 render_table($tag_category_table_container, {
