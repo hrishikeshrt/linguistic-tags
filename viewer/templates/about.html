@@ -45,9 +45,9 @@
             const api_url = API_URL_LIST_TAGS;
             const columns = [
                 // {field: "category", title: "Category"},
-                {field: "hindi", title: "Hindi"},
-                {field: "english", title: "English"},
-                {field: "count", title: "Count", align: "center"},
+                {field: "hindi", title: "Category"},
+                {field: "english", title: "English Name"},
+                {field: "count", title: "Number of Tags", align: "center"},
                 {field: "view", title: "View", formatter: "show_category_formatter", align: "center"}
             ];
             $.getJSON(api_url, function(response) {
