@@ -153,8 +153,8 @@
                     const field_name = `${language.code}_${tag_id}`;
                     const field_title =  (
                         (tag_count == 1)
-                        ? `${language.english_name} (${language.name})`
-                        : `${language.english_name} (${language.name})<hr>${tag_data.tag.code}: ${tag_data.tag.name}`
+                        ? `${language.english_name}<br>(${language.name})`
+                        : `${language.english_name}<br>(${language.name})<hr>${tag_data.tag.code}<br>${tag_data.tag.name}`
                     );
                     data_columns.push({
                         field: field_name,
