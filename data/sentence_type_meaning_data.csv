@@ -1,7 +1,7 @@
 tag_id,language_id,example,iso_transliteration,sanskrit_translation,english_translation,markers
-1,2,तुम भारतीय हो।,tuma bhāratīya hō.,त्वम् भारतीयः अस्ति।,You are Indian,---
-1,3,ನಾನು ಒಬ್ಬ ವಿದ್ಯಾರ್ಥಿ.  ,naanu obbaru vidyaarthi.,अहं विद्यार्थी अस्मि।,I am a student.,---
-1,1,रामो गच्छति। ,Rāmo gacchati.,,Rama goes,---
+1,2,तुम भारतीय हो।,tuma bhāratīya hō.,त्वं भारतीयः असि।,You are Indian.,---
+1,3,ನಾನು ಒಬ್ಬ ವಿದ್ಯಾರ್ಥಿ.  ,naanu obbaru vidyaarthi.,अहं छात्रः अस्मि।,I am a student.,---
+1,1,रामो गच्छति। ,Rāmo gacchati.,,Rama goes.,---
 2,2,"क्या आप हिंदी जानते हैं?
 तुम कितने साल के हो? ","kyā āpa hiṁdī jānatē haiṁ?
 tuma kitanē sāla kē hō? ",किम् भवान् हिंदी जानाति,"Do you know Hindi?
@@ -173,3 +173,6 @@ hō sakatā kala maiṁ nahīṁ āūṁgā.
 saṁbhavataḥ vaha sudhara gayā.",अद्य वर्षा भवेत्।,It may rain today.,"क्या होगा, शायद, लगता है, मुझे नहीं पता, संभव है, संभवतः, इत्यादि।"
 8,3,,,,,
 8,1,,,,,
+1,4,मुलगा शाळेत जातो.,mulagā śāḷēta jātō.,बालकः विद्यालयं गच्छति।,Boy goes to school.,---
+1,5,তারা ফুটবল খেলে।,tārā phuṭabala khēlē.,ते पादकन्दुकं क्रीडन्ति।,They play football.,---
+1,6,ഞാൻ പാൽ കുടിക്കുന്നു.,ñān pāl kuṭikkunnu.,अहं दुग्धं पिबामि।,I drink milk.,---
