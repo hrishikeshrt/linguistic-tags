@@ -285,7 +285,7 @@ class VerbalRootTypeData(db.Model):
     english_translation = Column(Text)
     explanation = Column(Text)
     markers = Column(Text)
-    syntactic_clues = Column(Text)
+    syntactic_condition = Column(Text)
 
     language = relationship(Language.__qualname__, backref=backref(f'{VerbalRootTypeTag.__tablename__}_data'))
     tag = relationship(VerbalRootTypeTag.__qualname__, backref=backref('data'))
@@ -406,7 +406,7 @@ TAG_SCHEMA = {
             "english_translation": "English Translation",
             "explanation": "Explanation",
             "markers": "Markers",
-            "syntactic_clues": "Syntactic Clues",
+            "syntactic_condition": "Syntactic Condition",
         },
     },
 }

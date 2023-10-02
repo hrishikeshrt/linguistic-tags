@@ -1,8 +1,15 @@
 id,code,tag,name,english_name,description
-1,dv_01,prayojaka,प्रयोजक,Causative,"The causatives are the verbs that are used to indicate that one person causes another person to do something for the first person. 
-Some important points regarding causatives are:
-(1) With causative, an originally intransitive verb can become transitive.
-(2) An originally transitive verb can become diwtransitive (with two objects) in causative.
-(3) The causative of a tenth conjugation verb may be identical with the original in form, though different in meaning.
-(4) One can have, in theory, numerous degrees of causativization, and yet the outward form remains the same."
-2,dv_02,naama-dhaatu,नामधातु,Nominal Verb,
+1,dhatuprakara_01,prayojaka,प्रयोजकधातु,Causative,"The causatives are the verbs that are used to indicate that one person causes another person to do something for the first person. 
+
+* Originally intransitive verb can become transitive.
+* Originally transitive verb can become ditransitive (with two objects) in causative.
+* Causative of a tenth conjugation verb (Sanskrit) may be identical with the original in form, though different in meaning.
+* Numerous degrees of causativization are possible, and yet the outward form remains the same."
+2,dhatuprakara_02,naama-dhaatu,नामधातु,Nominal,Denominative verbs are derived from nouns through affixation. 
+3,dhatuprakara_03,akarmaka-dhaatu,अकर्मकधातु,Intransitive,Intransitive verb is a verb whose context does not entail a direct object.
+4,dhatuprakara_04,sakarmaka-dhaatu,सकर्मकधातु,Transitive,Transitive verb is a verb that accepts one or more objects.
+5,dhatuprakara_04.1,dvikarmaka-dhaatu,द्विकर्मकधातु,Ditransitive,"Ditransitive refers to those verbs which can take two objects, both of which can have accusative in an active voice construction, and one of them can take the nominative in a passive voice construction."
+6,dhatuprakara_05,yanganta-dhaatu,यङन्तधातु,Frequentative,"A frequentative verb may be derived from any root of the first nine conjugations which are monosyllabic. 
+This kind of secondary verb indicates a repeated or a frequently performed action. "
+7,dhatuprakara_06,sannanta-dhaatu,सन्नन्तधातु,Desiderative,"Desiderative verbs are used to express the meaning of someone watnting to go etc. 
+Alternative way of expressing गन्तुम् शक्नोति। where the desire is morphologically marked."
