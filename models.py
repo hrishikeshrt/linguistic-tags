@@ -266,7 +266,7 @@ class DependencyData(db.Model):
 ###############################################################################
 
 
-class DerivedVerbTag(db.Model):
+class VerbalRootTypeTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
     tag = Column(String(255), nullable=False)
@@ -275,9 +275,9 @@ class DerivedVerbTag(db.Model):
     description = Column(Text)
 
 
-class DerivedVerbData(db.Model):
+class VerbalRootTypeData(db.Model):
     id = Column(Integer, primary_key=True)
-    tag_id = Column(Integer, ForeignKey(f'{DerivedVerbTag.__tablename__}.id'), nullable=False)
+    tag_id = Column(Integer, ForeignKey(f'{VerbalRootTypeTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
     example = Column(Text)
     iso_transliteration = Column(Text)
@@ -287,8 +287,8 @@ class DerivedVerbData(db.Model):
     markers = Column(Text)
     syntactic_clues = Column(Text)
 
-    language = relationship(Language.__qualname__, backref=backref(f'{DerivedVerbTag.__tablename__}_data'))
-    tag = relationship(DerivedVerbTag.__qualname__, backref=backref('data'))
+    language = relationship(Language.__qualname__, backref=backref(f'{VerbalRootTypeTag.__tablename__}_data'))
+    tag = relationship(VerbalRootTypeTag.__qualname__, backref=backref('data'))
 
 
 ###############################################################################
@@ -304,7 +304,7 @@ TAG_LIST = {
     TenseAspectMoodTag.__tablename__: ("क्रिया-कालादि", "Tense-Aspect-Mood (TAM)", TenseAspectMoodTag, TenseAspectMoodData),
     # "8": ("शब्द-समूह", "Group", None, None),
     DependencyTag.__tablename__: ("आश्रय", "Dependency", DependencyTag, DependencyData),
-    DerivedVerbTag.__tablename__: ("व्युत्पन्न-धातु", "Derived Verb", DerivedVerbTag, DerivedVerbData),
+    VerbalRootTypeTag.__tablename__: ("धातुप्रकार", "Verbal Root Type", VerbalRootTypeTag, VerbalRootTypeData),
     # "11": ("कर्म-प्रधानता", "Ergativity", None, None)
 }
 
@@ -397,7 +397,7 @@ TAG_SCHEMA = {
             "markers": "Markers",
         },
     },
-    DerivedVerbTag.__tablename__: {
+    VerbalRootTypeTag.__tablename__: {
         "meta": {},
         "data": {
             "example": "Example",

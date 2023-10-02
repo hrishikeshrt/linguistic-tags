@@ -42,7 +42,7 @@ from models import (
     VerbalTag, VerbalData,
     TenseAspectMoodTag, TenseAspectMoodData,
     DependencyTag, DependencyData,
-    DerivedVerbTag, DerivedVerbData,
+    VerbalRootTypeTag, VerbalRootTypeData,
     TAG_LIST, TAG_SCHEMA
 )
 from models_admin import (
@@ -122,7 +122,7 @@ admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tags"))
 admin.add_view(TagModelView(VerbalTag, db.session, category="Tags"))
 admin.add_view(TagModelView(TenseAspectMoodTag, db.session, category="Tags"))
 admin.add_view(TagModelView(DependencyTag, db.session, category="Tags"))
-admin.add_view(TagModelView(DerivedVerbTag, db.session, category="Tags"))
+admin.add_view(TagModelView(VerbalRootTypeTag, db.session, category="Tags"))
 
 admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Examples"))
 admin.add_view(DataModelView(SentenceTypeStructureData, db.session, category="Examples"))
@@ -131,7 +131,7 @@ admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Examples")
 admin.add_view(DataModelView(VerbalData, db.session, category="Examples"))
 admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Examples"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
-admin.add_view(DataModelView(DerivedVerbData, db.session, category="Examples"))
+admin.add_view(DataModelView(VerbalRootTypeData, db.session, category="Examples"))
 
 ###############################################################################
 
@@ -166,7 +166,7 @@ with webapp.app_context():
         VerbalTag, VerbalData,
         TenseAspectMoodTag, TenseAspectMoodData,
         DependencyTag, DependencyData,
-        DerivedVerbTag, DerivedVerbData,
+        VerbalRootTypeTag, VerbalRootTypeData,
     ]
 
     for data_table_model in data_tables:
