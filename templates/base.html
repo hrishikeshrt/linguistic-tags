@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://unpkg.com/jquery-resizable-columns@0.2.3/dist/jquery.resizableColumns.css">
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- Animations for Bootstrap-Notify -->
     <link rel="stylesheet" href="{{url_for('static', filename='plugins/css/animate.min.css')}}">
@@ -27,6 +27,13 @@
 
     <!-- Parse CSV -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script> -->
+
+    <style>
+        .custom-tooltip {
+            --bs-tooltip-bg: var(--bs-secondary);
+            --bs-tooltip-color: var(--bs-white);
+          }
+    </style>
 </head>
 
 <body class="font-weight-light">
@@ -65,7 +72,9 @@
     {% endblock %}
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/tableExport.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
@@ -86,6 +95,11 @@
     <!-- Bootstrap-Notify -->
     <script src="{{url_for('static', filename='plugins/js/bootstrap-notify.min.js')}}"></script>
 
+    <!-- Enable Tooltips -->
+    <script>
+        const tooltip_trigger_list = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltip_list = [...tooltip_trigger_list].map(tooltip_trigger_element => new bootstrap.Tooltip(tooltip_trigger_element));
+    </script>
     <!-- CSRF Token to All AJAX Requests -->
     <script type="text/javascript">
         var csrf_token = "{{ csrf_token() }}";
