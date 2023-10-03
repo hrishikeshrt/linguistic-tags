@@ -70,7 +70,7 @@ class BaseData(db.Model):
 ###############################################################################
 
 
-class SentenceTypeMeaningTag(db.Model):
+class SentenceMeaningTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
     tag = Column(String(255), nullable=False)
@@ -79,9 +79,9 @@ class SentenceTypeMeaningTag(db.Model):
     description = Column(Text)
 
 
-class SentenceTypeMeaningData(db.Model):
+class SentenceMeaningData(db.Model):
     id = Column(Integer, primary_key=True)
-    tag_id = Column(Integer, ForeignKey(f'{SentenceTypeMeaningTag.__tablename__}.id'), nullable=False)
+    tag_id = Column(Integer, ForeignKey(f'{SentenceMeaningTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
     example = Column(Text)
     iso_transliteration = Column(Text)
@@ -89,14 +89,14 @@ class SentenceTypeMeaningData(db.Model):
     english_translation = Column(Text)
     markers = Column(Text)
 
-    language = relationship(Language.__qualname__, backref=backref(f'{SentenceTypeMeaningTag.__tablename__}_data'))
-    tag = relationship(SentenceTypeMeaningTag.__qualname__, backref=backref('data'))
+    language = relationship(Language.__qualname__, backref=backref(f'{SentenceMeaningTag.__tablename__}_data'))
+    tag = relationship(SentenceMeaningTag.__qualname__, backref=backref('data'))
 
 
 ###############################################################################
 
 
-class SentenceTypeStructureTag(db.Model):
+class SentenceStructureTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
     tag = Column(String(255), nullable=False)
@@ -105,9 +105,9 @@ class SentenceTypeStructureTag(db.Model):
     description = Column(Text)
 
 
-class SentenceTypeStructureData(db.Model):
+class SentenceStructureData(db.Model):
     id = Column(Integer, primary_key=True)
-    tag_id = Column(Integer, ForeignKey(f'{SentenceTypeStructureTag.__tablename__}.id'), nullable=False)
+    tag_id = Column(Integer, ForeignKey(f'{SentenceStructureTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
     example = Column(Text)
     iso_transliteration = Column(Text)
@@ -115,8 +115,8 @@ class SentenceTypeStructureData(db.Model):
     english_translation = Column(Text)
     markers = Column(Text)
 
-    language = relationship(Language.__qualname__, backref=backref(f'{SentenceTypeStructureTag.__tablename__}_data'))
-    tag = relationship(SentenceTypeStructureTag.__qualname__, backref=backref('data'))
+    language = relationship(Language.__qualname__, backref=backref(f'{SentenceStructureTag.__tablename__}_data'))
+    tag = relationship(SentenceStructureTag.__qualname__, backref=backref('data'))
 
 
 ###############################################################################
@@ -266,7 +266,7 @@ class DependencyData(db.Model):
 ###############################################################################
 
 
-class VerbalRootTypeTag(db.Model):
+class VerbalRootTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
     tag = Column(String(255), nullable=False)
@@ -275,9 +275,9 @@ class VerbalRootTypeTag(db.Model):
     description = Column(Text)
 
 
-class VerbalRootTypeData(db.Model):
+class VerbalRootData(db.Model):
     id = Column(Integer, primary_key=True)
-    tag_id = Column(Integer, ForeignKey(f'{VerbalRootTypeTag.__tablename__}.id'), nullable=False)
+    tag_id = Column(Integer, ForeignKey(f'{VerbalRootTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
     example = Column(Text)
     iso_transliteration = Column(Text)
@@ -287,16 +287,16 @@ class VerbalRootTypeData(db.Model):
     markers = Column(Text)
     syntactic_condition = Column(Text)
 
-    language = relationship(Language.__qualname__, backref=backref(f'{VerbalRootTypeTag.__tablename__}_data'))
-    tag = relationship(VerbalRootTypeTag.__qualname__, backref=backref('data'))
+    language = relationship(Language.__qualname__, backref=backref(f'{VerbalRootTag.__tablename__}_data'))
+    tag = relationship(VerbalRootTag.__qualname__, backref=backref('data'))
 
 
 ###############################################################################
 
 
 TAG_LIST = {
-    SentenceTypeMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Type (Meaning)", SentenceTypeMeaningTag, SentenceTypeMeaningData),
-    SentenceTypeStructureTag.__tablename__: ("रचनानुसार-वाक्यप्रकार", "Sentence Type (Structure)", SentenceTypeStructureTag, SentenceTypeStructureData),
+    SentenceMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Meaning", "Se SentenceMeaningTag, SentenceMeaningData),
+    SentenceStructureTag.__tablename__: ("रचनानुसार-वाक्यप्रकार", "Sentence Structure", "SenSentenceStructureTag, SentenceStructureData),
     VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", VoiceTag, VoiceData),
     PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", PartsOfSpeechTag, PartsOfSpeechData),
     # "5": ("शब्द-रूप", "Morphology", None, None),
@@ -304,12 +304,12 @@ TAG_LIST = {
     TenseAspectMoodTag.__tablename__: ("क्रिया-कालादि", "Tense-Aspect-Mood (TAM)", TenseAspectMoodTag, TenseAspectMoodData),
     # "8": ("शब्द-समूह", "Group", None, None),
     DependencyTag.__tablename__: ("आश्रय", "Dependency", DependencyTag, DependencyData),
-    VerbalRootTypeTag.__tablename__: ("धातुप्रकार", "Verbal Root Type", VerbalRootTypeTag, VerbalRootTypeData),
+    VerbalRootTag.__tablename__: ("धातुप्रकार", "Verbal Root", "WVerbalRootTag, VerbalRootData),
     # "11": ("कर्म-प्रधानता", "Ergativity", None, None)
 }
 
 TAG_SCHEMA = {
-    SentenceTypeMeaningTag.__tablename__: {
+    SentenceMeaningTag.__tablename__: {
         "meta": {},
         "data": {
             "example": "Example",
@@ -319,7 +319,7 @@ TAG_SCHEMA = {
             "markers": "Markers"
         },
     },
-    SentenceTypeStructureTag.__tablename__: {
+    SentenceStructureTag.__tablename__: {
         "meta": {},
         "data": {
             "example": "Example",
@@ -397,7 +397,7 @@ TAG_SCHEMA = {
             "markers": "Markers",
         },
     },
-    VerbalRootTypeTag.__tablename__: {
+    VerbalRootTag.__tablename__: {
         "meta": {},
         "data": {
             "example": "Example",

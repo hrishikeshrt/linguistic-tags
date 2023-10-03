@@ -35,14 +35,14 @@ from flask_wtf import CSRFProtect
 # local
 from models import (
     db, User, Language,
-    SentenceTypeMeaningTag, SentenceTypeMeaningData,
-    SentenceTypeStructureTag, SentenceTypeStructureData,
+    SentenceMeaningTag, SentenceMeaningData,
+    SentenceStructureTag, SentenceStructureData,
     VoiceTag, VoiceData,
     PartsOfSpeechTag, PartsOfSpeechData,
     VerbalTag, VerbalData,
     TenseAspectMoodTag, TenseAspectMoodData,
     DependencyTag, DependencyData,
-    VerbalRootTypeTag, VerbalRootTypeData,
+    VerbalRootTag, VerbalRootData,
     TAG_LIST, TAG_SCHEMA
 )
 from models_admin import (
@@ -115,23 +115,23 @@ admin = Admin(
 admin.add_view(UserModelView(User, db.session))
 admin.add_view(LanguageModelView(Language, db.session))
 
-admin.add_view(TagModelView(SentenceTypeMeaningTag, db.session, category="Tags"))
-admin.add_view(TagModelView(SentenceTypeStructureTag, db.session, category="Tags"))
+admin.add_view(TagModelView(SentenceMeaningTag, db.session, category="Tags"))
+admin.add_view(TagModelView(SentenceStructureTag, db.session, category="Tags"))
 admin.add_view(TagModelView(VoiceTag, db.session, category="Tags"))
 admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tags"))
 admin.add_view(TagModelView(VerbalTag, db.session, category="Tags"))
 admin.add_view(TagModelView(TenseAspectMoodTag, db.session, category="Tags"))
 admin.add_view(TagModelView(DependencyTag, db.session, category="Tags"))
-admin.add_view(TagModelView(VerbalRootTypeTag, db.session, category="Tags"))
+admin.add_view(TagModelView(VerbalRootTag, db.session, category="Tags"))
 
-admin.add_view(DataModelView(SentenceTypeMeaningData, db.session, category="Examples"))
-admin.add_view(DataModelView(SentenceTypeStructureData, db.session, category="Examples"))
+admin.add_view(DataModelView(SentenceMeaningData, db.session, category="Examples"))
+admin.add_view(DataModelView(SentenceStructureData, db.session, category="Examples"))
 admin.add_view(DataModelView(VoiceData, db.session, category="Examples"))
 admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Examples"))
 admin.add_view(DataModelView(VerbalData, db.session, category="Examples"))
 admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Examples"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
-admin.add_view(DataModelView(VerbalRootTypeData, db.session, category="Examples"))
+admin.add_view(DataModelView(VerbalRootData, db.session, category="Examples"))
 
 ###############################################################################
 
@@ -159,14 +159,14 @@ with webapp.app_context():
 
     data_tables = [
         Language,
-        SentenceTypeMeaningTag, SentenceTypeMeaningData,
-        SentenceTypeStructureTag, SentenceTypeStructureData,
+        SentenceMeaningTag, SentenceMeaningData,
+        SentenceStructureTag, SentenceStructureData,
         VoiceTag, VoiceData,
         PartsOfSpeechTag, PartsOfSpeechData,
         VerbalTag, VerbalData,
         TenseAspectMoodTag, TenseAspectMoodData,
         DependencyTag, DependencyData,
-        VerbalRootTypeTag, VerbalRootTypeData,
+        VerbalRootTag, VerbalRootData,
     ]
 
     for data_table_model in data_tables:
@@ -359,7 +359,7 @@ def show_home():
 def show_tag():
     data = {"title": "Tag Information"}
 
-    default_category = SentenceTypeMeaningTag.__tablename__
+    default_category = SentenceMeaningTag.__tablename__
     default_tag_ids = [1]
 
     data["default_category"] = request.args.get("category", default_category)
