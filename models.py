@@ -176,6 +176,33 @@ class PartsOfSpeechData(db.Model):
 ###############################################################################
 
 
+class MorphologyTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255))
+    type = Column(String(255))
+    description = Column(Text)
+
+
+class MorphologyData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{MorphologyTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    markers = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{MorphologyTag.__tablename__}_data'))
+    tag = relationship(MorphologyTag.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
 class VerbalTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
@@ -238,6 +265,32 @@ class TenseAspectMoodData(db.Model):
 ###############################################################################
 
 
+class GroupTag(db.Model):
+    id = Column(Integer, primary_key=True)
+    code = Column(String(255), nullable=False, index=True)
+    tag = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255))
+    description = Column(Text)
+
+
+class GroupData(db.Model):
+    id = Column(Integer, primary_key=True)
+    tag_id = Column(Integer, ForeignKey(f'{GroupTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    example = Column(Text)
+    iso_transliteration = Column(Text)
+    sanskrit_translation = Column(Text)
+    english_translation = Column(Text)
+    markers = Column(Text)
+
+    language = relationship(Language.__qualname__, backref=backref(f'{GroupTag.__tablename__}_data'))
+    tag = relationship(GroupTag.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
 class DependencyTag(db.Model):
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
@@ -295,16 +348,16 @@ class VerbalRootData(db.Model):
 
 
 TAG_LIST = {
-    SentenceMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Meaning", "Se SentenceMeaningTag, SentenceMeaningData),
-    SentenceStructureTag.__tablename__: ("रचनानुसार-वाक्यप्रकार", "Sentence Structure", "SenSentenceStructureTag, SentenceStructureData),
-    VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", VoiceTag, VoiceData),
-    PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", PartsOfSpeechTag, PartsOfSpeechData),
-    # "5": ("शब्द-रूप", "Morphology", None, None),
-    VerbalTag.__tablename__: ("क्रियामूलक-कृद्", "Verbal", VerbalTag, VerbalData),
-    TenseAspectMoodTag.__tablename__: ("क्रिया-कालादि", "Tense-Aspect-Mood (TAM)", TenseAspectMoodTag, TenseAspectMoodData),
-    # "8": ("शब्द-समूह", "Group", None, None),
-    DependencyTag.__tablename__: ("आश्रय", "Dependency", DependencyTag, DependencyData),
-    VerbalRootTag.__tablename__: ("धातुप्रकार", "Verbal Root", "WVerbalRootTag, VerbalRootData),
+    SentenceMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Meaning", "Sentence", SentenceMeaningTag, SentenceMeaningData),
+    SentenceStructureTag.__tablename__: ("रचनानुसार-वाक्यप्रकार", "Sentence Structure", "Sentence", SentenceStructureTag, SentenceStructureData),
+    VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", "Sentence", VoiceTag, VoiceData),
+    GroupTag.__tablename__: ("शब्द-समूह", "Group", "Sentence", GroupTag, GroupData),
+    DependencyTag.__tablename__: ("आश्रय", "Dependency", "Sentence", DependencyTag, DependencyData),
+    PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", "Word", PartsOfSpeechTag, PartsOfSpeechData),
+    MorphologyTag.__tablename__: ("शब्द-रूप", "Morphology", "Word", MorphologyTag, MorphologyData),
+    VerbalTag.__tablename__: ("क्रियामूलक-कृद्", "Verbal", "Word", VerbalTag, VerbalData),
+    TenseAspectMoodTag.__tablename__: ("क्रिया-कालादि", "Tense-Aspect-Mood (TAM)", "Word", TenseAspectMoodTag, TenseAspectMoodData),
+    VerbalRootTag.__tablename__: ("धातुप्रकार", "Verbal Root", "Word", VerbalRootTag, VerbalRootData),
     # "11": ("कर्म-प्रधानता", "Ergativity", None, None)
 }
 
@@ -351,6 +404,16 @@ TAG_SCHEMA = {
             "markers": "Markers"
         },
     },
+    MorphologyTag.__tablename__: {
+        "meta": {},
+        "data": {
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "markers": "Markers"
+        },
+    },
     VerbalTag.__tablename__: {
         "meta": {},
         "data": {
@@ -384,6 +447,16 @@ TAG_SCHEMA = {
             "english_translation": "English Translation",
             "gender_marking": "Gender Marking",
             "syntactic_condition": "Syntactic Condition",
+        }
+    },
+    GroupTag.__tablename__: {
+        "meta": {},
+        "data": {
+            "example": "Example",
+            "iso_transliteration": "ISO Transliteration",
+            "sanskrit_translation": "Sanskrit Translation",
+            "english_translation": "English Translation",
+            "markers": "Markers",
         }
     },
     DependencyTag.__tablename__: {

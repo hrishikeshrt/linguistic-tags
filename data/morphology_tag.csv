@@ -1,0 +1,20 @@
+id,code,tag,name,english_name,type,description
+1,shabdarupa_01,prakriti,प्रकृति,Lemma,Lemma,"Generic category that will be used to generate custom tags such as lemma_rāma, lemma_vana etc."
+2,shabdarupa_02,pumlinga,पुंलिङ्ग,Masculine Gender,Gender,Masculine Gender
+3,shabdarupa_03,strilinga,स्त्रीलिङ्ग,Feminine Gender,Gender,Feminine Gender
+4,shabdarupa_04,napumsakalinga,नपुंसकलिङ्ग,Neuter Gender,Gender,Neuter Gender
+5,shabdarupa_05,samanalinga,समानलिङ्ग,Common Gender,Gender,Common Gender
+6,shabdarupa_06,uttamapurusha (prathama),उत्तमपुरुष (प्रथम),First Person,Person,First Person
+7,shabdarupa_07,madhyamapurusha (dvitiya),मध्यमपुरुष (द्वितीय),Second Person,Person,Second Person
+8,shabdarupa_08,prathamapurusha (tritiya),प्रथमपुरुष (तृतीय),Third Person,Person,Third Person
+9,shabdarupa_09,ekavachana,एकवचन,Singular Number,Number,Singular Number
+10,shabdarupa_10,dvivachana,द्विवचन,Dual Number,Number,Dual Number
+11,shabdarupa_11,bahuvachana,बहुवचन,Plural Number,Number,Plural Number
+12,shabdarupa_12,prathama,प्रथमा विभक्ति,Nominative Case,Case,Nominative Case
+13,shabdarupa_13,dvitiya,द्वितीया विभक्ति,Accusative Case,Case,Accusative Case
+14,shabdarupa_14,tritiya,तृतीया विभक्ति,Instrumental Case,Case,Instrumental Case
+15,shabdarupa_15,chaturthi,चतुर्थी विभक्ति,Dative Case,Case,Dative Case
+16,shabdarupa_16,panchami,पञ्चमी विभक्ति,Ablative Case,Case,Ablative Case
+17,shabdarupa_17,shashthi,षष्ठी विभक्ति,Genetive Case,Case,Genetive Case
+18,shabdarupa_18,saptami,सप्तमी विभक्ति,Locative Case,Case,Locative Case
+19,shabdarupa_19,sambodhana,सम्बोधन विभक्ति,Vocative Case,Case,Vocative Case

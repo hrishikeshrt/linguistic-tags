@@ -39,8 +39,10 @@ from models import (
     SentenceStructureTag, SentenceStructureData,
     VoiceTag, VoiceData,
     PartsOfSpeechTag, PartsOfSpeechData,
+    MorphologyTag, MorphologyData,
     VerbalTag, VerbalData,
     TenseAspectMoodTag, TenseAspectMoodData,
+    GroupTag, GroupData,
     DependencyTag, DependencyData,
     VerbalRootTag, VerbalRootData,
     TAG_LIST, TAG_SCHEMA
@@ -119,8 +121,10 @@ admin.add_view(TagModelView(SentenceMeaningTag, db.session, category="Tags"))
 admin.add_view(TagModelView(SentenceStructureTag, db.session, category="Tags"))
 admin.add_view(TagModelView(VoiceTag, db.session, category="Tags"))
 admin.add_view(TagModelView(PartsOfSpeechTag, db.session, category="Tags"))
+admin.add_view(TagModelView(MorphologyTag, db.session, category="Tags"))
 admin.add_view(TagModelView(VerbalTag, db.session, category="Tags"))
 admin.add_view(TagModelView(TenseAspectMoodTag, db.session, category="Tags"))
+admin.add_view(TagModelView(GroupTag, db.session, category="Tags"))
 admin.add_view(TagModelView(DependencyTag, db.session, category="Tags"))
 admin.add_view(TagModelView(VerbalRootTag, db.session, category="Tags"))
 
@@ -128,8 +132,10 @@ admin.add_view(DataModelView(SentenceMeaningData, db.session, category="Examples
 admin.add_view(DataModelView(SentenceStructureData, db.session, category="Examples"))
 admin.add_view(DataModelView(VoiceData, db.session, category="Examples"))
 admin.add_view(DataModelView(PartsOfSpeechData, db.session, category="Examples"))
+admin.add_view(DataModelView(MorphologyData, db.session, category="Examples"))
 admin.add_view(DataModelView(VerbalData, db.session, category="Examples"))
 admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Examples"))
+admin.add_view(DataModelView(GroupData, db.session, category="Examples"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
 admin.add_view(DataModelView(VerbalRootData, db.session, category="Examples"))
 
@@ -163,8 +169,10 @@ with webapp.app_context():
         SentenceStructureTag, SentenceStructureData,
         VoiceTag, VoiceData,
         PartsOfSpeechTag, PartsOfSpeechData,
+        MorphologyTag, MorphologyData,
         VerbalTag, VerbalData,
         TenseAspectMoodTag, TenseAspectMoodData,
+        GroupTag, GroupData,
         DependencyTag, DependencyData,
         VerbalRootTag, VerbalRootData,
     ]
@@ -222,9 +230,10 @@ def list_tags():
             "category": tag_category,
             "hindi": _hindi,
             "english": _english,
+            "level": _level,
             "count": _model_tag.query.count() if _model_tag is not None else 0
         }
-        for tag_category, (_hindi, _english, _model_tag, _model_data) in TAG_LIST.items()
+        for tag_category, (_hindi, _english, _level, _model_tag, _model_data) in TAG_LIST.items()
     ]
     return jsonify(response)
 
@@ -232,7 +241,7 @@ def list_tags():
 @webapp.route("/api/list/<string:tag_category>", methods=["GET"])
 @login_required
 def list_category_tags(tag_category: str):
-    name_hindi, name_english, model_tag, model_data = TAG_LIST[tag_category]
+    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]
     response = {
         model.id: model_to_dict(model)
         for model in model_tag.query.all()
@@ -243,7 +252,7 @@ def list_category_tags(tag_category: str):
 @webapp.route("/api/get/<string:tag_category>/<string:tag_ids>", methods=["GET"])
 @login_required
 def get_category_tags(tag_category: str, tag_ids: str = None):
-    name_hindi, name_english, model_tag, model_data = TAG_LIST[tag_category]
+    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]
     tag_ids = tag_ids.split(",")[:4]
     tags = model_tag.query.filter(model_tag.id.in_(tag_ids)).all()
     if tags is None:
