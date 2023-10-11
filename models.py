@@ -47,30 +47,16 @@ class Language(db.Model):
     name = Column(String(255), nullable=False)
     english_name = Column(String(255), nullable=False)
 
+    def __str__(self):
+        class_name = self.__class__.__qualname__
+        return f"<{class_name} {self.id}: {self.code}>"
+
 
 ###############################################################################
 
 
 class BaseTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    description = Column(Text)
-
-
-class BaseData(db.Model):
-    id = Column(Integer, primary_key=True)
-    tag_id = Column(Integer, ForeignKey(f'{BaseTag.__tablename__}.id'), nullable=False)
-    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-
-    language = relationship(Language.__qualname__, backref=backref(f'{BaseTag.__tablename__}_data'))
-    tag = relationship(BaseTag.__qualname__, backref=backref('data'))
-
-###############################################################################
-
-
-class SentenceMeaningTag(db.Model):
+    __abstract__ = True
     id = Column(Integer, primary_key=True)
     code = Column(String(255), nullable=False, index=True)
     tag = Column(String(255), nullable=False)
@@ -78,15 +64,42 @@ class SentenceMeaningTag(db.Model):
     english_name = Column(String(255))
     description = Column(Text)
 
+    def __str__(self):
+        class_name = self.__class__.__qualname__
+        return f"<{class_name} {self.id}: {self.code}>"
 
-class SentenceMeaningData(db.Model):
+
+class BaseData(db.Model):
+    __abstract__ = True
+    __related_table__ = None
+
     id = Column(Integer, primary_key=True)
-    tag_id = Column(Integer, ForeignKey(f'{SentenceMeaningTag.__tablename__}.id'), nullable=False)
-    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+
+    # tag_id = Column(Integer, ForeignKey(f'{__related_table__.__tablename__}.id'), nullable=False)
+    # language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+
     example = Column(Text)
     iso_transliteration = Column(Text)
     sanskrit_translation = Column(Text)
     english_translation = Column(Text)
+
+    # language = relationship(Language.__qualname__, backref=backref(f'{__related_table__.__tablename__}_data'))
+    # tag = relationship(__related_table__.__qualname__, backref=backref('data'))
+
+
+###############################################################################
+
+
+class SentenceMeaningTag(BaseTag):
+    pass
+
+
+class SentenceMeaningData(BaseData):
+    __related_table__ = SentenceMeaningTag
+
+    tag_id = Column(Integer, ForeignKey(f'{SentenceMeaningTag.__tablename__}.id'), nullable=False)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+
     markers = Column(Text)
 
     language = relationship(Language.__qualname__, backref=backref(f'{SentenceMeaningTag.__tablename__}_data'))
@@ -96,23 +109,14 @@ class SentenceMeaningData(db.Model):
 ###############################################################################
 
 
-class SentenceStructureTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
-    description = Column(Text)
+class SentenceStructureTag(BaseTag):
+    pass
 
 
-class SentenceStructureData(db.Model):
-    id = Column(Integer, primary_key=True)
+class SentenceStructureData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{SentenceStructureTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
+
     markers = Column(Text)
 
     language = relationship(Language.__qualname__, backref=backref(f'{SentenceStructureTag.__tablename__}_data'))
@@ -122,24 +126,14 @@ class SentenceStructureData(db.Model):
 ###############################################################################
 
 
-class VoiceTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
-    description = Column(Text)
+class VoiceTag(BaseTag):
     subject_verb_agreement = Column(Text)
 
 
-class VoiceData(db.Model):
-    id = Column(Integer, primary_key=True)
+class VoiceData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{VoiceTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
+
     markers = Column(Text)
 
     language = relationship(Language.__qualname__, backref=backref(f'{VoiceTag.__tablename__}_data'))
@@ -149,24 +143,14 @@ class VoiceData(db.Model):
 ###############################################################################
 
 
-class PartsOfSpeechTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
+class PartsOfSpeechTag(BaseTag):
     bis_tag = Column(String(255))
-    description = Column(Text)
 
 
-class PartsOfSpeechData(db.Model):
-    id = Column(Integer, primary_key=True)
+class PartsOfSpeechData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{PartsOfSpeechTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
+
     markers = Column(Text)
 
     language = relationship(Language.__qualname__, backref=backref(f'{PartsOfSpeechTag.__tablename__}_data'))
@@ -176,24 +160,14 @@ class PartsOfSpeechData(db.Model):
 ###############################################################################
 
 
-class MorphologyTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
+class MorphologyTag(BaseTag):
     type = Column(String(255))
-    description = Column(Text)
 
 
-class MorphologyData(db.Model):
-    id = Column(Integer, primary_key=True)
+class MorphologyData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{MorphologyTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
+
     markers = Column(Text)
 
     language = relationship(Language.__qualname__, backref=backref(f'{MorphologyTag.__tablename__}_data'))
@@ -203,24 +177,15 @@ class MorphologyData(db.Model):
 ###############################################################################
 
 
-class VerbalTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
-    description = Column(Text)
+class VerbalTag(BaseTag):
+    pass
 
 
-class VerbalData(db.Model):
-    id = Column(Integer, primary_key=True)
+class VerbalData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{VerbalTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+
     verbal = Column(String(255))
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
     case = Column(Text)
     gender_marking = Column(Text)
     is_part_of_tam = Column(Text)
@@ -232,29 +197,19 @@ class VerbalData(db.Model):
 ###############################################################################
 
 
-class TenseAspectMoodTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
+class TenseAspectMoodTag(BaseTag):
     type = Column(String(255))
     sanskrit_lakara = Column(String(255))
     tense_tag = Column(String(255))
     aspect_tag = Column(String(255))
     mood_tag = Column(String(255))
-    description = Column(Text)
 
 
-class TenseAspectMoodData(db.Model):
-    id = Column(Integer, primary_key=True)
+class TenseAspectMoodData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{TenseAspectMoodTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+
     pattern = Column(Text)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
     gender_marking = Column(Text)
     syntactic_condition = Column(Text)
 
@@ -265,23 +220,14 @@ class TenseAspectMoodData(db.Model):
 ###############################################################################
 
 
-class GroupTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
-    description = Column(Text)
+class GroupTag(BaseTag):
+    pass
 
 
-class GroupData(db.Model):
-    id = Column(Integer, primary_key=True)
+class GroupData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{GroupTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
+
     markers = Column(Text)
 
     language = relationship(Language.__qualname__, backref=backref(f'{GroupTag.__tablename__}_data'))
@@ -291,24 +237,15 @@ class GroupData(db.Model):
 ###############################################################################
 
 
-class DependencyTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
+class DependencyTag(BaseTag):
     existing_tag = Column(String(255))
     intrasentence_relation = Column(String(255))
-    description = Column(Text)
 
 
-class DependencyData(db.Model):
-    id = Column(Integer, primary_key=True)
+class DependencyData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{DependencyTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
+
     accuracy = Column(Text)
     markers = Column(Text)
 
@@ -319,23 +256,14 @@ class DependencyData(db.Model):
 ###############################################################################
 
 
-class VerbalRootTag(db.Model):
-    id = Column(Integer, primary_key=True)
-    code = Column(String(255), nullable=False, index=True)
-    tag = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    english_name = Column(String(255))
-    description = Column(Text)
+class VerbalRootTag(BaseTag):
+    pass
 
 
-class VerbalRootData(db.Model):
-    id = Column(Integer, primary_key=True)
+class VerbalRootData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{VerbalRootTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
-    example = Column(Text)
-    iso_transliteration = Column(Text)
-    sanskrit_translation = Column(Text)
-    english_translation = Column(Text)
+
     explanation = Column(Text)
     markers = Column(Text)
     syntactic_condition = Column(Text)
