@@ -111,8 +111,7 @@ admin = Admin(
     webapp,
     name=settings.APP_HEADER,
     index_view=SecureAdminIndexView(name="Database",),
-    template_mode="bootstrap4",
-    base_template="admin_base.html",
+    template_mode="bootstrap4"
 )
 
 admin.add_view(UserModelView(User, db.session))
