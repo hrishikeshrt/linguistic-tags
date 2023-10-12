@@ -53,6 +53,7 @@ from models_admin import (
 )
 
 import settings
+import constants
 from utils.reverseproxied import ReverseProxied
 from utils.database import create_user, model_to_dict
 
@@ -207,6 +208,11 @@ def insert_global_context():
         "copyright": settings.APP_COPYRIGHT,
         "navigation_menu": settings.NAVIGATION,
         "footer_links": settings.FOOTER_LINKS,
+        "roles": {
+            "ROLE_ADMIN": constants.ROLE_ADMIN,
+            "ROLE_CURATOR": constants.ROLE_CURATOR,
+            "ROLE_USER": constants.ROLE_USER
+        }
     }
 
 

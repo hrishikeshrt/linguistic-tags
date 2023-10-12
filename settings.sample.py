@@ -6,6 +6,8 @@ Sample Configuration
 @author: Hrishikesh Terdalkar
 """
 
+from constants import ROLE_USER, ROLE_CURATOR, ROLE_ADMIN
+
 ###############################################################################
 # generate a nice key using secrets.token_urlsafe()
 
@@ -48,12 +50,12 @@ USERS = [
     {
         "username": "admin",
         "password": "admin",
-        "role": "admin"
+        "role": ROLE_ADMIN
     },
     {
         "username": "user",
         "password": "user",
-        "role": "user"
+        "role": ROLE_USER
     },
 ]
 

@@ -12,6 +12,12 @@ from flask_login import current_user
 from flask_admin import AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 
+from constants import ROLE_USER, ROLE_CURATOR, ROLE_ADMIN
+
+###############################################################################
+
+ADMIN_ROLES = [ROLE_CURATOR, ROLE_ADMIN]
+
 ###############################################################################
 
 
@@ -19,7 +25,7 @@ class SecureAdminIndexView(AdminIndexView):
     def is_accessible(self):
         return (
             current_user.is_authenticated
-            and current_user.role == "admin"
+            and current_user.role in ADMIN_ROLES
         )
 
     def inaccessible_callback(self, name, **kwargs):
@@ -31,7 +37,7 @@ class SecureModelView(ModelView):
     def is_accessible(self):
         return (
             current_user.is_authenticated
-            and current_user.role == "admin"
+            and current_user.role in ADMIN_ROLES
         )
 
     def inaccessible_callback(self, name, **kwargs):

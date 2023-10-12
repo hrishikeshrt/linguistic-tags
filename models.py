@@ -15,6 +15,8 @@ from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy, event
 from werkzeug.security import generate_password_hash
 
+from constants import ROLE_ADMIN, ROLE_CURATOR, ROLE_USER
+
 ###############################################################################
 # Create database connection object
 
@@ -29,7 +31,11 @@ class User(UserMixin, db.Model):
     username = Column(String(255), unique=True, nullable=False)
     # hash of password
     password = Column(String(255), nullable=False)
-    role = Column(Enum('user', 'admin'), default='user', nullable=False)
+    role = Column(
+        Enum(ROLE_USER, ROLE_CURATOR, ROLE_ADMIN),
+        default=ROLE_USER,
+        nullable=False
+    )
 
 
 @event.listens_for(User.password, 'set', retval=True)
@@ -66,7 +72,7 @@ class BaseTag(db.Model):
 
     def __str__(self):
         class_name = self.__class__.__qualname__
-        return f"<{class_name} {self.id}: {self.code}>"
+        return f"<{class_name} {self.id}: {self.code}: {self.tag}>"
 
 
 class BaseData(db.Model):
