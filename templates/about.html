@@ -33,12 +33,50 @@
 {% block javascript %}
     <script>
         const API_URL_LIST_TAGS = "{{url_for('list_tags')}}";
+        const API_URL_TEMPLATE_LIST_CATEGORY_TAGS = "{{url_for('list_category_tags', tag_category='TAG_CATEGORY')}}";
         const URL_SHOW_TAG = "{{url_for('show_tag')}}";
     </script>
     <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
     <script>
         const $tag_category_table_container = $("#tag-category-list");
 
+        function detail_view_formatter(index, row, element) {
+            const tag_category = row.category;
+            const detail_view_id = `${tag_category}-list`;
+            setTimeout(function (){render_category_taglist(tag_category)}, 100);
+            return `<div id="${detail_view_id}" class="p-0 m-0"></div>`;
+        }
+
+        function render_category_taglist(tag_category) {
+            const detail_view_id = `${tag_category}-list`;
+            const api_url = (
+                API_URL_TEMPLATE_LIST_CATEGORY_TAGS
+                .replace('TAG_CATEGORY', tag_category)
+            );
+            const columns = [
+                {field: "code", title: "Code"},
+                {field: "tag", title: "Tag"},
+                {field: "name", title: "Name"},
+                {field: "english_name", title: "English Name"},
+                {field: "description", title: "Description"}
+            ];
+            $.getJSON(api_url, function(response) {
+                render_table($(`#${detail_view_id}`), {
+                    columns: columns,
+                    rows: Object.values(response),
+                }, {
+                    search: true,
+                    showColumns: false,
+                    /*
+                    detailView: true,
+                    detailViewByClick: true,
+                    detailFormatter: function (index, row, element) {
+                        return `<div class="m-3"><strong>Description</strong>: ${row.description}</div>`;
+                    },
+                    */
+                }, `${tag_category}_list`);
+            });
+        }
 
         function show_category_formatter(value, row, index, field) {
             return `<a class="btn btn-sm btn-primary" target="_blank" href="${URL_SHOW_TAG}?category=${row.category}"><i class="fas fa-arrow-right"></i></a>`;
@@ -57,8 +95,11 @@
             $.getJSON(api_url, function(response) {
                 render_table($tag_category_table_container, {
                     columns: columns,
-                    rows: response
+                    rows: response,
                 }, {
+                    detailView: true,
+                    detailViewByClick: true,
+                    detailFormatter: detail_view_formatter,
                     showColumns: false,
                 }, "tag_categories");
             });

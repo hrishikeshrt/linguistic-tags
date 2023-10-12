@@ -32,7 +32,14 @@
         .custom-tooltip {
             --bs-tooltip-bg: var(--bs-secondary);
             --bs-tooltip-color: var(--bs-white);
-          }
+        }
+        .detail-view {
+            padding: 0px;
+        }
+        .detail-view>td {
+            padding: 0px;
+            max-width: 0px; /* any number less than allowed width, which is roughly 50vw */
+        }
     </style>
 </head>
 
