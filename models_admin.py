@@ -54,13 +54,20 @@ class BaseModelView(SecureModelView):
     can_export = True
     can_create = True
     can_edit = True
-    can_delete = False
     can_view_details = True
+
+    @property
+    def can_delete(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+        )
 
     create_modal = True
     edit_modal = True
+    details_modal = True
 
     can_set_page_size = True
+    export_types = ("csv", "tsv", "json", "xlsx")
 
     # custom options
     exclude_relationships = False
@@ -90,21 +97,44 @@ class BaseModelView(SecureModelView):
 
 
 class UserModelView(BaseModelView):
+    @property
+    def can_edit(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+        )
+
     column_searchable_list = ('username',)
 
 
 class LanguageModelView(BaseModelView):
-    column_searchable_list = ('code', 'name')
+    @property
+    def can_edit(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+        )
+
+    column_searchable_list = ('code', 'name', 'english_name')
 
     # custom options
     exclude_relationships = True
-
 
 ###############################################################################
 
 
 class TagModelView(BaseModelView):
-    column_searchable_list = ('code', 'tag', 'name', 'description')
+    @property
+    def can_edit(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+        )
+
+    column_searchable_list = (
+        'code',
+        'tag',
+        'name',
+        'english_name',
+        'description'
+    )
 
     # custom options
     exclude_relationships = True
