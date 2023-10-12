@@ -50,7 +50,6 @@ class SecureModelView(ModelView):
 
 class BaseModelView(SecureModelView):
     column_display_pk = True
-    column_hide_backrefs = False
 
     can_export = True
     can_create = True
@@ -62,6 +61,9 @@ class BaseModelView(SecureModelView):
     edit_modal = True
 
     can_set_page_size = True
+
+    # custom options
+    exclude_relationships = False
 
     def __init__(self, model, session, **kwargs):
         if self.form_excluded_columns:
@@ -76,8 +78,9 @@ class BaseModelView(SecureModelView):
                 self.form_excluded_columns.append(field)
 
         # exclude relationships from showing up in the create / edit forms
-        for relationship in model.__mapper__.relationships:
-            self.form_excluded_columns.append(relationship.key)
+        if self.exclude_relationships:
+            for relationship in model.__mapper__.relationships:
+                self.form_excluded_columns.append(relationship.key)
 
         self.form_excluded_columns = tuple(self.form_excluded_columns)
         super().__init__(model, session, **kwargs)
@@ -93,12 +96,18 @@ class UserModelView(BaseModelView):
 class LanguageModelView(BaseModelView):
     column_searchable_list = ('code', 'name')
 
+    # custom options
+    exclude_relationships = True
+
 
 ###############################################################################
 
 
 class TagModelView(BaseModelView):
     column_searchable_list = ('code', 'tag', 'name', 'description')
+
+    # custom options
+    exclude_relationships = True
 
 
 class DataModelView(BaseModelView):
