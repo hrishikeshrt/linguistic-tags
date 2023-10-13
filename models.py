@@ -8,14 +8,34 @@ Models
 
 ###############################################################################
 
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, Enum, Index
+import sqlite3
+from datetime import datetime as dt
+
+from sqlalchemy import (
+    Column, Integer, String, Text, Boolean, DateTime, ForeignKey, Enum
+)
 from sqlalchemy.orm import relationship, backref
+from sqlalchemy.engine import Engine
 
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy, event
 from werkzeug.security import generate_password_hash
 
 from constants import ROLE_ADMIN, ROLE_CURATOR, ROLE_USER
+from constants import ACTION_CREATE, ACTION_EDIT, ACTION_DELETE
+
+###############################################################################
+# Foreign Key Support for SQLite3
+
+
+@event.listens_for(Engine, "connect")
+def set_sqlite_pragma(dbapi_connection, connection_record):
+    if type(dbapi_connection) is sqlite3.Connection:
+        # play well with other database backends
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA foreign_keys=ON")
+        cursor.close()
+
 
 ###############################################################################
 # Create database connection object
@@ -36,6 +56,11 @@ class User(UserMixin, db.Model):
         default=ROLE_USER,
         nullable=False
     )
+    is_deleted = Column(Boolean, default=False, nullable=False)
+
+    def __str__(self):
+        class_name = self.__class__.__qualname__
+        return f"<{class_name} {self.id}: {self.username}>"
 
 
 @event.listens_for(User.password, 'set', retval=True)
@@ -52,10 +77,26 @@ class Language(db.Model):
     code = Column(String(255), unique=True, nullable=False)
     name = Column(String(255), nullable=False)
     english_name = Column(String(255), nullable=False)
+    is_deleted = Column(Boolean, default=False, nullable=False)
 
     def __str__(self):
         class_name = self.__class__.__qualname__
         return f"<{class_name} {self.id}: {self.code}>"
+
+
+###############################################################################
+# Change Log
+
+
+class ChangeLog(db.Model):
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey(f'{User.__tablename__}.id'), nullable=False)
+    tablename = Column(String(255), nullable=False)
+    action = Column(Enum(ACTION_CREATE, ACTION_EDIT, ACTION_DELETE), nullable=False)
+    detail = Column(Text)
+    timestamp = Column(DateTime, default=dt.utcnow)
+
+    user = relationship(User.__qualname__, backref=backref('changes'))
 
 
 ###############################################################################
@@ -69,6 +110,7 @@ class BaseTag(db.Model):
     name = Column(String(255), nullable=False)
     english_name = Column(String(255))
     description = Column(Text)
+    is_deleted = Column(Boolean, default=False, nullable=False)
 
     def __str__(self):
         class_name = self.__class__.__qualname__
@@ -88,6 +130,7 @@ class BaseData(db.Model):
     iso_transliteration = Column(Text)
     sanskrit_translation = Column(Text)
     english_translation = Column(Text)
+    is_deleted = Column(Boolean, default=False, nullable=False)
 
     # language = relationship(Language.__qualname__, backref=backref(f'{__related_table__.__tablename__}_data'))
     # tag = relationship(__related_table__.__qualname__, backref=backref('data'))

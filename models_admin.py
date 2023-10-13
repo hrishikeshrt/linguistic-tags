@@ -6,13 +6,20 @@ Flask-Admin Models
 @author: Hrishikesh Terdalkar
 """
 
+import json
+
+from sqlalchemy import func
+
 from flask import request, flash, redirect, url_for
 from flask_login import current_user
 
 from flask_admin import AdminIndexView
 from flask_admin.contrib.sqla import ModelView
+from flask_admin.babel import gettext
 
+from models import ChangeLog
 from constants import ROLE_USER, ROLE_CURATOR, ROLE_ADMIN
+from constants import ACTION_CREATE, ACTION_EDIT, ACTION_DELETE
 
 ###############################################################################
 
@@ -68,9 +75,76 @@ class BaseModelView(SecureModelView):
 
     can_set_page_size = True
     export_types = ("csv", "tsv", "json", "xlsx")
+    column_exclude_list = ("is_deleted",)
+    column_details_exclude_list = ("is_deleted",)
 
     # custom options
     exclude_relationships = False
+
+    def get_query(self):
+        return self.session.query(self.model).filter(self.model.is_deleted == False)  # noqa
+
+    def get_count_query(self):
+        return self.session.query(func.count('*')).select_from(self.model).filter(self.model.is_deleted == False)  # noqa
+
+    def delete_model(self, model):
+        try:
+            self.on_model_delete(model)
+            model.is_deleted = True
+            self.session.add(model)
+            self.session.commit()
+            self.after_model_delete(model)
+        except Exception as ex:
+            if not self.handle_view_exception(ex):
+                flash(
+                    gettext(
+                        "Failed to delete record. %(error)s", error=str(ex)
+                    ),
+                    "error"
+                )
+            self.session.rollback()
+            return False
+        else:
+            self.after_model_delete(model)
+        return True
+
+    def on_model_change(self, form, model, is_created):
+        detail = {}
+        if is_created:
+            self.session.flush()
+
+        detail["id"] = model.id
+        for field, data in form._fields.items():
+            old_attr = data.object_data
+            new_attr = data.data
+            if old_attr != new_attr:
+                detail[field] = (
+                    new_attr
+                    if is_created
+                    else {"old": old_attr, "new": new_attr}
+                )
+                if field == "password":
+                    detail[field] = True
+
+        change_log = ChangeLog(
+            user_id=current_user.id,
+            tablename=model.__tablename__,
+            action=(ACTION_CREATE if is_created else ACTION_EDIT),
+            detail=json.dumps(detail, ensure_ascii=True)
+        )
+        self.session.add(change_log)
+        # commit is performed in parent action
+
+    def on_model_delete(self, model):
+        detail = {"id": model.id}
+        change_log = ChangeLog(
+            user_id=current_user.id,
+            tablename=model.__tablename__,
+            action=ACTION_DELETE,
+            detail=json.dumps(detail)
+        )
+        self.session.add(change_log)
+        # commit is performed in parent action
 
     def __init__(self, model, session, **kwargs):
         if self.form_excluded_columns:
@@ -96,6 +170,23 @@ class BaseModelView(SecureModelView):
 ###############################################################################
 
 
+class ChangeLogView(SecureModelView):
+    column_display_pk = True
+    can_set_page_size = True
+
+    can_export = True
+    export_types = ("csv", "tsv", "json", "xlsx")
+
+    can_create = False
+    can_edit = False
+    can_delete = False
+
+    column_searchable_list = ("user_id", "action", "detail")
+
+
+###############################################################################
+
+
 class UserModelView(BaseModelView):
     @property
     def can_edit(self):
@@ -103,7 +194,10 @@ class UserModelView(BaseModelView):
             current_user.is_authenticated and current_user.role == ROLE_ADMIN
         )
 
-    column_searchable_list = ('username',)
+    column_searchable_list = ("username",)
+
+    # custom options
+    exclude_relationships = True
 
 
 class LanguageModelView(BaseModelView):
@@ -113,7 +207,7 @@ class LanguageModelView(BaseModelView):
             current_user.is_authenticated and current_user.role == ROLE_ADMIN
         )
 
-    column_searchable_list = ('code', 'name', 'english_name')
+    column_searchable_list = ("code", "name", "english_name")
 
     # custom options
     exclude_relationships = True
@@ -129,11 +223,11 @@ class TagModelView(BaseModelView):
         )
 
     column_searchable_list = (
-        'code',
-        'tag',
-        'name',
-        'english_name',
-        'description'
+        "code",
+        "tag",
+        "name",
+        "english_name",
+        "description"
     )
 
     # custom options
@@ -142,10 +236,10 @@ class TagModelView(BaseModelView):
 
 class DataModelView(BaseModelView):
     column_searchable_list = (
-        'example',
-        'iso_transliteration',
-        'sanskrit_translation',
-        'english_translation',
+        "example",
+        "iso_transliteration",
+        "sanskrit_translation",
+        "english_translation",
     )
 
 

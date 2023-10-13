@@ -34,7 +34,7 @@ from flask_wtf import CSRFProtect
 
 # local
 from models import (
-    db, User, Language,
+    db, User, Language, ChangeLog,
     SentenceMeaningTag, SentenceMeaningData,
     SentenceStructureTag, SentenceStructureData,
     VoiceTag, VoiceData,
@@ -49,7 +49,7 @@ from models import (
 )
 from models_admin import (
     SecureAdminIndexView, UserModelView, LanguageModelView,
-    TagModelView, DataModelView
+    ChangeLogView, TagModelView, DataModelView
 )
 
 import settings
@@ -138,6 +138,8 @@ admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Examples
 admin.add_view(DataModelView(GroupData, db.session, category="Examples"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
 admin.add_view(DataModelView(VerbalRootData, db.session, category="Examples"))
+
+admin.add_view(ChangeLogView(ChangeLog, db.session))
 
 ###############################################################################
 
