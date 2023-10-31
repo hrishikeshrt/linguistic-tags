@@ -134,7 +134,7 @@
             var meta_columns = [];
             var meta_rows = [];
             const all_meta_keys = Object.keys(Object.values(tags)[0].tag);
-            const ignore_meta_keys = ["id", "tag"];
+            const ignore_meta_keys = ["id", "tag", "is_deleted"];
             const meta_keys = all_meta_keys.filter(key => !ignore_meta_keys.includes(key));
             for (const meta_key of meta_keys) {
                 meta_columns.push({
