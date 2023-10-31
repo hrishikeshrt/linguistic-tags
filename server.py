@@ -225,7 +225,9 @@ def insert_global_context():
 def list_languages():
     response = {
         language.id: model_to_dict(language)
-        for language in Language.query.all()
+        for language in Language.query.filter(
+            Language.is_deleted == False  # noqa
+        ).all()
     }
     return jsonify(response)
 
@@ -238,7 +240,9 @@ def list_tags():
             "hindi": _hindi,
             "english": _english,
             "level": _level,
-            "count": _model_tag.query.count() if _model_tag is not None else 0
+            "count": _model_tag.query.filter(
+                _model_tag.is_deleted == False  # noqa
+            ).count() if _model_tag is not None else 0
         }
         for tag_category, (_hindi, _english, _level, _model_tag, _model_data) in TAG_LIST.items()
     ]
@@ -248,10 +252,12 @@ def list_tags():
 @webapp.route("/api/list/<string:tag_category>", methods=["GET"])
 @login_required
 def list_category_tags(tag_category: str):
-    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]
+    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]  # noqa
     response = {
         model.id: model_to_dict(model)
-        for model in model_tag.query.all()
+        for model in model_tag.query.filter(
+            model_tag.is_deleted == False  # noqa
+        ).all()
     }
     return jsonify(response)
 
@@ -259,16 +265,21 @@ def list_category_tags(tag_category: str):
 @webapp.route("/api/get/<string:tag_category>/<string:tag_ids>", methods=["GET"])
 @login_required
 def get_category_tags(tag_category: str, tag_ids: str = None):
-    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]
+    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]  # noqa
     tag_ids = tag_ids.split(",")[:4]
-    tags = model_tag.query.filter(model_tag.id.in_(tag_ids)).all()
+    tags = model_tag.query.filter(
+        model_tag.id.in_(tag_ids),
+        model_tag.is_deleted == False  # noqa
+    ).all()
     if tags is None:
         return jsonify({})
 
     response = {
         "languages": {
             language.id: model_to_dict(language)
-            for language in Language.query.all()
+            for language in Language.query.filter(
+                Language.is_deleted == False  # noqa
+            ).all()
         },
         "schema": TAG_SCHEMA[tag_category],
         "tags": {
@@ -277,7 +288,8 @@ def get_category_tags(tag_category: str, tag_ids: str = None):
                 "data": [
                     model_to_dict(row)
                     for row in model_data.query.filter(
-                        model_data.tag_id == tag.id
+                        model_data.tag_id == tag.id,
+                        model_data.is_deleted == False  # noqa
                     ).all()
                 ]
             }
