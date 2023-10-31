@@ -168,7 +168,7 @@
 
                 const data = tag_data.data;
                 const all_data_keys = Object.keys(data[0]);
-                const ignore_data_keys = ["id", "tag_id", "language_id"];
+                const ignore_data_keys = ["id", "tag_id", "language_id", "is_deleted"];
                 const data_keys = all_data_keys.filter(key => !ignore_data_keys.includes(key));
                 const rows = data_keys.map(key => {
                     const row_object = {
@@ -176,7 +176,7 @@
                     };
                     data.forEach(row => {
                         const language_code = languages[row.language_id].code;
-                        row_key = `${language_code}_${row.tag_id}`;
+                        const row_key = `${language_code}_${row.tag_id}`;
                         row_object[row_key] = row[key].replace(/\n/g, "<br />");
                     });
                     return row_object;
