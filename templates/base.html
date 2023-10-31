@@ -109,12 +109,12 @@
     </script>
     <!-- CSRF Token to All AJAX Requests -->
     <script type="text/javascript">
-        var csrf_token = "{{ csrf_token() }}";
+        const CSRF_TOKEN = "{{ csrf_token() }}";
 
         $.ajaxSetup({
             beforeSend: function(xhr, settings) {
                 if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                    xhr.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
                 }
             }
         });
