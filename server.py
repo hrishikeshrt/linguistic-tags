@@ -382,17 +382,26 @@ def show_home():
     return render_template("about.html", data=data)
 
 
-@webapp.route("/tag/")
+@webapp.route("/tag/", methods=["GET", "POST"])
 @login_required
 def show_tag():
     data = {"title": "Tag Information"}
 
     default_category = SentenceMeaningTag.__tablename__
     default_tag_ids = [1]
+    default_tag_ids_str = ",".join(map(str, default_tag_ids))
 
-    data["default_category"] = request.args.get("category", default_category)
-    data["default_tag_ids"] = default_tag_ids
     data["max_select"] = settings.MAX_SELECT
+
+    if request.method == "POST":
+        _category = request.form.get("category", default_category)
+        _tag_ids = request.form.get("tag_ids", default_tag_ids_str)
+    else:
+        _category = request.args.get("category", default_category)
+        _tag_ids = request.args.get("tag_ids", default_tag_ids_str)
+
+    data["default_category"] = _category
+    data["default_tag_ids"] = list(map(int, _tag_ids.split(",")))
 
     return render_template("tag.html", data=data)
 
