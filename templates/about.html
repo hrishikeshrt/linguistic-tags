@@ -41,7 +41,7 @@
         const $tag_category_table_container = $("#tag-category-list");
 
         function detail_view_formatter(index, row, element) {
-            const tag_category = row.category;
+            const tag_category = row.tablename;
             const detail_view_id = `${tag_category}-list`;
             setTimeout(function (){render_category_taglist(tag_category)}, 100);
             return `<div id="${detail_view_id}" class="p-0 m-0"></div>`;
