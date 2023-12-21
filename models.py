@@ -130,6 +130,7 @@ class BaseData(db.Model):
     iso_transliteration = Column(Text)
     sanskrit_translation = Column(Text)
     english_translation = Column(Text)
+    explanation = Column(Text)
     is_deleted = Column(Boolean, default=False, nullable=False)
 
     # language = relationship(Language.__qualname__, backref=backref(f'{__related_table__.__tablename__}_data'))
@@ -313,7 +314,6 @@ class VerbalRootData(BaseData):
     tag_id = Column(Integer, ForeignKey(f'{VerbalRootTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
 
-    explanation = Column(Text)
     markers = Column(Text)
     syntactic_condition = Column(Text)
 
@@ -328,7 +328,7 @@ TAG_LIST = {
     SentenceMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Meaning", "Sentence", SentenceMeaningTag, SentenceMeaningData),
     SentenceStructureTag.__tablename__: ("रचनानुसार-वाक्यप्रकार", "Sentence Structure", "Sentence", SentenceStructureTag, SentenceStructureData),
     VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", "Sentence", VoiceTag, VoiceData),
-    GroupTag.__tablename__: ("शब्द-समूह", "Group", "Sentence", GroupTag, GroupData),
+    # GroupTag.__tablename__: ("शब्द-समूह", "Group", "Sentence", GroupTag, GroupData),
     DependencyTag.__tablename__: ("आश्रय", "Dependency", "Sentence", DependencyTag, DependencyData),
     PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", "Word", PartsOfSpeechTag, PartsOfSpeechData),
     MorphologyTag.__tablename__: ("शब्द-रूप", "Morphology", "Word", MorphologyTag, MorphologyData),
