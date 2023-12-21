@@ -148,7 +148,8 @@
             var data_rows = {};
 
             for (const language of Object.values(languages)) {
-                for (const [tag_id, tag_data] of Object.entries(tags)) {
+                for (const tag_data of Object.values(tags)) {
+                    const tag_id = tag_data.tag.id;
                     fields.push(`${language.code}_${tag_id}`);
                     const field_name = `${language.code}_${tag_id}`;
                     const field_title =  (
@@ -177,7 +178,7 @@
                     data.forEach(row => {
                         const language_code = languages[row.language_id].code;
                         const row_key = `${language_code}_${row.tag_id}`;
-                        row_object[row_key] = row[key].replace(/\n/g, "<br />");
+                        row_object[row_key] = (row[key] != null) ? row[key].replace(/\n/g, "<br />") : null;
                     });
                     return row_object;
                 });

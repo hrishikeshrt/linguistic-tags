@@ -253,12 +253,12 @@ def list_tags():
 @login_required
 def list_category_tags(tag_category: str):
     name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]  # noqa
-    response = {
-        model.id: model_to_dict(model)
+    response = [
+        model_to_dict(model)
         for model in model_tag.query.filter(
             model_tag.is_deleted == False  # noqa
-        ).all()
-    }
+        ).order_by(model_tag.code).all()
+    ]
     return jsonify(response)
 
 
@@ -270,7 +270,7 @@ def get_category_tags(tag_category: str, tag_ids: str = None):
     tags = model_tag.query.filter(
         model_tag.id.in_(tag_ids),
         model_tag.is_deleted == False  # noqa
-    ).all()
+    ).order_by(model_tag.code).all()
     if tags is None:
         return jsonify({})
 
@@ -282,8 +282,8 @@ def get_category_tags(tag_category: str, tag_ids: str = None):
             ).all()
         },
         "schema": TAG_SCHEMA[tag_category],
-        "tags": {
-            tag.id: {
+        "tags": [
+            {
                 "tag": model_to_dict(tag),
                 "data": [
                     model_to_dict(row)
@@ -294,7 +294,7 @@ def get_category_tags(tag_category: str, tag_ids: str = None):
                 ]
             }
             for tag in tags
-        }
+        ]
     }
     return jsonify(response)
 
