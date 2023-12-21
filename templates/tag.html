@@ -164,11 +164,12 @@
                 }
             }
             // console.log(data_columns);
-            for (const [tag_id, tag_data] of Object.entries(tags)) {
+            for (const tag_data of Object.values(tags)) {
+                const tag_id = tag_data.tag.id;
                 meta_rows.push(tag_data.tag);
 
                 const data = tag_data.data;
-                const all_data_keys = Object.keys(data[0]);
+                const all_data_keys = (data.length > 0) ? Object.keys(data[0]) : [];
                 const ignore_data_keys = ["id", "tag_id", "language_id", "is_deleted"];
                 const data_keys = all_data_keys.filter(key => !ignore_data_keys.includes(key));
                 const rows = data_keys.map(key => {
