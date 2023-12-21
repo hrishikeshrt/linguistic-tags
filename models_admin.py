@@ -219,7 +219,13 @@ class TagModelView(BaseModelView):
     @property
     def can_edit(self):
         return (
-            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+            current_user.is_authenticated and current_user.role == ROLE_CURATOR
+        )
+
+    @property
+    def can_delete(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_CURATOR
         )
 
     column_searchable_list = (
@@ -235,6 +241,18 @@ class TagModelView(BaseModelView):
 
 
 class DataModelView(BaseModelView):
+    @property
+    def can_edit(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_CURATOR
+        )
+
+    @property
+    def can_delete(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_CURATOR
+        )
+
     column_searchable_list = (
         "example",
         "iso_transliteration",
