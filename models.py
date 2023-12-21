@@ -365,31 +365,19 @@ TAG_SCHEMA = {
     SentenceMeaningTag.__tablename__: {
         "meta": {},
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "markers": "Markers"
         },
     },
     SentenceStructureTag.__tablename__: {
         "meta": {},
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "markers": "Markers"
         }
     },
     VoiceTag.__tablename__: {
         "meta": {},
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "markers": "Markers"
         },
     },
     PartsOfSpeechTag.__tablename__: {
@@ -397,89 +385,51 @@ TAG_SCHEMA = {
             "bis_tag": "BIS Annotation"
         },
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "markers": "Markers"
         },
     },
     MorphologyTag.__tablename__: {
         "meta": {},
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "markers": "Markers"
         },
     },
     VerbalTag.__tablename__: {
         "meta": {},
         "data": {
             "verbal": "Kṛt Pratyaya",
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "case": "Case",
-            "gender_marking": "Gender Marking",
             "is_part_of_tam": "Part of TAM Tags?"
         },
     },
     TenseAspectMoodTag.__tablename__: {
         "meta": {
             "tag": "TAM Tag",
-            "name": "Name",
-            "english_name": "English Name",
-            "type": "Type",
             "sanskrit_lakara": "Sanskrit Lakāra",
             "tense_tag": "Tense Tag (K)",
             "aspect_tag": "Aspect Tag (P)",
             "mood_tag": "Mood Tag (V)",
-            "description": "Description",
         },
         "data": {
-            "pattern": "Pattern",
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "gender_marking": "Gender Marking",
-            "syntactic_condition": "Syntactic Condition",
         }
     },
     GroupTag.__tablename__: {
         "meta": {},
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "markers": "Markers",
         }
     },
     DependencyTag.__tablename__: {
         "meta": {},
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "accuracy": "Accuracy",
-            "markers": "Markers",
         },
     },
     VerbalRootTag.__tablename__: {
         "meta": {},
         "data": {
-            "example": "Example",
             "iso_transliteration": "ISO Transliteration",
-            "sanskrit_translation": "Sanskrit Translation",
-            "english_translation": "English Translation",
-            "explanation": "Explanation",
-            "markers": "Markers",
-            "syntactic_condition": "Syntactic Condition",
         },
     },
 }
