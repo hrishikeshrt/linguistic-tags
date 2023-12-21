@@ -53,12 +53,18 @@
                 API_URL_TEMPLATE_LIST_CATEGORY_TAGS
                 .replace('TAG_CATEGORY', tag_category)
             );
+
+            function show_category_tag_formatter(value, row, index, field) {
+                return `<a class="btn btn-sm btn-primary" target="_blank" href="${URL_SHOW_TAG}?category=${row.category}&tag_ids=${row.id}"><i class="fas fa-arrow-right"></i></a>`;
+            }
+
             const columns = [
                 {field: "code", title: "Code"},
                 {field: "tag", title: "Tag"},
                 {field: "name", title: "Name"},
                 {field: "english_name", title: "English Name"},
-                {field: "description", title: "Description"}
+                {field: "description", title: "Description"},
+                {field: "view", title: "View", formatter: show_category_tag_formatter, align: "center"}
             ];
             $.getJSON(api_url, function(response) {
                 render_table($(`#${detail_view_id}`), {
@@ -90,7 +96,7 @@
                 {field: "english", title: "English Name"},
                 {field: "level", title: "Level"},
                 {field: "count", title: "Number of Tags", align: "center"},
-                {field: "view", title: "View", formatter: "show_category_formatter", align: "center"}
+                {field: "view", title: "View", formatter: show_category_formatter, align: "center"}
             ];
             $.getJSON(api_url, function(response) {
                 render_table($tag_category_table_container, {
