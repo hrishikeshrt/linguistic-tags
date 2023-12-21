@@ -167,6 +167,41 @@ class BaseModelView(SecureModelView):
         super().__init__(model, session, **kwargs)
 
 
+class BaseAdminModelView(BaseModelView):
+    @property
+    def can_create(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+        )
+
+    @property
+    def can_edit(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+        )
+
+
+class BaseAdminAccessModelView(BaseAdminModelView):
+    def is_accessible(self):
+        return (
+            current_user.is_authenticated
+            and current_user.role == ROLE_ADMIN
+        )
+
+
+class BaseCuratorModelView(BaseModelView):
+    @property
+    def can_edit(self):
+        return (
+            current_user.is_authenticated and current_user.role in ADMIN_ROLES
+        )
+
+    @property
+    def can_delete(self):
+        return (
+            current_user.is_authenticated and current_user.role in ADMIN_ROLES
+        )
+
 ###############################################################################
 
 
@@ -187,7 +222,7 @@ class ChangeLogView(SecureModelView):
 ###############################################################################
 
 
-class UserModelView(BaseModelView):
+class UserModelView(BaseAdminAccessModelView):
     @property
     def can_edit(self):
         return (
@@ -200,7 +235,7 @@ class UserModelView(BaseModelView):
     exclude_relationships = True
 
 
-class LanguageModelView(BaseModelView):
+class LanguageModelView(BaseAdminModelView):
     @property
     def can_edit(self):
         return (
@@ -215,19 +250,29 @@ class LanguageModelView(BaseModelView):
 ###############################################################################
 
 
-class TagModelView(BaseModelView):
-    @property
-    def can_edit(self):
+class TagInformationModelView(SecureModelView):
+    column_display_pk = True
+    can_set_page_size = True
+
+    can_create = False
+    can_edit = True
+    can_delete = False
+    can_export = True
+
+    export_types = ("csv", "tsv", "json", "xlsx")
+
+    column_searchable_list = ("tablename", "name", "english_name")
+
+    def is_accessible(self):
         return (
-            current_user.is_authenticated and current_user.role == ROLE_CURATOR
+            current_user.is_authenticated
+            and current_user.role == ROLE_ADMIN
         )
 
-    @property
-    def can_delete(self):
-        return (
-            current_user.is_authenticated and current_user.role == ROLE_CURATOR
-        )
+###############################################################################
 
+
+class TagModelView(BaseCuratorModelView):
     column_searchable_list = (
         "code",
         "tag",
@@ -240,19 +285,7 @@ class TagModelView(BaseModelView):
     exclude_relationships = True
 
 
-class DataModelView(BaseModelView):
-    @property
-    def can_edit(self):
-        return (
-            current_user.is_authenticated and current_user.role == ROLE_CURATOR
-        )
-
-    @property
-    def can_delete(self):
-        return (
-            current_user.is_authenticated and current_user.role == ROLE_CURATOR
-        )
-
+class DataModelView(BaseCuratorModelView):
     column_searchable_list = (
         "example",
         "iso_transliteration",

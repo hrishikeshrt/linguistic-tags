@@ -49,9 +49,9 @@
             $.getJSON(api_url, function(response) {
                 for (const category of response) {
                     var $option = $("<option />", {
-                        value: category.category,
-                        html: `${category.hindi} (${category.english})`,
-                        selected: (category.category == DEFAULT_CATEGORY)
+                        value: category.tablename,
+                        html: `${category.name} (${category.english_name})`,
+                        selected: (category.tablename == DEFAULT_CATEGORY)
                     });
                     $tag_category_selector.append($option);
                 };

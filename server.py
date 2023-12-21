@@ -45,11 +45,14 @@ from models import (
     GroupTag, GroupData,
     DependencyTag, DependencyData,
     VerbalRootTag, VerbalRootData,
-    TAG_LIST, TAG_SCHEMA
+    TagInformation,
+    TAG_MODEL_MAP, TAG_SCHEMA,
 )
 from models_admin import (
     SecureAdminIndexView, UserModelView, LanguageModelView,
-    ChangeLogView, TagModelView, DataModelView
+    TagInformationModelView,
+    TagModelView, DataModelView,
+    ChangeLogView,
 )
 
 import settings
@@ -116,6 +119,7 @@ admin = Admin(
 
 admin.add_view(UserModelView(User, db.session))
 admin.add_view(LanguageModelView(Language, db.session))
+admin.add_view(TagInformationModelView(TagInformation, db.session))
 
 admin.add_view(TagModelView(SentenceMeaningTag, db.session, category="Tags"))
 admin.add_view(TagModelView(SentenceStructureTag, db.session, category="Tags"))
@@ -177,6 +181,7 @@ with webapp.app_context():
         GroupTag, GroupData,
         DependencyTag, DependencyData,
         VerbalRootTag, VerbalRootData,
+        TagInformation,
     ]
 
     for data_table_model in data_tables:
@@ -234,25 +239,26 @@ def list_languages():
 
 @webapp.route("/api/list/tags", methods=["GET"])
 def list_tags():
-    response = [
-        {
-            "category": tag_category,
-            "hindi": _hindi,
-            "english": _english,
-            "level": _level,
+    response = []
+    for category in TagInformation.query.filter(TagInformation.is_deleted == False).all():
+        _model_tag, _model_data = TAG_MODEL_MAP[category.tablename]
+        response.append({
+            "tablename": category.tablename,
+            "name": category.name,
+            "english_name": category.english_name,
+            "level": category.level,
             "count": _model_tag.query.filter(
                 _model_tag.is_deleted == False  # noqa
             ).count() if _model_tag is not None else 0
-        }
-        for tag_category, (_hindi, _english, _level, _model_tag, _model_data) in TAG_LIST.items()
-    ]
+        })
+
     return jsonify(response)
 
 
 @webapp.route("/api/list/<string:tag_category>", methods=["GET"])
 @login_required
 def list_category_tags(tag_category: str):
-    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]  # noqa
+    model_tag, model_data = TAG_MODEL_MAP[tag_category]
     response = [
         model_to_dict(model)
         for model in model_tag.query.filter(
@@ -265,7 +271,7 @@ def list_category_tags(tag_category: str):
 @webapp.route("/api/get/<string:tag_category>/<string:tag_ids>", methods=["GET"])
 @login_required
 def get_category_tags(tag_category: str, tag_ids: str = None):
-    name_hindi, name_english, _level, model_tag, model_data = TAG_LIST[tag_category]  # noqa
+    model_tag, model_data = TAG_MODEL_MAP[tag_category]
     tag_ids = tag_ids.split(",")[:4]
     tags = model_tag.query.filter(
         model_tag.id.in_(tag_ids),

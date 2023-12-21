@@ -1,0 +1,11 @@
+tablename,name,english_name,level
+sentence_meaning_tag,अर्थानुसार-वाक्यप्रकार,Sentence Meaning,Sentence
+sentence_structure_tag,रचनानुसार-वाक्यप्रकार,Sentence Structure,Sentence
+voice_tag,क्रिया-वाच्य,Voice,Sentence
+group_tag,शब्द-समूह,Group,Sentence
+dependency_tag,आश्रय,Dependency,Sentence
+parts_of_speech_tag,शब्द-प्रकार,Parts-of-Speech (POS),Word
+morphology_tag,शब्द-रूप,Morphology,Word
+verbal_tag,क्रियामूलक-कृद्,Verbal,Word
+tense_aspect_mood_tag,क्रिया-कालादि,Tense-Aspect-Mood (TAM),Word
+verbal_root_tag,धातुप्रकार,Verbal Root,Word

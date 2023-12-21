@@ -119,7 +119,7 @@ class BaseTag(db.Model):
 
 class BaseData(db.Model):
     __abstract__ = True
-    __related_table__ = None
+    # __related_table__ = None
 
     id = Column(Integer, primary_key=True)
 
@@ -145,8 +145,6 @@ class SentenceMeaningTag(BaseTag):
 
 
 class SentenceMeaningData(BaseData):
-    __related_table__ = SentenceMeaningTag
-
     tag_id = Column(Integer, ForeignKey(f'{SentenceMeaningTag.__tablename__}.id'), nullable=False)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
 
@@ -322,20 +320,45 @@ class VerbalRootData(BaseData):
 
 
 ###############################################################################
+# Tag Information
 
 
-TAG_LIST = {
-    SentenceMeaningTag.__tablename__: ("अर्थानुसार-वाक्यप्रकार", "Sentence Meaning", "Sentence", SentenceMeaningTag, SentenceMeaningData),
-    SentenceStructureTag.__tablename__: ("रचनानुसार-वाक्यप्रकार", "Sentence Structure", "Sentence", SentenceStructureTag, SentenceStructureData),
-    VoiceTag.__tablename__: ("क्रिया-वाच्य", "Voice", "Sentence", VoiceTag, VoiceData),
-    # GroupTag.__tablename__: ("शब्द-समूह", "Group", "Sentence", GroupTag, GroupData),
-    DependencyTag.__tablename__: ("आश्रय", "Dependency", "Sentence", DependencyTag, DependencyData),
-    PartsOfSpeechTag.__tablename__: ("शब्द-प्रकार", "Parts-of-Speech (POS)", "Word", PartsOfSpeechTag, PartsOfSpeechData),
-    MorphologyTag.__tablename__: ("शब्द-रूप", "Morphology", "Word", MorphologyTag, MorphologyData),
-    VerbalTag.__tablename__: ("क्रियामूलक-कृद्", "Verbal", "Word", VerbalTag, VerbalData),
-    TenseAspectMoodTag.__tablename__: ("क्रिया-कालादि", "Tense-Aspect-Mood (TAM)", "Word", TenseAspectMoodTag, TenseAspectMoodData),
-    VerbalRootTag.__tablename__: ("धातुप्रकार", "Verbal Root", "Word", VerbalRootTag, VerbalRootData),
-    # "11": ("कर्म-प्रधानता", "Ergativity", None, None)
+class TagInformation(db.Model):
+    id = Column(Integer, primary_key=True)
+    tablename = Column(
+        Enum(
+            SentenceMeaningTag.__tablename__,
+            SentenceStructureTag.__tablename__,
+            VoiceTag.__tablename__,
+            GroupTag.__tablename__,
+            DependencyTag.__tablename__,
+            PartsOfSpeechTag.__tablename__,
+            MorphologyTag.__tablename__,
+            VerbalTag.__tablename__,
+            TenseAspectMoodTag.__tablename__,
+            VerbalRootTag.__tablename__,
+        ),
+        nullable=False
+    )
+    name = Column(String(255), nullable=False)
+    english_name = Column(String(255), nullable=False)
+    level = Column(String(255), nullable=False)
+    is_deleted = Column(Boolean, default=False, nullable=False)
+
+
+###############################################################################
+
+TAG_MODEL_MAP = {
+    SentenceMeaningTag.__tablename__: (SentenceMeaningTag, SentenceMeaningData),
+    SentenceStructureTag.__tablename__: (SentenceStructureTag, SentenceStructureData),
+    VoiceTag.__tablename__: (VoiceTag, VoiceData),
+    GroupTag.__tablename__: (GroupTag, GroupData),
+    DependencyTag.__tablename__: (DependencyTag, DependencyData),
+    PartsOfSpeechTag.__tablename__: (PartsOfSpeechTag, PartsOfSpeechData),
+    MorphologyTag.__tablename__: (MorphologyTag, MorphologyData),
+    VerbalTag.__tablename__: (VerbalTag, VerbalData),
+    TenseAspectMoodTag.__tablename__: (TenseAspectMoodTag, TenseAspectMoodData),
+    VerbalRootTag.__tablename__: (VerbalRootTag, VerbalRootData),
 }
 
 TAG_SCHEMA = {
