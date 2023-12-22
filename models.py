@@ -23,6 +23,7 @@ from werkzeug.security import generate_password_hash
 
 from constants import ROLE_ADMIN, ROLE_CURATOR, ROLE_USER
 from constants import ACTION_CREATE, ACTION_EDIT, ACTION_DELETE
+from constants import SUGGEST_GENERIC, SUGGEST_CREATE, SUGGEST_EDIT, SUGGEST_DELETE
 
 ###############################################################################
 # Foreign Key Support for SQLite3
@@ -82,6 +83,24 @@ class Language(db.Model):
     def __str__(self):
         class_name = self.__class__.__qualname__
         return f"<{class_name} {self.id}: {self.code}>"
+
+###############################################################################
+# Comment
+
+
+class Comment(db.Model):
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey(f'{User.__tablename__}.id'), nullable=False)
+    tablename = Column(String(255), nullable=False)
+    action = Column(
+        Enum(SUGGEST_GENERIC, SUGGEST_CREATE, SUGGEST_EDIT, SUGGEST_DELETE),
+        nullable=False
+    )
+    comment = Column(Text)
+    detail = Column(Text)
+    timestamp = Column(DateTime, default=dt.utcnow)
+
+    user = relationship(User.__qualname__, backref=backref('comments'))
 
 
 ###############################################################################
