@@ -16,6 +16,12 @@
         href="https://unpkg.com/bootstrap-table@1.21.4/dist/extensions/sticky-header/bootstrap-table-sticky-header.css">
     <link rel="stylesheet" href="https://unpkg.com/jquery-resizable-columns@0.2.3/dist/jquery.resizableColumns.css">
 
+    <!-- Context.js Generate Context Menus -->
+    <!-- 1. Bootstrap Version Stylesheet -->
+    <link rel="stylesheet" href="{{url_for('static', filename='plugins/context-js/context.bootstrap.css')}}">
+    <!-- 2. Standalone Version Stylesheet -->
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='plugins/context-js/context.standalone.css')}}"> -->
+
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -39,6 +45,9 @@
         .detail-view>td {
             padding: 0px;
             max-width: 0px; /* any number less than allowed width, which is roughly 50vw */
+        }
+        .context-cell {
+            cursor: "help";
         }
     </style>
 </head>
@@ -117,6 +126,18 @@
                     xhr.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
                 }
             }
+        });
+    </script>
+
+    <!-- Context.js -->
+    <script src="{{url_for('static', filename='plugins/context-js/context.js')}}"></script>
+    <script>
+        context.init({
+            fadeSpeed: 100,
+            filter: function ($object) {},  // default: null
+            above: 'auto',
+            preventDoubleContext: false,    // default: true
+            compress: false
         });
     </script>
 
