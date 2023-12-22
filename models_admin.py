@@ -55,19 +55,36 @@ class SecureModelView(ModelView):
 ###############################################################################
 
 
+class ReadOnlyModelView(SecureModelView):
+    column_display_pk = True
+    can_set_page_size = True
+
+    can_create = False
+    can_edit = False
+    can_delete = False
+
+    can_export = True
+    export_types = ("csv", "tsv", "json", "xlsx")
+
+
+class AdminOnlyModelView(SecureModelView):
+    def is_accessible(self):
+        return (
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
+        )
+
+
+###############################################################################
+
+
 class BaseModelView(SecureModelView):
     column_display_pk = True
 
     can_export = True
     can_create = True
     can_edit = True
+    can_delete = True
     can_view_details = True
-
-    @property
-    def can_delete(self):
-        return (
-            current_user.is_authenticated and current_user.role == ROLE_ADMIN
-        )
 
     create_modal = True
     edit_modal = True
@@ -167,6 +184,9 @@ class BaseModelView(SecureModelView):
         super().__init__(model, session, **kwargs)
 
 
+###############################################################################
+
+
 class BaseAdminModelView(BaseModelView):
     @property
     def can_create(self):
@@ -180,55 +200,31 @@ class BaseAdminModelView(BaseModelView):
             current_user.is_authenticated and current_user.role == ROLE_ADMIN
         )
 
-
-class BaseAdminAccessModelView(BaseAdminModelView):
-    def is_accessible(self):
-        return (
-            current_user.is_authenticated
-            and current_user.role == ROLE_ADMIN
-        )
-
-
-class BaseCuratorModelView(BaseModelView):
-    @property
-    def can_edit(self):
-        return (
-            current_user.is_authenticated and current_user.role in ADMIN_ROLES
-        )
-
     @property
     def can_delete(self):
         return (
-            current_user.is_authenticated and current_user.role in ADMIN_ROLES
+            current_user.is_authenticated and current_user.role == ROLE_ADMIN
         )
+
 
 ###############################################################################
 
 
-class ChangeLogView(SecureModelView):
-    column_display_pk = True
-    can_set_page_size = True
-
-    can_export = True
-    export_types = ("csv", "tsv", "json", "xlsx")
-
-    can_create = False
-    can_edit = False
-    can_delete = False
-
+class ChangeLogModelView(ReadOnlyModelView, AdminOnlyModelView):
     column_searchable_list = ("user_id", "action", "detail")
 
 
 ###############################################################################
 
 
-class UserModelView(BaseAdminAccessModelView):
-    @property
-    def can_edit(self):
-        return (
-            current_user.is_authenticated and current_user.role == ROLE_ADMIN
-        )
+class CommentModelView(ReadOnlyModelView):
+    column_searchable_list = ("user_id", "action", "comment", "detail")
 
+
+###############################################################################
+
+
+class UserModelView(BaseAdminModelView, AdminOnlyModelView):
     column_searchable_list = ("username",)
 
     # custom options
@@ -236,12 +232,6 @@ class UserModelView(BaseAdminAccessModelView):
 
 
 class LanguageModelView(BaseAdminModelView):
-    @property
-    def can_edit(self):
-        return (
-            current_user.is_authenticated and current_user.role == ROLE_ADMIN
-        )
-
     column_searchable_list = ("code", "name", "english_name")
 
     # custom options
@@ -250,12 +240,8 @@ class LanguageModelView(BaseAdminModelView):
 ###############################################################################
 
 
-class TagInformationModelView(SecureModelView):
-    column_display_pk = True
-    can_set_page_size = True
-
+class TagInformationModelView(BaseAdminModelView, AdminOnlyModelView):
     can_create = False
-    can_edit = True
     can_delete = False
     can_export = True
 
@@ -263,16 +249,11 @@ class TagInformationModelView(SecureModelView):
 
     column_searchable_list = ("tablename", "name", "english_name")
 
-    def is_accessible(self):
-        return (
-            current_user.is_authenticated
-            and current_user.role == ROLE_ADMIN
-        )
 
 ###############################################################################
 
 
-class TagModelView(BaseCuratorModelView):
+class TagModelView(BaseModelView):
     column_searchable_list = (
         "code",
         "tag",
@@ -285,7 +266,7 @@ class TagModelView(BaseCuratorModelView):
     exclude_relationships = True
 
 
-class DataModelView(BaseCuratorModelView):
+class DataModelView(BaseModelView):
     column_searchable_list = (
         "example",
         "iso_transliteration",
