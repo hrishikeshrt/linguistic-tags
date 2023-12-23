@@ -34,6 +34,7 @@
         const API_URL_LIST_TAGS = "{{url_for('list_tags')}}";
         const API_URL_TEMPLATE_LIST_CATEGORY_TAGS = "{{url_for('list_category_tags', tag_category='TAG_CATEGORY')}}";
         const API_URL_TEMPLATE_GET_CATEGORY_TAGS = "{{url_for('get_category_tags', tag_category='TAG_CATEGORY', tag_ids='TAG_IDS')}}";
+        const API_URL_POST_COMMENT = "{{url_for('post_comment')}}";
 
         const $tag_category_selector = $("#tag-category-selector");
         const $tag_selector = $("#tag-selector");
@@ -41,6 +42,7 @@
         const tag_data_container = $("#tag-data");
 
     </script>
+    <script src="{{url_for('static', filename='custom/js/comment.js')}}"></script>
     <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
     <script>
         function render_tag_category_dropdown() {
@@ -213,12 +215,15 @@
                     tag_meta_container,
                     tag_data_object.info,
                     {search: false, showExport: false, showColumns: false},
+                    {tablename: tag_category},
                     `${tag_category}_${tag_ids.join("_")}`
                 );
                 render_table(
                     tag_data_container,
-                    tag_data_object.table, {showFullscreen: true},
-                    `${tag_category}_${tag_ids.join("_")}`
+                    tag_data_object.table,
+                    {showFullscreen: true},
+                    {tablename: tag_category.replace("_tag", "_data")},
+                    `${tag_category}_data_${tag_ids.join("_")}`,
                 );
             });
         }

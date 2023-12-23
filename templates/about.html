@@ -35,7 +35,9 @@
         const API_URL_LIST_TAGS = "{{url_for('list_tags')}}";
         const API_URL_TEMPLATE_LIST_CATEGORY_TAGS = "{{url_for('list_category_tags', tag_category='TAG_CATEGORY')}}";
         const URL_SHOW_TAG = "{{url_for('show_tag')}}";
+        const API_URL_POST_COMMENT = "{{url_for('post_comment')}}";
     </script>
+    <script src="{{url_for('static', filename='custom/js/comment.js')}}"></script>
     <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
     <script>
         const $tag_category_table_container = $("#tag-category-list");
@@ -80,7 +82,10 @@
                         return `<div class="m-3"><strong>Description</strong>: ${row.description}</div>`;
                     },
                     */
-                }, `${tag_category}_list`);
+                }, {
+                    tablename: tag_category,
+                },
+                `${tag_category}_list`);
             });
         }
 
@@ -107,7 +112,9 @@
                     detailViewByClick: true,
                     detailFormatter: detail_view_formatter,
                     showColumns: false,
-                }, "tag_categories");
+                }, {
+                    tablename: "tag_information",
+                },"tag_categories");
             });
         }
 

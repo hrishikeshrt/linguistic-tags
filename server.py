@@ -46,13 +46,15 @@ from models import (
     DependencyTag, DependencyData,
     VerbalRootTag, VerbalRootData,
     TagInformation,
+    Comment,
     TAG_MODEL_MAP, TAG_SCHEMA,
 )
 from models_admin import (
     SecureAdminIndexView, UserModelView, LanguageModelView,
     TagInformationModelView,
     TagModelView, DataModelView,
-    ChangeLogView,
+    ChangeLogModelView,
+    CommentModelView,
 )
 
 import settings
@@ -143,7 +145,8 @@ admin.add_view(DataModelView(GroupData, db.session, category="Examples"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
 admin.add_view(DataModelView(VerbalRootData, db.session, category="Examples"))
 
-admin.add_view(ChangeLogView(ChangeLog, db.session))
+admin.add_view(ChangeLogModelView(ChangeLog, db.session))
+admin.add_view(CommentModelView(Comment, db.session))
 
 ###############################################################################
 
@@ -307,6 +310,34 @@ def get_category_tags(tag_category: str, tag_ids: str = None):
     }
     return jsonify(response)
 
+
+@webapp.route("/api/post/comment", methods=["POST"])
+@login_required
+def post_comment():
+    user_id = current_user.id
+    tablename = request.form.get("tablename")
+    action = request.form.get("action")
+    comment = request.form.get("comment")
+    detail = request.form.get("detail")
+
+    response = {"success": False}
+    try:
+        _comment = Comment()
+        _comment.user_id = user_id
+        _comment.tablename = tablename
+        _comment.action = action
+        _comment.comment = comment
+        _comment.detail = detail
+        db.session.add(_comment)
+        db.session.commit()
+        response["success"] = True
+        response["message"] = "Comment added successfully."
+        response["style"] = "success"
+    except Exception as e:
+        webapp.logger.exception(e)
+        response["message"] = "Something went wrong."
+        response["style"] = "danger"
+    return jsonify(response)
 
 ###############################################################################
 
