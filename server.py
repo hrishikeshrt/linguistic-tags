@@ -218,6 +218,9 @@ def insert_global_context():
             "ROLE_ADMIN": constants.ROLE_ADMIN,
             "ROLE_CURATOR": constants.ROLE_CURATOR,
             "ROLE_USER": constants.ROLE_USER
+        },
+        "comment": {
+            "actions": constants.SUGGEST_ACTION_TEXT_MAP
         }
     }
 

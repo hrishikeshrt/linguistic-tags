@@ -1,0 +1,43 @@
+ <!-- Modal -->
+ <div class="modal fade" id="add-comment-modal" tabindex="-1" aria-labelledby="add-comment-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+           <form id="add-comment-form">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="add-comment-modal-title">Add Comment</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                    <input type="hidden" name="detail" id="add-comment-detail" required>
+
+                    <div class="form-group row mb-3">
+                        <label for="add-comment-tablename" class="col-sm-4 col-form-label">Context</label>
+                        <div class="col-sm">
+                            <input class="form-control" type="text" name="tablename" id="add-comment-tablename" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label class="col-sm-4 col-form-label" for="add-comment-action">Suggest Action</label>
+                        <div class="col-sm">
+                            <select class="form-control" name="comment_action" id="add-comment-action" required>
+                                {% for action_value, action_text in comment.actions.items() %}
+                                <option value="{{action_value}}">{{action_text}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label class="col-sm-4 col-form-label" for="add-comment-comment-text">Comment</label>
+                        <div class="col-sm">
+                            <textarea class="form-control" name="comment_text" id="add-comment-comment-text" placeholder="Add comment text" required></textarea>
+                        </div>
+                    </div>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                   <button type="button" class="btn btn-primary" id="add-comment-submit">Submit</button>
+               </div>
+           </form>
+        </div>
+    </div>
+</div>
