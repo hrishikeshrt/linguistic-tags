@@ -246,7 +246,7 @@ def list_languages():
 @webapp.route("/api/list/tags", methods=["GET"])
 def list_tags():
     response = []
-    for category in TagInformation.query.filter(TagInformation.is_deleted == False).all():
+    for category in TagInformation.query.filter(TagInformation.is_visible == True).all():
         _model_tag, _model_data = TAG_MODEL_MAP[category.tablename]
         response.append({
             "tablename": category.tablename,

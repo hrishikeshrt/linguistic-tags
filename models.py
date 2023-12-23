@@ -362,6 +362,7 @@ class TagInformation(db.Model):
     name = Column(String(255), nullable=False)
     english_name = Column(String(255), nullable=False)
     level = Column(String(255), nullable=False)
+    is_visible = Column(Boolean, default=True, nullable=False)
     is_deleted = Column(Boolean, default=False, nullable=False)
 
 
