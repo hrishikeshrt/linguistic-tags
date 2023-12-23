@@ -42,8 +42,9 @@ const add_comment_menu_item = {
             !options.cardView
             && options.detailViewAlign !== "right"
         ) ? 1 : 0;
+        const field_index = cell_index - detail_view_index_offset;
         const row = data[row_index];
-        const field = visible_columns[cell_index - detail_view_index_offset].field;
+        const field = visible_columns[field_index].field;
         const tablename = $table.data("tablename");
         const extra = $table.data("extra");
 
@@ -51,6 +52,7 @@ const add_comment_menu_item = {
             tablename: tablename,
             row_index: row_index,
             cell_index: cell_index,
+            field_index: field_index,
             field: field,
             value: row[field],
             extra: extra,
