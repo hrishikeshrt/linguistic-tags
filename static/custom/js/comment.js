@@ -21,6 +21,11 @@ const add_comment_menu_item = {
     text: "<i class='fa fa-comment mr-1'></i> Add Comment",
     action: function (e, context) {
         e.preventDefault();
+        if (!CURRENT_USER_IS_AUTHENTICATED) {
+            $.notify({message: "Login required."}, {type: "warning"});
+            highlight_login_link();
+            return;
+        }
         const $element = $(context);
         // const tablename = $element.data("tablename");
         // const detail = $element.data("detail");
@@ -90,6 +95,9 @@ $add_comment_submit_button.on('click', function (e) {
                     $add_comment_action.val("");
                     $add_comment_comment_text.val("");
                     $add_comment_detail.val("");
+                }
+                if (response.unauthorized) {
+                    highlight_login_link();
                 }
             }, 'json');
     } else {

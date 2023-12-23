@@ -49,6 +49,14 @@
         .context-cell {
             cursor: "help";
         }
+        .blink {
+            animation: blink 1s 2; /* blink twice in 1 second */
+            font-weight: bold;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
     </style>
 </head>
 
@@ -160,6 +168,18 @@
         });
     </script>
 
+    <script>
+        const CURRENT_USER_ID = "{{current_user.id}}";
+        const CURRENT_USER_IS_AUTHENTICATED = JSON.parse("{{current_user.is_authenticated | tojson()}}");
+
+        function highlight_login_link() {
+            const $login_link = $("#footer-link-login");
+            $login_link.removeClass("d-none");
+            $login_link.addClass("blink");
+            setTimeout(function() { $login_link.removeClass("blink"); }, 2000);
+        }
+    </script>
+
     {% block javascript %}
     {% endblock %}
 
@@ -170,11 +190,13 @@
                 &copy; {{since}}{% if since != now.year %}-{{now.year}}{% endif %}{% if copyright %}, {{copyright}}{% endif %}
             </span>
             <span class="float-end">
-                {% if current_user.is_authenticated %}
+                {% if not current_user.is_authenticated %}
+                <a id="footer-link-login" class="text-primary text-decoration-none mx-2 d-none" href="{{url_for('show_login')}}">Login</a>
+                {% else %}
                 {% if current_user.role in [roles.ROLE_CURATOR, roles.ROLE_ADMIN] %}
-                <a class="text-primary text-decoration-none mx-2" href="{{url_for('admin.index')}}">Admin</a>
+                <a id="footer-link-admin" class="text-primary text-decoration-none mx-2" href="{{url_for('admin.index')}}">Admin</a>
                 {% endif %}
-                <a class="text-info text-decoration-none mx-2" href="{{url_for('logout')}}">Logout</a>
+                <a id="footer-link-logout" class="text-info text-decoration-none mx-2" href="{{url_for('logout')}}">Logout</a>
                 {% endif %}
 
                 {% for id in footer_links %}

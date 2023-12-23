@@ -158,7 +158,16 @@ def load_user(user_id):
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
-    return redirect(url_for("show_login"))
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        return jsonify({
+            "success": False,
+            "unauthorized": True,
+            "message": "Login required.",
+            "style": "warning"
+        })
+    else:
+        flash("Login required.", "warning")
+        return redirect(url_for("show_login"))
 
 
 ###############################################################################

@@ -49,14 +49,22 @@
             $tag_category_selector.empty();
             const api_url = API_URL_LIST_TAGS;
             $.getJSON(api_url, function(response) {
-                for (const category of response) {
-                    var $option = $("<option />", {
-                        value: category.tablename,
-                        html: `${category.name} (${category.english_name})`,
-                        selected: (category.tablename == DEFAULT_CATEGORY)
+                if (response.unauthorized) {
+                    $.notify({
+                        message: response.message
+                    }, {
+                        type: response.style
                     });
-                    $tag_category_selector.append($option);
-                };
+                } else {
+                    for (const category of response) {
+                        var $option = $("<option />", {
+                            value: category.tablename,
+                            html: `${category.name} (${category.english_name})`,
+                            selected: (category.tablename == DEFAULT_CATEGORY)
+                        });
+                        $tag_category_selector.append($option);
+                    };
+                }
             });
             // $tag_category_selector.selectpicker();
             $tag_category_selector.off();
@@ -76,15 +84,23 @@
                 .replace('TAG_CATEGORY', tag_category)
             );
             $.getJSON(api_url, function(response) {
-
-                for (const tag of Object.values(response)) {
-                    var $option = $("<option />", {
-                        value: tag.id,
-                        html: `${tag.code}: ${tag.name}`,
-                        selected: DEFAULT_TAG_IDS.includes(tag.id)
+                if (response.unauthorized) {
+                    $.notify({
+                        message: response.message
+                    }, {
+                        type: response.style
                     });
-                    $tag_selector.append($option);
-                };
+                    highlight_login_link();
+                } else {
+                    for (const tag of Object.values(response)) {
+                        var $option = $("<option />", {
+                            value: tag.id,
+                            html: `${tag.code}: ${tag.name}`,
+                            selected: DEFAULT_TAG_IDS.includes(tag.id)
+                        });
+                        $tag_selector.append($option);
+                    };
+                }
             });
             // $tag_selector.selectpicker();
             $tag_selector.off();
@@ -209,22 +225,31 @@
                 .replace('TAG_IDS', tag_ids)
             );
             $.getJSON(api_url, function(response) {
-                const tag_data_object = parse_tag_data_response(response);
+                if (response.unauthorized) {
+                    $.notify({
+                        message: response.message
+                    }, {
+                        type: response.style
+                    });
+                    highlight_login_link();
+                } else {
+                    const tag_data_object = parse_tag_data_response(response);
 
-                render_table(
-                    tag_meta_container,
-                    tag_data_object.info,
-                    {search: false, showExport: false, showColumns: false},
-                    {tablename: tag_category},
-                    `${tag_category}_${tag_ids.join("_")}`
-                );
-                render_table(
-                    tag_data_container,
-                    tag_data_object.table,
-                    {showFullscreen: true},
-                    {tablename: tag_category.replace("_tag", "_data")},
-                    `${tag_category}_data_${tag_ids.join("_")}`,
-                );
+                    render_table(
+                        tag_meta_container,
+                        tag_data_object.info,
+                        {search: false, showExport: false, showColumns: false},
+                        {tablename: tag_category},
+                        `${tag_category}_${tag_ids.join("_")}`
+                    );
+                    render_table(
+                        tag_data_container,
+                        tag_data_object.table,
+                        {showFullscreen: true},
+                        {tablename: tag_category.replace("_tag", "_data")},
+                        `${tag_category}_data_${tag_ids.join("_")}`,
+                    );
+                }
             });
         }
     </script>

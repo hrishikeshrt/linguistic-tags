@@ -69,23 +69,32 @@
                 {field: "view", title: "View", formatter: show_category_tag_formatter, align: "center"}
             ];
             $.getJSON(api_url, function(response) {
-                render_table($(`#${detail_view_id}`), {
-                    columns: columns,
-                    rows: Object.values(response),
-                }, {
-                    search: true,
-                    showColumns: false,
-                    /*
-                    detailView: true,
-                    detailViewByClick: true,
-                    detailFormatter: function (index, row, element) {
-                        return `<div class="m-3"><strong>Description</strong>: ${row.description}</div>`;
+                if (response.unauthorized) {
+                    $.notify({
+                        message: response.message
+                    }, {
+                        type: response.style
+                    });
+                    highlight_login_link();
+                } else {
+                    render_table($(`#${detail_view_id}`), {
+                        columns: columns,
+                        rows: Object.values(response),
+                    }, {
+                        search: true,
+                        showColumns: false,
+                        /*
+                        detailView: true,
+                        detailViewByClick: true,
+                        detailFormatter: function (index, row, element) {
+                            return `<div class="m-3"><strong>Description</strong>: ${row.description}</div>`;
+                        },
+                        */
+                    }, {
+                        tablename: tag_category,
                     },
-                    */
-                }, {
-                    tablename: tag_category,
-                },
-                `${tag_category}_list`);
+                    `${tag_category}_list`);
+                }
             });
         }
 
