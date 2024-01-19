@@ -132,8 +132,13 @@ class BaseModelView(SecureModelView):
 
         detail["id"] = model.id
         for field, data in form._fields.items():
-            old_attr = data.object_data
-            new_attr = data.data
+            if hasattr(data, "get_pk"):
+                old_attr = data.get_pk(data.object_data) if data.object_data else None
+                new_attr = data.get_pk(data.data) if data.data else None
+            else:
+                old_attr = data.object_data
+                new_attr = data.data
+
             if old_attr != new_attr:
                 detail[field] = (
                     new_attr
