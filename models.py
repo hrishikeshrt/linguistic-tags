@@ -12,13 +12,14 @@ import sqlite3
 from datetime import datetime as dt
 
 from sqlalchemy import (
-    Column, Integer, String, Text, Boolean, DateTime, ForeignKey, Enum
+    Column, Integer, String, Text, Boolean, DateTime, ForeignKey, Enum,
+    event
 )
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.engine import Engine
 
 from flask_login import UserMixin
-from flask_sqlalchemy import SQLAlchemy, event
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash
 
 from constants import ROLE_ADMIN, ROLE_CURATOR, ROLE_USER
@@ -320,6 +321,18 @@ class DependencyData(BaseData):
     tag = relationship(DependencyTag.__qualname__, backref=backref('data'))
 
 
+class DependencyGraphData(db.Model):
+    id = Column(Integer, primary_key=True)
+    language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+
+    sentence = Column(Text)
+    graph = Column(Text)
+    comment = Column(Text)
+
+    is_deleted = Column(Boolean, default=False, nullable=False)
+
+    language = relationship(Language.__qualname__, backref=backref(f'dependency_graph_data'))
+
 ###############################################################################
 
 
@@ -379,6 +392,10 @@ TAG_MODEL_MAP = {
     VerbalTag.__tablename__: (VerbalTag, VerbalData),
     TenseAspectMoodTag.__tablename__: (TenseAspectMoodTag, TenseAspectMoodData),
     VerbalRootTag.__tablename__: (VerbalRootTag, VerbalRootData),
+}
+
+GRAPH_MODEL_MAP = {
+    "dependency_graph": DependencyGraphData
 }
 
 TAG_SCHEMA = {
