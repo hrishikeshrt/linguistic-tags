@@ -280,4 +280,11 @@ class DataModelView(BaseModelView):
     )
 
 
+class GraphModelView(BaseModelView):
+    column_searchable_list = (
+        "sentence",
+        "graph",
+        "comment",
+    )
+
 ###############################################################################
