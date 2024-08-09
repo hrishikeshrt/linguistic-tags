@@ -6,6 +6,7 @@ Sample Configuration
 @author: Hrishikesh Terdalkar
 """
 
+import os
 from constants import ROLE_USER, ROLE_CURATOR, ROLE_ADMIN
 
 ###############################################################################
@@ -24,9 +25,13 @@ DEBUG = False
 
 # --------------------------------------------------------------------------- #
 
-STATIC_DIR = "static/"
-DATA_DIR = "data/"
-LOG_FILE = "samanvaya.log"
+APP_DIR = os.path.dirname(os.path.realpath(__file__))
+
+STATIC_DIR = os.path.join(APP_DIR, "static/")
+DATA_DIR = os.path.join(APP_DIR, "data/")
+LOG_FILE = os.path.join(APP_DIR, "samanvaya.log")
+
+DATABASE_DIR = os.path.join(APP_DIR, "db/")
 
 # --------------------------------------------------------------------------- #
 
@@ -91,6 +96,6 @@ DEFAULT_LABELS = {
 # Database
 
 # SQLAlchemy compatible database-uri
-DATABASE_URI = "sqlite:///db/main.db"
+DATABASE_URI = f"sqlite:///{os.path.join(DATABASE_DIR, 'main.db')}"
 
 ###############################################################################
