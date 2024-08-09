@@ -489,6 +489,25 @@ def show_tag():
     return render_template("tag.html", data=data)
 
 
+@webapp.route("/graph/", methods=["GET", "POST"])
+@login_required
+def show_graph():
+    data = {"title": "Graph"}
+    default_category = "dependency_graph"
+    default_graph_id = 1
+    if request.method == "POST":
+        _category = request.form.get("category", default_category)
+        _graph_id = request.form.get("graph_id", default_graph_id)
+    else:
+        _category = request.args.get("category", default_category)
+        _graph_id = request.args.get("graph_id", default_graph_id)
+
+    data["default_category"] = _category
+    data["default_graph_id"] = _graph_id
+
+    return render_template("graph.html", data=data)
+
+
 ###############################################################################
 
 if __name__ == "__main__":
