@@ -1,0 +1,158 @@
+{% set active_page = "graph" %}
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row p-3">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                Sentence
+            </div>
+            <div class="card-body">
+                <select class="form-select" id="sentence-selector"></select>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">
+                Graph Input
+            </div>
+            <div class="card-body">
+                <textarea class="form-control" rows="10" id="graph-input">
+                </textarea>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">Comment</div>
+            <div class="card-body">
+                <div id="graph-comment"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                Graph
+            </div>
+            <div class="card-body">
+                <div id="graph"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        const DEFAULT_CATEGORY = "{{data.default_category}}";
+        const DEFAULT_GRAPH_ID = "{{data.default_graph_id}}";
+
+        const API_URL_TEMPLATE_GET_CATEGORY_GRAPHS = "{{url_for('get_category_graphs', graph_category='GRAPH_CATEGORY')}}";
+        const API_URL_POST_COMMENT = "{{url_for('post_comment')}}";
+
+        // const $graph_category_selector = $("#graph-category-selector");
+        const $sentence_selector = $("#sentence-selector");
+        const $graph_input_container = $("#graph-input");
+        const $graph_comment_container = $("#graph-comment");
+        const $graph_container = $("#graph");
+
+    </script>
+    <script src="{{url_for('static', filename='plugins/js/viz-standalone.js')}}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{url_for('static', filename='custom/js/comment.js')}}"></script>
+    <script src="{{url_for('static', filename='custom/js/functions.js')}}"></script>
+    <script src="{{url_for('static', filename='custom/js/graph.js')}}"></script>
+    <script>
+        /*
+        function render_graph_category_dropdown() {
+            $graph_category_selector.empty();
+            const api_url = API_URL_LIST_TAGS;
+            $.getJSON(api_url, function(response) {
+                if (response.unauthorized) {
+                    $.notify({
+                        message: response.message
+                    }, {
+                        type: response.style
+                    });
+                } else {
+                    for (const category of response) {
+                        var $option = $("<option />", {
+                            value: category.tablename,
+                            html: `${category.name} (${category.english_name})`,
+                            selected: (category.tablename == DEFAULT_CATEGORY)
+                        });
+                        $tag_category_selector.append($option);
+                    };
+                }
+            });
+            // $tag_category_selector.selectpicker();
+            $tag_category_selector.off();
+            $tag_category_selector.change(function () {
+                render_tag_dropdown(this.value);
+            });
+
+            // Render Default Tag Category
+            render_tag_dropdown(DEFAULT_CATEGORY);
+        }
+        */
+
+        function render_graph() {
+            const graph_input = $graph_input_container.val();
+            const dot_text = parse_dependency_relations(graph_input);
+            render_graph_in_container(dot_text, $graph_container);
+        }
+
+        function render_sentence_dropdown(graph_category) {
+            $sentence_selector.empty();
+            const api_url = (
+                API_URL_TEMPLATE_GET_CATEGORY_GRAPHS
+                .replace('GRAPH_CATEGORY', graph_category)
+            );
+            $.getJSON(api_url, function(response) {
+                if (response.unauthorized) {
+                    $.notify({
+                        message: response.message
+                    }, {
+                        type: response.style
+                    });
+                    highlight_login_link();
+                } else {
+                    for (const graph of Object.values(response.graphs)) {
+                        var $option = $("<option />", {
+                            value: graph.id,
+                            html: `${graph.id}: ${graph.sentence}`,
+                            selected: (DEFAULT_GRAPH_ID == graph.id)
+                        });
+                        $option.data("sentence", graph.sentence);
+                        $option.data("graph", graph.graph);
+                        $option.data("comment", graph.comment);
+                        $sentence_selector.append($option);
+                    };
+                }
+                $sentence_selector.trigger("change");
+            });
+        }
+
+        $graph_input_container.change(function () {
+            render_graph();
+        });
+
+        $sentence_selector.change(function () {
+            const graph_input = $(this).find("option:selected").data("graph");
+            const comment = $(this).find("option:selected").data("comment");
+            $graph_input_container.val(graph_input);
+            $graph_comment_container.text(comment);
+            if (comment.trim() == "") {
+                $graph_comment_container.parents(".card").addClass("d-none");
+            } else {
+                $graph_comment_container.parents(".card").removeClass("d-none");
+            }
+            render_graph();
+        });
+
+    </script>
+    <script>
+        window.addEventListener('load', function () {
+            render_sentence_dropdown(DEFAULT_CATEGORY);
+        });
+    </script>
+{% endblock %}

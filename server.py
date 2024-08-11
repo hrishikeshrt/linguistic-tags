@@ -43,16 +43,16 @@ from models import (
     VerbalTag, VerbalData,
     TenseAspectMoodTag, TenseAspectMoodData,
     GroupTag, GroupData,
-    DependencyTag, DependencyData,
+    DependencyTag, DependencyData, DependencyGraphData,
     VerbalRootTag, VerbalRootData,
     TagInformation,
     Comment,
-    TAG_MODEL_MAP, TAG_SCHEMA,
+    TAG_MODEL_MAP, TAG_SCHEMA, GRAPH_MODEL_MAP
 )
 from models_admin import (
     SecureAdminIndexView, UserModelView, LanguageModelView,
     TagInformationModelView,
-    TagModelView, DataModelView,
+    TagModelView, DataModelView, GraphModelView,
     ChangeLogModelView,
     CommentModelView,
 )
@@ -144,6 +144,8 @@ admin.add_view(DataModelView(TenseAspectMoodData, db.session, category="Examples
 admin.add_view(DataModelView(GroupData, db.session, category="Examples"))
 admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
 admin.add_view(DataModelView(VerbalRootData, db.session, category="Examples"))
+
+admin.add_view(GraphModelView(DependencyGraphData, db.session, category="Graphs"))
 
 admin.add_view(ChangeLogModelView(ChangeLog, db.session))
 admin.add_view(CommentModelView(Comment, db.session))
@@ -320,6 +322,38 @@ def get_category_tags(tag_category: str, tag_ids: str = None):
     return jsonify(response)
 
 
+
+@webapp.route("/api/graph/get/<string:graph_category>/", methods=["GET"])
+@webapp.route("/api/graph/get/<string:graph_category>/<string:language_id>", methods=["GET"])
+@login_required
+def get_category_graphs(graph_category: str, language_id: int = None):
+    model_data = GRAPH_MODEL_MAP[graph_category]
+    graphs = model_data.query.filter(
+        model_data.is_deleted == False  # noqa
+    ).order_by(model_data.language_id, model_data.sentence).all()
+    if graphs is None:
+        return jsonify({})
+
+    response = {
+        "languages": {
+            language.id: model_to_dict(language)
+            for language in Language.query.filter(
+                Language.is_deleted == False  # noqa
+            ).all()
+        },
+        "graphs": [
+            {
+                "id": graph.id,
+                "sentence": graph.sentence,
+                "graph": graph.graph,
+                "comment": graph.comment
+            }
+            for graph in graphs
+        ]
+    }
+    return jsonify(response)
+
+
 @webapp.route("/api/post/comment", methods=["POST"])
 @login_required
 def post_comment():
@@ -453,6 +487,25 @@ def show_tag():
     data["default_tag_ids"] = list(map(int, _tag_ids.split(",")))
 
     return render_template("tag.html", data=data)
+
+
+@webapp.route("/graph/", methods=["GET", "POST"])
+@login_required
+def show_graph():
+    data = {"title": "Graph"}
+    default_category = "dependency_graph"
+    default_graph_id = 1
+    if request.method == "POST":
+        _category = request.form.get("category", default_category)
+        _graph_id = request.form.get("graph_id", default_graph_id)
+    else:
+        _category = request.args.get("category", default_category)
+        _graph_id = request.args.get("graph_id", default_graph_id)
+
+    data["default_category"] = _category
+    data["default_graph_id"] = _graph_id
+
+    return render_template("graph.html", data=data)
 
 
 ###############################################################################
