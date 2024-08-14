@@ -3,13 +3,25 @@
 {% block content %}
 
 <div class="row p-3">
-    <div class="col">
+    <div class="col-5">
         <div class="card">
+            <select class="form-select" id="sentence-selector"></select>
+        </div>
+        <div class="card mt-2">
             <div class="card-header">
                 Sentence
             </div>
             <div class="card-body">
-                <select class="form-select" id="sentence-selector"></select>
+                <div id="sentence"></div>
+                <div id="iso-transliteration"></div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">
+                Gloss
+            </div>
+            <div class="card-body">
+                <div id="gloss"></div>
             </div>
         </div>
         <div class="card mt-2">
@@ -17,7 +29,7 @@
                 Graph Input
             </div>
             <div class="card-body">
-                <textarea class="form-control" rows="10" id="graph-input">
+                <textarea class="form-control" rows="8" id="graph-input">
                 </textarea>
             </div>
         </div>
@@ -52,6 +64,11 @@
 
         // const $graph_category_selector = $("#graph-category-selector");
         const $sentence_selector = $("#sentence-selector");
+
+        const $sentence_container = $("#sentence");
+        const $transliteration_container = $("#iso-transliteration");
+        const $gloss_container = $("#gloss");
+
         const $graph_input_container = $("#graph-input");
         const $graph_comment_container = $("#graph-comment");
         const $graph_container = $("#graph");
@@ -101,6 +118,22 @@
             render_graph_in_container(dot_text, $graph_container);
         }
 
+        function custom_matcher(params, data) {
+            if ($.trim(params.term) === '') {
+                return data;
+            }
+
+            const search_term = params.term.toLowerCase();
+            const text = data.text.toLowerCase();
+            const keywords = $(data.element).data('keywords') ? $(data.element).data('keywords').toLowerCase() : '';
+
+            if (text.indexOf(search_term) > -1 || keywords.indexOf(search_term) > -1) {
+                return data;
+            }
+
+            return null;
+        }
+
         function render_sentence_dropdown(graph_category) {
             $sentence_selector.empty();
             const api_url = (
@@ -116,18 +149,38 @@
                     });
                     highlight_login_link();
                 } else {
+                    const languages = response.languages;
+                    var last_group_id = null;
                     for (const graph of Object.values(response.graphs)) {
+                        if ((last_group_id != null) && (last_group_id != graph.group_id)) {
+                            $sentence_selector.append(
+                                $("<option />", {
+                                    role: "separator",
+                                    disabled: true
+                                })
+                            );
+                        }
+                        last_group_id = graph.group_id;
                         var $option = $("<option />", {
                             value: graph.id,
-                            html: `${graph.id}: ${graph.sentence}`,
-                            selected: (DEFAULT_GRAPH_ID == graph.id)
+                            html: `G${graph.group_id}: ${graph.sentence}`,
+                           selected: (DEFAULT_GRAPH_ID == graph.id)
                         });
+                        $option.data("group_id", graph.group_id);
+                        $option.data("language_id", graph.language_id);
                         $option.data("sentence", graph.sentence);
+                        $option.data("iso_transliteration", graph.iso_transliteration);
+                        $option.data("gloss", graph.gloss);
                         $option.data("graph", graph.graph);
                         $option.data("comment", graph.comment);
+
+                        $option.data("keywords", `lang:${languages[graph.language_id].code} lang:${languages[graph.language_id].english_name} ${graph.iso_transliteration}`);
                         $sentence_selector.append($option);
                     };
                 }
+                $sentence_selector.select2({
+                    matcher: custom_matcher,
+                });
                 $sentence_selector.trigger("change");
             });
         }
@@ -137,9 +190,16 @@
         });
 
         $sentence_selector.change(function () {
-            const graph_input = $(this).find("option:selected").data("graph");
-            const comment = $(this).find("option:selected").data("comment");
+            const $selected_option = $(this).find("option:selected");
+            const graph_input = $selected_option.data("graph");
+            const comment = $selected_option.data("comment");
+            const sentence = $selected_option.data("sentence");
+            const iso_transliteration = $selected_option.data("iso_transliteration");
+            const gloss = $selected_option.data("gloss");
             $graph_input_container.val(graph_input);
+            $sentence_container.text(sentence);
+            $transliteration_container.text(iso_transliteration);
+            $gloss_container.text(gloss);
             $graph_comment_container.text(comment);
             if (comment.trim() == "") {
                 $graph_comment_container.parents(".card").addClass("d-none");
