@@ -1,0 +1,42 @@
+/* Select2 styling to match Bootswatch United theme with better padding */
+.select2-container--default .select2-selection--single {
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    color: var(--bs-body-color);
+    height: calc(1.5em + .75rem + 2px); /* Ensure consistent height */
+    padding: .375rem .75rem; /* Match Bootstrap form control padding */
+    display: flex;
+    align-items: center;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: var(--bs-body-color);
+    padding-left: 0; /* Reset padding to align text properly */
+    margin-left: 0; /* Ensure no additional margin */
+    line-height: 1.5;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%; /* Align arrow height with the selection box */
+    top: 50%; /* Vertically center the arrow */
+    transform: translateY(-50%);
+    right: 10px; /* Adjust right positioning */
+}
+
+.select2-container--default .select2-dropdown {
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    box-shadow: var(--bs-box-shadow);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--bs-primary);
+    color: var(--bs-body-bg);
+}
+
+.select2-container--default .select2-results__option {
+    color: var(--bs-body-color);
+    padding: .375rem .75rem; /* Padding for dropdown items */
+}
