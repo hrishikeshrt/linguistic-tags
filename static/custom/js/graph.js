@@ -32,6 +32,8 @@ function render_graph_in_container(graph_input, $graph_container) {
     $graph_container.empty();
     Viz.instance().then(function(viz) {
         const svg = viz.renderSVGElement(graph_input);
+        svg.style.maxWidth = '100%';
+        svg.style.maxHeight = '100%';
         $graph_container[0].appendChild(svg);
     });
 }
