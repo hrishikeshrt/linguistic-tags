@@ -330,7 +330,7 @@ def get_category_graphs(graph_category: str, language_id: int = None):
     model_data = GRAPH_MODEL_MAP[graph_category]
     graphs = model_data.query.filter(
         model_data.is_deleted == False  # noqa
-    ).order_by(model_data.language_id, model_data.sentence).all()
+    ).order_by(model_data.group_id, model_data.language_id).all()
     if graphs is None:
         return jsonify({})
 
@@ -344,7 +344,11 @@ def get_category_graphs(graph_category: str, language_id: int = None):
         "graphs": [
             {
                 "id": graph.id,
+                "group_id": graph.group_id,
+                "language_id": graph.language_id,
                 "sentence": graph.sentence,
+                "iso_transliteration": graph.iso_transliteration,
+                "gloss": graph.gloss,
                 "graph": graph.graph,
                 "comment": graph.comment
             }
