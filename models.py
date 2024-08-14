@@ -324,8 +324,12 @@ class DependencyData(BaseData):
 class DependencyGraphData(db.Model):
     id = Column(Integer, primary_key=True)
     language_id = Column(Integer, ForeignKey(f'{Language.__tablename__}.id'), nullable=False)
+    group_id = Column(Integer)
 
     sentence = Column(Text)
+    iso_transliteration = Column(Text)
+    gloss = Column(Text)
+
     graph = Column(Text)
     comment = Column(Text)
 
