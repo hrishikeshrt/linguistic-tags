@@ -1,0 +1,105 @@
+{% set active_page = "publications" %}
+{% extends "base.html" %}
+{% block content %}
+<div class="container p-3">
+    <h1 class="py-2">Publications</h1>
+    {% if data.publications %}
+        <div class="list-group">
+            {% for publication in data.publications %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5>{{ publication.title }} {% if publication.year %}( {{ publication.year }} ){% endif %}</h5>
+
+                    <p>{{ publication.author or 'N/A' }}</p>
+
+                    {% if publication.booktitle %}
+                        <p>
+                            {{ publication.booktitle }}
+                        </p>
+                    {% endif %}
+
+                    {% if publication.publisher %}
+                        {{ publication.publisher }}{% if publication.address %} ({{ publication.address }}){% endif %}
+                    {% endif %}
+
+                    {% if publication.url or publication.filename %}
+                        <a class="btn btn-sm btn-outline-primary" href="{{ publication.url if publication.url else url_for('serve_publication', filename=publication.filename) }}" target="_blank" rel="noopener noreferrer">
+                            PDF
+                        </a>
+                    {% endif %}
+
+                    {% if publication.bibtex %}
+                        <button class="btn btn-sm btn-outline-primary" data-bibtex="{{ publication.bibtex | urlencode }}" data-bs-toggle="modal" data-bs-target="#cite-modal">
+                            Cite
+                        </button>
+                {% endif %}
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="card">
+            <div class="card-body">No publications available.</div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- BibTeX Modal -->
+<div class="modal fade" id="cite-modal" tabindex="-1000" aria-labelledby="cite-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cite-modal-label">Cite</h5>
+                <!-- Bootstrap 5 Close Button -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <strong>Citation</strong>
+                <div class="card bg-dark mt-2">
+                    <div class="card-body">
+                        <pre id="bibtex" class="text-white pre-scrollable"></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="copy_citation()">
+                    <i class="fa fa-copy"></i> Copy
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    const cite_modal = document.getElementById('cite-modal');
+        cite_modal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+
+        // Extract data-bibtex from the button
+        const bibtex = decodeURIComponent(button.getAttribute('data-bibtex'));
+
+        // Update the modal's BibTeX content
+        const bibtexField = document.getElementById('bibtex');
+        bibtexField.textContent = bibtex;
+    });
+
+    function copy_citation() {
+        const bibtex_field = document.getElementById('bibtex').textContent;
+        navigator.clipboard.writeText(bibtex_field).then(function() {
+            $.notify({
+                message: "Citation copied to clipboard!"
+            }, {
+                type: "success"
+            });
+        }).catch(function(error) {
+            console.error("Failed to copy text: ", error);
+        });
+
+    }
+</script>
+{% endblock %}
