@@ -6,17 +6,24 @@ Flask-Admin Models
 @author: Hrishikesh Terdalkar
 """
 
+import os
 import json
+import shutil
 
 from sqlalchemy import func
 
-from flask import request, flash, redirect, url_for
+from flask import request, flash, redirect, url_for, current_app
 from flask_login import current_user
 
 from flask_admin import AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.babel import gettext
 
+from flask_admin.form import FileUploadField
+from flask_wtf.file import FileRequired, FileStorage
+from werkzeug.utils import secure_filename
+
+from settings import UPLOAD_DIR
 from models import ChangeLog
 from constants import ROLE_USER, ROLE_CURATOR, ROLE_ADMIN
 from constants import ACTION_CREATE, ACTION_EDIT, ACTION_DELETE
@@ -132,7 +139,9 @@ class BaseModelView(SecureModelView):
 
         detail["id"] = model.id
         for field, data in form._fields.items():
-            if hasattr(data, "get_pk"):
+            if isinstance(data.data, FileStorage):
+                detail[field] = {"filename": data.data.filename}
+            elif hasattr(data, "get_pk"):
                 old_attr = data.get_pk(data.object_data) if data.object_data else None
                 new_attr = data.get_pk(data.data) if data.data else None
             else:
@@ -211,6 +220,62 @@ class BaseAdminModelView(BaseModelView):
             current_user.is_authenticated and current_user.role == ROLE_ADMIN
         )
 
+
+###############################################################################
+
+
+class PublicationAdminView(BaseAdminModelView):
+    form_extra_fields = {
+        "pdf_file": FileUploadField(
+            "PDF File",
+            # validators=[FileRequired()],
+            base_path=UPLOAD_DIR,
+            allowed_extensions=["pdf"]
+        )
+    }
+
+    def on_model_change(self, form, model, is_created):
+        # Handle the file upload
+        if form.pdf_file.data:
+            # Save the new file
+            upload_filename = secure_filename(form.pdf_file.data.filename)
+            upload_filepath = os.path.join(
+                current_app.config['UPLOAD_FOLDER'],
+                upload_filename
+            )
+            form.pdf_file.data.seek(0)
+            form.pdf_file.data.save(upload_filepath)
+            # print("Size on Disk:", os.path.getsize(upload_filepath))
+
+            if form.filename.data:
+                save_filename = secure_filename(form.filename.data)
+                if save_filename != upload_filename:
+                    save_filepath = os.path.join(
+                        current_app.config['UPLOAD_FOLDER'],
+                        save_filename
+                    )
+                    shutil.move(upload_filepath, save_filepath)
+                model.filename = save_filename
+            else:
+                model.filename = upload_filename
+        elif form.filename.data:
+            filename_old = form.filename.object_data
+            filename_new = secure_filename(form.filename.data)
+            # Update the filename in the database
+            if filename_new != filename_old:
+                filepath_old = os.path.join(
+                    current_app.config['UPLOAD_FOLDER'],
+                    filename_old
+                )
+                filepath_new = os.path.join(
+                    current_app.config['UPLOAD_FOLDER'],
+                    filename_new
+                )
+                # Rename the file on disk
+                shutil.move(filepath_old, filepath_new)
+
+        # Call the parent method to handle logging and other operations
+        super().on_model_change(form, model, is_created)
 
 ###############################################################################
 
