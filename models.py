@@ -8,6 +8,7 @@ Models
 
 ###############################################################################
 
+import os
 import sqlite3
 from datetime import datetime as dt
 
@@ -18,6 +19,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.engine import Engine
 
+from flask import current_app
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash
@@ -474,5 +476,66 @@ TAG_SCHEMA = {
         },
     },
 }
+
+###############################################################################
+# Publication
+
+
+class Publication(db.Model):
+    id = Column(Integer, primary_key=True)
+    title = Column(String(255), nullable=False)
+    author = Column(String(255), nullable=False)
+    year = Column(String(255), nullable=False)
+    booktitle = Column(String(255))
+    publisher = Column(String(255))
+    address = Column(String(255))
+    url = Column(String(255))
+    bibtex_key = Column(String(255))
+    filename = Column(String(255))
+    is_visible = Column(Boolean, default=True, nullable=False)
+    is_deleted = Column(Boolean, default=False, nullable=False)
+
+    @property
+    def filepath(self):
+        if self.filename:
+            return os.path.join(
+                current_app.config["UPLOAD_FOLDER"],
+                self.filename
+            )
+
+    @property
+    def bibtex(self):
+        # Generate a BibTeX key if not provided
+        bibtex_key = self.bibtex_key
+        if not bibtex_key:
+            bibtex_key = f"{self.title.lower().split()[0]}{self.year}{self.author.lower().split()[0]}"
+
+        # Determine the type of publication
+        publication_type = "inproceedings" if self.booktitle else "article"
+
+        # Publication URL
+        publication_url = (
+            self.url
+            if self.url
+            else current_app.url_for("serve_publication", filename=self.filename, _external=True)
+        )
+
+        # Construct BibTeX entry
+        bibtex_entry = f"@{publication_type}{{{bibtex_key},\n"
+        bibtex_entry += f"  author = {{{self.author}}},\n"
+        bibtex_entry += f"  title = {{{self.title}}},\n"
+
+        if self.booktitle:
+            bibtex_entry += f"  booktitle = {{{self.booktitle}}},\n"
+        if self.year:
+            bibtex_entry += f"  year = {{{self.year}}},\n"
+        if self.publisher:
+            bibtex_entry += f"  publisher = {{{self.publisher}}},\n"
+        if self.address:
+            bibtex_entry += f"  address = {{{self.address}}},\n"
+
+        bibtex_entry += f"  url = {{{publication_url}}}\n"
+        bibtex_entry += "}"
+        return bibtex_entry
 
 ###############################################################################
