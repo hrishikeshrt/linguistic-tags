@@ -514,8 +514,8 @@ class Publication(db.Model):
 
         # Construct BibTeX entry
         bibtex_entry = f"@{publication_type}{{{bibtex_key},\n"
-        bibtex_entry += f"  author = {{{self.author}}},\n"
         bibtex_entry += f"  title = {{{self.title}}},\n"
+        bibtex_entry += f"  author = {{{self.author}}},\n"
 
         if self.booktitle:
             bibtex_entry += f"  booktitle = {{{self.booktitle}}},\n"
