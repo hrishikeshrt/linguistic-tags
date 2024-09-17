@@ -29,6 +29,7 @@ APP_DIR = os.path.dirname(os.path.realpath(__file__))
 
 STATIC_DIR = os.path.join(APP_DIR, "static/")
 DATA_DIR = os.path.join(APP_DIR, "data/")
+UPLOAD_DIR = os.path.join(APP_DIR, "uploads/")
 LOG_FILE = os.path.join(APP_DIR, "samanvaya.log")
 
 DATABASE_DIR = os.path.join(APP_DIR, "db/")
@@ -40,6 +41,8 @@ MAX_SELECT = 3
 NAVIGATION = {
     "about": ("show_home", "About"),
     "tag": ("show_tag", "View"),
+    "graph": ("show_graph", "Graph"),
+    "publications": ("list_publications", "Publications"),
 }
 
 FOOTER_LINKS = {

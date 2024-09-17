@@ -15,6 +15,7 @@ import datetime
 
 from flask import (Flask, render_template, redirect, jsonify, url_for,
                    request, flash, session, Response, abort)
+from flask import send_from_directory
 from flask_login import (
     LoginManager,
     current_user,
@@ -47,6 +48,7 @@ from models import (
     VerbalRootTag, VerbalRootData,
     TagInformation,
     Comment,
+    Publication,
     TAG_MODEL_MAP, TAG_SCHEMA, GRAPH_MODEL_MAP
 )
 from models_admin import (
@@ -55,6 +57,7 @@ from models_admin import (
     TagModelView, DataModelView, GraphModelView,
     ChangeLogModelView,
     CommentModelView,
+    PublicationAdminView,
 )
 
 import settings
@@ -87,6 +90,10 @@ webapp.config['SQLALCHEMY_DATABASE_URI'] = settings.DATABASE_URI
 webapp.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     "pool_pre_ping": True,
 }
+
+# Upload Path
+webapp.config["UPLOAD_FOLDER"] = settings.UPLOAD_DIR
+webapp.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Limit size to 16 MB
 
 # Flask Admin Theme
 webapp.config["FLASK_ADMIN_SWATCH"] = "united"
@@ -146,6 +153,8 @@ admin.add_view(DataModelView(DependencyData, db.session, category="Examples"))
 admin.add_view(DataModelView(VerbalRootData, db.session, category="Examples"))
 
 admin.add_view(GraphModelView(DependencyGraphData, db.session, category="Graphs"))
+
+admin.add_view(PublicationAdminView(Publication, db.session))
 
 admin.add_view(ChangeLogModelView(ChangeLog, db.session))
 admin.add_view(CommentModelView(Comment, db.session))
@@ -510,6 +519,20 @@ def show_graph():
     data["default_graph_id"] = _graph_id
 
     return render_template("graph.html", data=data)
+
+@webapp.route("/publications/", methods=["GET"])
+def list_publications():
+    data = {"title": "Publications"}
+    data["publications"] = Publication.query.filter(
+        Publication.is_visible == True,
+        Publication.is_deleted == False
+    ).all()
+    return render_template("publications.html", data=data)
+
+
+@webapp.route("/publications/<string:filename>")
+def serve_publication(filename: str):
+    return send_from_directory(webapp.config["UPLOAD_FOLDER"], filename)
 
 
 ###############################################################################
