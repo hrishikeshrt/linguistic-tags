@@ -19,7 +19,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.engine import Engine
 
-from flask import current_app
+from flask import url_for
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash
@@ -496,14 +496,6 @@ class Publication(db.Model):
     is_deleted = Column(Boolean, default=False, nullable=False)
 
     @property
-    def filepath(self):
-        if self.filename:
-            return os.path.join(
-                current_app.config["UPLOAD_FOLDER"],
-                self.filename
-            )
-
-    @property
     def bibtex(self):
         # Generate a BibTeX key if not provided
         bibtex_key = self.bibtex_key
@@ -517,7 +509,7 @@ class Publication(db.Model):
         publication_url = (
             self.url
             if self.url
-            else current_app.url_for("serve_publication", filename=self.filename, _external=True)
+            else url_for("serve_publication", filename=self.filename, _external=True)
         )
 
         # Construct BibTeX entry
